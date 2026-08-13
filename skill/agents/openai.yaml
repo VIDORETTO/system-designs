@@ -1,0 +1,14 @@
+interface:
+  display_name: Extrair Design System Web
+  short_description: Audita sites e recria seu design system
+  default_prompt: Use $extract-web-design-system para extrair este site e gerar uma
+    página viva documentando seu design system.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true
