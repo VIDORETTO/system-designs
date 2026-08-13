@@ -1,0 +1,2094 @@
+{
+  "meta": {
+    "name": "Alethe Agents — extracted visual and interaction system",
+    "source_name": "Alethe Agents",
+    "generated_at": "2026-08-13T15:10:53-03:00",
+    "scope": [
+      "public landing page",
+      "global shell and navigation",
+      "hero composition",
+      "orchestration canvas",
+      "feature grid",
+      "theme selector",
+      "download pitch",
+      "footer"
+    ],
+    "fidelity_target": "system-level reconstruction with a living specimen page",
+    "overall_confidence": "medium",
+    "method_summary": "Live browser inspection at 1363x936 DPR 1, full-page visual capture, DOM/accessibility snapshot, computed-style sampling, stylesheet rule inspection, safe theme/use-case/hover/keyboard probes, and source-skill provenance."
+  },
+  "sources": [
+    {
+      "id": "E-live-home-desktop-001",
+      "source_type": "live",
+      "locator": "https://alethe-agents.kc1t.com/",
+      "captured_at": "2026-08-13T15:10:53-03:00",
+      "context": {
+        "viewport": "1363x936",
+        "dpr": 1,
+        "theme": "dark-lemon",
+        "locale": "pt-BR",
+        "auth_state": "public",
+        "scroll": "top"
+      },
+      "limitations": [
+        "Cloud browser exposed one desktop viewport; direct viewport resizing was not available in the inspection surface."
+      ]
+    },
+    {
+      "id": "E-live-fullpage-desktop-002",
+      "source_type": "screenshot",
+      "locator": "https://alethe-agents.kc1t.com/",
+      "captured_at": "2026-08-13T15:10:53-03:00",
+      "context": {
+        "viewport": "1363x936",
+        "dpr": 1,
+        "capture": "full page",
+        "page_height": "5034px"
+      },
+      "limitations": [
+        "Long-page screenshot is a compositional reference, not proof of off-screen animation timing."
+      ]
+    },
+    {
+      "id": "E-dom-css-desktop-003",
+      "source_type": "source",
+      "locator": "https://alethe-agents.kc1t.com/_next/static/css/506184611af9a4c5.css",
+      "captured_at": "2026-08-13T15:10:53-03:00",
+      "context": {
+        "method": "same-origin stylesheet and computed-style inspection",
+        "viewport": "1363x936"
+      },
+      "limitations": [
+        "Runtime CSS is observed from the deployed build; original source files and design files were not supplied."
+      ]
+    },
+    {
+      "id": "E-live-theme-004",
+      "source_type": "live",
+      "locator": "https://alethe-agents.kc1t.com/#personalizar",
+      "captured_at": "2026-08-13T15:10:53-03:00",
+      "context": {
+        "interaction": "clicked every visible theme button and read data-theme plus inline accent tokens",
+        "themes_sampled": 11
+      },
+      "limitations": []
+    },
+    {
+      "id": "E-live-usecase-005",
+      "source_type": "live",
+      "locator": "https://alethe-agents.kc1t.com/#control-plane",
+      "captured_at": "2026-08-13T15:10:53-03:00",
+      "context": {
+        "interaction": "clicked the visible Caçar bug chip",
+        "observed_change": "aria-pressed moved to the selected chip, prompt text and agent-card copy changed"
+      },
+      "limitations": []
+    },
+    {
+      "id": "E-live-hover-006",
+      "source_type": "live",
+      "locator": "https://alethe-agents.kc1t.com/#features",
+      "captured_at": "2026-08-13T15:10:53-03:00",
+      "context": {
+        "interaction": "moved pointer over the first feature cell",
+        "observed_change": "cell darkened and its mock shifted upward by 8px"
+      },
+      "limitations": []
+    },
+    {
+      "id": "E-live-keyboard-007",
+      "source_type": "live",
+      "locator": "https://alethe-agents.kc1t.com/#control-plane",
+      "captured_at": "2026-08-13T15:10:53-03:00",
+      "context": {
+        "interaction": "focused the use-case chip and advanced with Tab",
+        "observed_change": "next chip received :focus-visible with a 2px accent outline and 2px offset"
+      },
+      "limitations": []
+    },
+    {
+      "id": "E-skill-contract-008",
+      "source_type": "source",
+      "locator": "https://github.com/VIDORETTO/extract-web-design-system/blob/main/SKILL.md",
+      "captured_at": "2026-08-13T15:10:53-03:00",
+      "context": {
+        "method": "GitHub connector read of the requested extraction skill",
+        "role": "extraction methodology and report acceptance criteria"
+      },
+      "limitations": []
+    }
+  ],
+  "principles": [
+    {
+      "id": "principle-frame-first",
+      "name": "Technical frame",
+      "statement": "Content sits inside a centered 1280px frame with hatched side rails, hairline borders, and corner registration marks.",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": [
+        "E-live-home-desktop-001",
+        "E-dom-css-desktop-003"
+      ]
+    },
+    {
+      "id": "principle-operational-contrast",
+      "name": "Operational contrast",
+      "statement": "Near-black surfaces, high-white display type, low-contrast metadata, and a single vivid accent make system state feel instrument-like.",
+      "basis": "inferred",
+      "confidence": "high",
+      "evidence_ids": [
+        "E-live-fullpage-desktop-002",
+        "E-dom-css-desktop-003"
+      ]
+    },
+    {
+      "id": "principle-proof-through-ui",
+      "name": "Proof through interface",
+      "statement": "Product claims are demonstrated with terminal panes, state dots, project trees, grids, and a live orchestration canvas rather than only marketing copy.",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": [
+        "E-live-fullpage-desktop-002",
+        "E-live-usecase-005"
+      ]
+    },
+    {
+      "id": "principle-theme-as-accent",
+      "name": "Theme as accent",
+      "statement": "Theme selection preserves the dark structural system and swaps the accent token plus its dim companion.",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": [
+        "E-live-theme-004",
+        "E-dom-css-desktop-003"
+      ]
+    },
+    {
+      "id": "principle-dense-quiet",
+      "name": "Dense details, quiet rhythm",
+      "statement": "Large negative space and display-scale type are balanced by compact monospace labels, tiny status dots, and dense application mocks.",
+      "basis": "inferred",
+      "confidence": "medium",
+      "evidence_ids": [
+        "E-live-fullpage-desktop-002",
+        "E-dom-css-desktop-003"
+      ]
+    }
+  ],
+  "foundations": {
+    "colors": [
+      {
+        "token": "color.canvas.frame",
+        "value": "#050505",
+        "usage": [
+          "body background",
+          "side rails",
+          "accent-on text"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "color.surface.page",
+        "value": "#121317",
+        "usage": [
+          "main frame background",
+          "feature cells",
+          "documentation surfaces"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "color.surface.card",
+        "value": "#101013",
+        "usage": [
+          "card and secondary panel background"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "color.surface.app",
+        "value": "#101114",
+        "usage": [
+          "terminal mock body",
+          "application window surface"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "color.surface.sunken",
+        "value": "#1a1c1f",
+        "usage": [
+          "window headers",
+          "nested panels",
+          "navigation surfaces"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "color.surface.elevated",
+        "value": "#1f2125",
+        "usage": [
+          "path pills",
+          "elevated application elements"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "color.surface.panel",
+        "value": "#2a2d33",
+        "usage": [
+          "application panel",
+          "strong border"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "color.surface.panel-hover",
+        "value": "#34373e",
+        "usage": [
+          "application hover surface"
+        ],
+        "basis": "observed",
+        "confidence": "medium",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "color.text.primary",
+        "value": "#fafafa",
+        "usage": [
+          "body text",
+          "display text",
+          "primary headings"
+        ],
+        "contrast_pairs": [
+          {
+            "against": "#121317",
+            "ratio": 17.79,
+            "basis": "computed"
+          }
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "color.text.secondary",
+        "value": "#9a9a9e",
+        "usage": [
+          "supporting paragraphs",
+          "secondary metadata"
+        ],
+        "contrast_pairs": [
+          {
+            "against": "#121317",
+            "ratio": 6.62,
+            "basis": "computed"
+          }
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "color.text.muted",
+        "value": "#5a5a5e",
+        "usage": [
+          "micro labels",
+          "inactive metadata"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "color.line.subtle",
+        "value": "rgba(255,255,255,0.06)",
+        "usage": [
+          "section separators",
+          "grid gutters",
+          "hairlines"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "color.line.strong",
+        "value": "rgba(255,255,255,0.10)",
+        "usage": [
+          "button borders",
+          "eyebrow pills",
+          "stronger dividers"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "color.accent.primary",
+        "value": "#ffff50",
+        "modes": {
+          "dark": "#f3f4f6",
+          "light": "#18181b",
+          "dracula": "#bd93f9",
+          "nord": "#88c0d0",
+          "gruvbox": "#fabd2f",
+          "solarized": "#268bd2",
+          "tokyo-night": "#7aa2f7",
+          "vscode": "#007acc",
+          "min-dark": "#fafafa",
+          "min-light": "#1976d2",
+          "dark-lemon": "#ffff50"
+        },
+        "usage": [
+          "primary call to action",
+          "selected chip",
+          "status marker",
+          "section labels",
+          "theme swatches"
+        ],
+        "contrast_pairs": [
+          {
+            "against": "#050505",
+            "ratio": 19.09,
+            "basis": "computed"
+          }
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-live-theme-004",
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "color.accent.dim",
+        "value": "rgba(255,255,80,0.22)",
+        "usage": [
+          "soft selection backgrounds",
+          "accent halo"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-live-theme-004"
+        ]
+      },
+      {
+        "token": "color.accent.on",
+        "value": "#050505",
+        "usage": [
+          "text on primary accent"
+        ],
+        "contrast_pairs": [
+          {
+            "against": "#ffff50",
+            "ratio": 19.09,
+            "basis": "computed"
+          }
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "color.state.working",
+        "value": "#10b981",
+        "usage": [
+          "running dot",
+          "success output",
+          "shell agent"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "color.state.waiting",
+        "value": "#f59e0b",
+        "usage": [
+          "queued status",
+          "amber indicator"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "color.state.stopped",
+        "value": "#8b8b95",
+        "usage": [
+          "stopped and inactive state"
+        ],
+        "contrast_pairs": [
+          {
+            "against": "#101114",
+            "ratio": 5.6,
+            "basis": "computed"
+          }
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "color.agent.claude",
+        "value": "#ec9333",
+        "usage": [
+          "Claude agent marker"
+        ],
+        "basis": "observed",
+        "confidence": "medium",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "color.agent.codex",
+        "value": "#06b6d4",
+        "usage": [
+          "Codex agent marker"
+        ],
+        "basis": "observed",
+        "confidence": "medium",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "color.agent.shell",
+        "value": "#10b981",
+        "usage": [
+          "Shell agent marker"
+        ],
+        "basis": "observed",
+        "confidence": "medium",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "color.agent.opencode",
+        "value": "#8b8b95",
+        "usage": [
+          "OpenCode agent marker"
+        ],
+        "basis": "observed",
+        "confidence": "medium",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      }
+    ],
+    "typography": [
+      {
+        "token": "font.family.sans",
+        "family": "Geist",
+        "fallbacks": [
+          "Geist Fallback",
+          "ui-sans-serif",
+          "system-ui",
+          "sans-serif"
+        ],
+        "weights": [
+          400,
+          500,
+          600,
+          700
+        ],
+        "usage": [
+          "body copy",
+          "navigation",
+          "buttons",
+          "headings",
+          "application labels"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "font.family.display",
+        "family": "Anton",
+        "fallbacks": [
+          "Anton Fallback",
+          "Arial Narrow",
+          "sans-serif"
+        ],
+        "weights": [
+          400
+        ],
+        "usage": [
+          "hero wordmark",
+          "uppercase display headings"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "font.family.mono",
+        "family": "Geist Mono",
+        "fallbacks": [
+          "Geist Mono Fallback",
+          "ui-monospace",
+          "SFMono-Regular",
+          "monospace"
+        ],
+        "weights": [
+          400,
+          500
+        ],
+        "usage": [
+          "paths",
+          "status labels",
+          "terminal copy",
+          "micro labels",
+          "download notes"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "type.role.body",
+        "family": "Geist",
+        "weight": 400,
+        "size": "16px",
+        "line_height": "24px",
+        "letter_spacing": "normal",
+        "transform": "none",
+        "usage": [
+          "document body"
+        ],
+        "basis": "computed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "type.role.hero-display",
+        "family": "Anton",
+        "weight": 400,
+        "size": "23cqw; 257.6px at 1363px viewport",
+        "line_height": "0.9; 231.84px computed",
+        "letter_spacing": "-0.02em; -5.152px computed",
+        "transform": "none",
+        "usage": [
+          "filled and outlined hero words"
+        ],
+        "basis": "computed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "type.role.feature-heading",
+        "family": "Geist",
+        "weight": 600,
+        "size": "19px",
+        "line_height": "1.2",
+        "letter_spacing": "-0.015em",
+        "transform": "none",
+        "usage": [
+          "feature card heading"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "type.role.pitch-heading",
+        "family": "Geist",
+        "weight": 700,
+        "size": "clamp(28px,4.6vw,50px); 50px at 1363px",
+        "line_height": "1.08; 54px computed",
+        "letter_spacing": "-0.03em; -1.5px computed",
+        "transform": "none",
+        "usage": [
+          "download section heading"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "type.role.micro-label",
+        "family": "Geist Mono",
+        "weight": 400,
+        "size": "10px–12.5px",
+        "line_height": "1.5",
+        "letter_spacing": "0.04em–0.08em",
+        "transform": "uppercase",
+        "usage": [
+          "section labels",
+          "feature eyebrows",
+          "status metadata"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      }
+    ],
+    "spacing": [
+      {
+        "token": "space.viewport-gutter",
+        "value": "clamp(28px,6vw,100px)",
+        "usage": [
+          "hatched side rail width"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "space.section-x",
+        "value": "clamp(20px,4vw,56px)",
+        "usage": [
+          "section horizontal padding"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "space.section-y",
+        "value": "clamp(40px,4.5vw,72px)",
+        "usage": [
+          "standard section vertical padding"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "space.micro-gap",
+        "value": "4px–10px",
+        "usage": [
+          "icon-label and control spacing"
+        ],
+        "basis": "computed",
+        "confidence": "medium",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "space.feature-cell",
+        "value": "30px 26px 0",
+        "usage": [
+          "feature cell padding"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      }
+    ],
+    "sizing": [
+      {
+        "token": "size.container.max",
+        "value": "1280px",
+        "usage": [
+          "centered frame"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "size.hero.stage.max",
+        "value": "1120px",
+        "usage": [
+          "hero typography stage"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "size.hero-shot.width",
+        "value": "86% of hero content width",
+        "usage": [
+          "product screenshot presentation"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "size.canvas.height",
+        "value": "clamp(640px,64vw,880px)",
+        "usage": [
+          "orchestration canvas"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "size.feature-cell.min-height",
+        "value": "340px",
+        "usage": [
+          "feature grid cells"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "size.control.chip",
+        "value": "30px high",
+        "usage": [
+          "use-case chip"
+        ],
+        "basis": "computed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003",
+          "E-live-usecase-005"
+        ]
+      },
+      {
+        "token": "size.control.primary",
+        "value": "36px high",
+        "usage": [
+          "header CTA"
+        ],
+        "basis": "computed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      }
+    ],
+    "grid": [
+      {
+        "token": "grid.frame",
+        "value": "max-width 1280px; centered; 1px side borders",
+        "usage": [
+          "global shell"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "grid.feature",
+        "value": "repeat(3,1fr) with 1px gutters; collapses to 1 column at max-width 860px",
+        "usage": [
+          "six-card feature grid"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "grid.theme-split",
+        "value": "3fr 1fr at desktop; one column below the md layout threshold",
+        "usage": [
+          "application mock plus theme controls"
+        ],
+        "basis": "observed",
+        "confidence": "medium",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "grid.hero",
+        "value": "container query stage with aspect-ratio 1 / 0.72",
+        "usage": [
+          "display typography and subject composition"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      }
+    ],
+    "radii": [
+      {
+        "token": "radius.pill",
+        "value": "999px",
+        "usage": [
+          "chips",
+          "eyebrows",
+          "path pills"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "radius.window",
+        "value": "8px",
+        "usage": [
+          "terminal and agent cards"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "radius.download",
+        "value": "10px",
+        "usage": [
+          "download buttons"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "radius.primary",
+        "value": "2px",
+        "usage": [
+          "header CTA"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      }
+    ],
+    "borders": [
+      {
+        "token": "border.line",
+        "value": "1px solid rgba(255,255,255,0.06)",
+        "usage": [
+          "sections",
+          "grid gutters",
+          "header"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "border.corner",
+        "value": "1.5px solid rgba(255,255,255,0.5)",
+        "usage": [
+          "frame registration marks"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      }
+    ],
+    "shadows": [
+      {
+        "token": "shadow.app-window",
+        "value": "0 8px 24px rgba(0,0,0,0.45–0.50)",
+        "usage": [
+          "agent cards",
+          "control nodes",
+          "application mocks"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      }
+    ],
+    "opacity": [
+      {
+        "token": "opacity.inactive-card",
+        "value": "0.55",
+        "usage": [
+          "idle orchestration card"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "opacity.done-card",
+        "value": "0.78",
+        "usage": [
+          "completed orchestration card"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      }
+    ],
+    "z_index": [
+      {
+        "token": "z.frame",
+        "value": 2,
+        "usage": [
+          "centered page over side rails"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "z.header",
+        "value": 30,
+        "usage": [
+          "sticky header"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "z.corner",
+        "value": 5,
+        "usage": [
+          "corner marks"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      }
+    ],
+    "iconography": [
+      {
+        "token": "icon.language",
+        "value": "small line icons, source/tool marks, and status dots",
+        "usage": [
+          "navigation",
+          "terminal chrome",
+          "agent identity"
+        ],
+        "basis": "observed",
+        "confidence": "medium",
+        "evidence_ids": [
+          "E-live-fullpage-desktop-002",
+          "E-dom-css-desktop-003"
+        ],
+        "notes": "The living report uses abstract CSS/SVG specimens and omits third-party logos."
+      }
+    ],
+    "imagery": [
+      {
+        "token": "imagery.hero",
+        "value": "large monochrome halftone/engraving subject behind oversized display type",
+        "usage": [
+          "hero visual"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-live-home-desktop-001",
+          "E-live-fullpage-desktop-002"
+        ],
+        "notes": "Protected source artwork is not reproduced in the report; an abstract CSS specimen communicates the same layering rule."
+      },
+      {
+        "token": "imagery.product-proof",
+        "value": "dark framed application screenshot or UI mock, often partially masked by a gradient",
+        "usage": [
+          "hero proof",
+          "feature cards",
+          "composition examples"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-live-fullpage-desktop-002"
+        ]
+      }
+    ]
+  },
+  "responsive": {
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ],
+        "notes": "Utility layout threshold; not separately rendered in the cloud browser."
+      },
+      {
+        "name": "md",
+        "value": "768px",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ],
+        "notes": "Navigation and split-layout utility threshold."
+      },
+      {
+        "name": "feature-collapse",
+        "value": "860px",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ],
+        "notes": "Feature grid changes from three columns to one."
+      },
+      {
+        "name": "tasks-hide",
+        "value": "720px",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ],
+        "notes": "Orchestration task detail is hidden at narrow widths."
+      },
+      {
+        "name": "lg",
+        "value": "1024px",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ],
+        "notes": "Standard utility container threshold."
+      }
+    ],
+    "container_behavior": {
+      "max_width": "1280px",
+      "side_rail": "max(var(--gutter), calc((100vw - 1280px) / 2))",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": [
+        "E-dom-css-desktop-003"
+      ]
+    },
+    "rules": [
+      {
+        "element": "header nav",
+        "wide": "centered flex navigation visible",
+        "narrow": "hidden below md; left mark and right actions remain",
+        "change_type": "hide/substitute",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "element": "hero stage",
+        "wide": "1120px stage, 23cqw display type, subject at 82% height",
+        "narrow": "fluid stage and container-query typography preserve the stacked composition",
+        "change_type": "fluid scale",
+        "basis": "inferred",
+        "confidence": "medium",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "element": "feature grid",
+        "wide": "three columns, two rows, 1px gutters",
+        "narrow": "single column, same cell anatomy",
+        "change_type": "reflow",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "element": "theme section",
+        "wide": "3fr application mock plus 1fr controls",
+        "narrow": "stacked mock then controls",
+        "change_type": "reflow",
+        "basis": "observed",
+        "confidence": "medium",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "element": "orchestration task details",
+        "wide": "agent cards include task/feed details",
+        "narrow": "task detail may be hidden below 720px",
+        "change_type": "density reduction",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      }
+    ],
+    "fluid_values": [
+      {
+        "token": "fluid.hero-type",
+        "value": "23cqw",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "fluid.pitch-title",
+        "value": "clamp(28px,4.6vw,50px)",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "fluid.section-padding",
+        "value": "clamp(40px,4.5vw,72px)",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      }
+    ]
+  },
+  "motion": {
+    "easing": [
+      {
+        "token": "ease.primary",
+        "value": "cubic-bezier(0.16,1,0.3,1)",
+        "usage": [
+          "theme transitions",
+          "reveal",
+          "card movement",
+          "state transitions"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "token": "ease.utility",
+        "value": "cubic-bezier(0.4,0,0.2,1)",
+        "usage": [
+          "utility transition classes"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      }
+    ],
+    "duration_tiers": [
+      {
+        "name": "micro",
+        "range": "120ms–200ms",
+        "usage": [
+          "download hover",
+          "chip hover",
+          "cell background"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003",
+          "E-live-hover-006"
+        ]
+      },
+      {
+        "name": "interface",
+        "range": "350ms–600ms",
+        "usage": [
+          "theme transition",
+          "reveal",
+          "card state"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "name": "orchestration",
+        "range": "700ms–1100ms",
+        "usage": [
+          "edge drawing",
+          "edge flow",
+          "spinner and cursor cycles"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      }
+    ],
+    "patterns": [
+      {
+        "id": "motion.theme",
+        "trigger": "theme button activation",
+        "properties": [
+          "color",
+          "background-color",
+          "border-color",
+          "box-shadow"
+        ],
+        "delay": "0ms",
+        "duration": "350ms",
+        "easing": "ease.primary",
+        "choreography": "global cascade via .theme-transition",
+        "interruption": "new theme can replace the current accent",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-live-theme-004",
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "id": "motion.feature-hover",
+        "trigger": "pointer enters feature cell",
+        "properties": [
+          "background",
+          "translateY"
+        ],
+        "delay": "0ms",
+        "duration": "200ms / 350ms",
+        "easing": "ease.primary",
+        "choreography": "cell darkens while mock rises 8px",
+        "interruption": "reverses on pointer exit",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-live-hover-006",
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "id": "motion.reveal",
+        "trigger": "data-reveal element enters the viewport",
+        "properties": [
+          "opacity",
+          "translateY"
+        ],
+        "delay": "0ms",
+        "duration": "600ms",
+        "easing": "ease.primary",
+        "choreography": "from opacity 0 / translateY 12px to visible",
+        "interruption": "not specified",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "id": "motion.cursor",
+        "trigger": "terminal or prompt idle loop",
+        "properties": [
+          "opacity"
+        ],
+        "delay": "0ms",
+        "duration": "1050ms–1100ms",
+        "easing": "step-end / steps(1)",
+        "choreography": "blink repeats indefinitely",
+        "interruption": "disabled by reduced-motion",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      },
+      {
+        "id": "motion.canvas-flow",
+        "trigger": "orchestration sequence",
+        "properties": [
+          "stroke-dashoffset",
+          "stroke",
+          "opacity",
+          "transform"
+        ],
+        "delay": "0ms",
+        "duration": "450ms–1000ms",
+        "easing": "ease.primary / linear",
+        "choreography": "edges draw, active edges flow, cards enter with scale",
+        "interruption": "state transitions can replace card classes",
+        "basis": "observed",
+        "confidence": "medium",
+        "evidence_ids": [
+          "E-dom-css-desktop-003",
+          "E-live-usecase-005"
+        ]
+      }
+    ],
+    "reduced_motion": {
+      "behavior": "scroll-behavior becomes auto; animation and transition durations become 0.001ms; reveal elements become visible; feature mock hover transform is disabled",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": [
+        "E-dom-css-desktop-003"
+      ]
+    },
+    "performance_observations": [
+      {
+        "finding": "Animations favor opacity, transforms, CSS backgrounds, and SVG stroke properties; no layout-heavy animation was observed in the inspected rules.",
+        "basis": "inferred",
+        "confidence": "medium",
+        "evidence_ids": [
+          "E-dom-css-desktop-003"
+        ]
+      }
+    ]
+  },
+  "components": [
+    {
+      "id": "component.frame-shell",
+      "name": "Frame shell",
+      "role": "global layout container",
+      "anatomy": [
+        "hatched side rails",
+        "centered frame",
+        "1px side borders",
+        "corner registration marks"
+      ],
+      "variants": [
+        "desktop centered",
+        "fluid narrow"
+      ],
+      "sizes": [
+        "max 1280px"
+      ],
+      "states": [
+        "default",
+        "theme-transition"
+      ],
+      "tokens_used": [
+        "color.canvas.frame",
+        "color.surface.page",
+        "color.line.subtle",
+        "border.corner",
+        "size.container.max",
+        "space.viewport-gutter"
+      ],
+      "content_rules": [
+        "keep frame boundaries visible around major composition blocks"
+      ],
+      "responsive_behavior": "side rails shrink with the gutter formula; frame remains fluid below max width",
+      "interaction": "none",
+      "accessibility": {
+        "source_behavior": "decorative marks are pointer-events none",
+        "recommendation": "keep decoration aria-hidden"
+      },
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": [
+        "E-dom-css-desktop-003"
+      ]
+    },
+    {
+      "id": "component.sticky-header",
+      "name": "Sticky header",
+      "role": "global navigation",
+      "anatomy": [
+        "wordmark link",
+        "center nav",
+        "repository/social proof link",
+        "accent CTA"
+      ],
+      "variants": [
+        "desktop three-column grid",
+        "narrow nav-hidden"
+      ],
+      "sizes": [
+        "72px high"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "focus-visible",
+        "theme-transition"
+      ],
+      "tokens_used": [
+        "font.family.sans",
+        "color.surface.sunken",
+        "color.line.subtle",
+        "color.accent.primary",
+        "size.control.primary"
+      ],
+      "content_rules": [
+        "navigation labels are short and lowercase",
+        "primary CTA uses one concise verb"
+      ],
+      "responsive_behavior": "center nav hides below md; side actions remain",
+      "interaction": "anchor navigation and external repository link",
+      "accessibility": {
+        "source_behavior": "semantic banner/navigation/links",
+        "recommendation": "preserve visible focus and meaningful link names"
+      },
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": [
+        "E-live-home-desktop-001",
+        "E-dom-css-desktop-003"
+      ]
+    },
+    {
+      "id": "component.display-hero",
+      "name": "Display hero",
+      "role": "brand and product introduction",
+      "anatomy": [
+        "tool icon row",
+        "filled display word",
+        "outline display word",
+        "layered subject slot",
+        "framed product-proof slot"
+      ],
+      "variants": [
+        "dark-lemon accent",
+        "theme accent variants"
+      ],
+      "sizes": [
+        "1120px stage max",
+        "23cqw display type"
+      ],
+      "states": [
+        "default",
+        "theme-transition",
+        "reduced-motion"
+      ],
+      "tokens_used": [
+        "font.family.display",
+        "color.text.primary",
+        "color.surface.page",
+        "size.hero.stage.max",
+        "size.hero-shot.width"
+      ],
+      "content_rules": [
+        "one oversized uppercase display phrase",
+        "subject should sit behind type and remain partially occluded",
+        "proof image is framed and visually subordinated by a gradient"
+      ],
+      "responsive_behavior": "container-query type and fluid stage preserve overlap; proof image width stays at 86%",
+      "interaction": "visual only",
+      "accessibility": {
+        "source_behavior": "decorative subject is aria-hidden; sr-only text names the hero",
+        "recommendation": "provide a concise text alternative for meaningful proof imagery"
+      },
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": [
+        "E-live-home-desktop-001",
+        "E-dom-css-desktop-003"
+      ]
+    },
+    {
+      "id": "component.orchestration-canvas",
+      "name": "Orchestration canvas",
+      "role": "interactive product proof",
+      "anatomy": [
+        "radial dot grid",
+        "top status counters",
+        "central controller node",
+        "branch/agent cards",
+        "animated connectors",
+        "bottom use-case bar"
+      ],
+      "variants": [
+        "MicroSaaS",
+        "Caçar bug",
+        "Release",
+        "Economia"
+      ],
+      "sizes": [
+        "height clamp(640px,64vw,880px)"
+      ],
+      "states": [
+        "idle",
+        "queued",
+        "running",
+        "done",
+        "selected use case",
+        "reduced-motion"
+      ],
+      "tokens_used": [
+        "color.surface.app",
+        "color.surface.sunken",
+        "color.state.working",
+        "color.state.waiting",
+        "color.state.stopped",
+        "font.family.mono",
+        "shadow.app-window",
+        "ease.primary"
+      ],
+      "content_rules": [
+        "card title is short",
+        "task/feed lines are monospace and action-oriented",
+        "status is encoded by dot plus text, never color alone"
+      ],
+      "responsive_behavior": "task details hide below 720px; canvas remains bounded and bottom controls wrap",
+      "interaction": "safe chip selection updates prompt, selected state, and card content",
+      "accessibility": {
+        "source_behavior": "buttons expose aria-pressed",
+        "recommendation": "announce state changes in a live region for production"
+      },
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": [
+        "E-live-usecase-005",
+        "E-dom-css-desktop-003"
+      ]
+    },
+    {
+      "id": "component.feature-cell",
+      "name": "Feature cell",
+      "role": "feature explanation plus UI specimen",
+      "anatomy": [
+        "monospace eyebrow",
+        "heading",
+        "supporting paragraph",
+        "dark product mock"
+      ],
+      "variants": [
+        "workspace",
+        "pty",
+        "organization",
+        "sub-tabs",
+        "resume",
+        "layouts"
+      ],
+      "sizes": [
+        "min-height 340px",
+        "3-column desktop grid"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "reduced-motion"
+      ],
+      "tokens_used": [
+        "color.surface.page",
+        "color.text.primary",
+        "color.text.secondary",
+        "color.text.muted",
+        "space.feature-cell",
+        "ease.primary"
+      ],
+      "content_rules": [
+        "eyebrow uses lowercase category or compact symbol",
+        "heading stays to one or two lines",
+        "mock is anchored to the cell bottom and may be clipped"
+      ],
+      "responsive_behavior": "three columns collapse to one below 860px",
+      "interaction": "hover darkens cell and lifts mock",
+      "accessibility": {
+        "source_behavior": "text hierarchy is semantic",
+        "recommendation": "ensure mock-only state is not the only carrier of meaning"
+      },
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": [
+        "E-live-fullpage-desktop-002",
+        "E-live-hover-006",
+        "E-dom-css-desktop-003"
+      ]
+    },
+    {
+      "id": "component.theme-control",
+      "name": "Theme control",
+      "role": "accent theme selector",
+      "anatomy": [
+        "theme button",
+        "color swatch",
+        "selected border",
+        "aria-pressed state"
+      ],
+      "variants": [
+        "11 named themes"
+      ],
+      "sizes": [
+        "compact 12px label"
+      ],
+      "states": [
+        "selected",
+        "unselected",
+        "focus-visible",
+        "theme-transition"
+      ],
+      "tokens_used": [
+        "color.accent.primary",
+        "color.accent.dim",
+        "color.line.strong",
+        "radius.primary"
+      ],
+      "content_rules": [
+        "theme names are short and recognizable",
+        "one accent swatch previews the theme"
+      ],
+      "responsive_behavior": "controls wrap; theme application stays global",
+      "interaction": "click applies data-theme and inline accent variables",
+      "accessibility": {
+        "source_behavior": "aria-label and aria-pressed observed",
+        "recommendation": "keep text label alongside swatch"
+      },
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": [
+        "E-live-theme-004"
+      ]
+    },
+    {
+      "id": "component.download-link",
+      "name": "Download link",
+      "role": "platform CTA",
+      "anatomy": [
+        "platform icon",
+        "platform name",
+        "extension suffix"
+      ],
+      "variants": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "sizes": [
+        "44px high",
+        "10px radius"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "focus-visible"
+      ],
+      "tokens_used": [
+        "color.line.strong",
+        "color.surface.card",
+        "color.text.primary",
+        "radius.download"
+      ],
+      "content_rules": [
+        "platform name is emphasized; file extension is dimmed"
+      ],
+      "responsive_behavior": "wraps as a row of compact buttons",
+      "interaction": "external download link; report specimen is non-destructive",
+      "accessibility": {
+        "source_behavior": "semantic links with target names",
+        "recommendation": "preserve platform in accessible name"
+      },
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": [
+        "E-dom-css-desktop-003",
+        "E-live-fullpage-desktop-002"
+      ]
+    }
+  ],
+  "patterns": [
+    {
+      "id": "pattern.page-shell",
+      "name": "Instrument panel shell",
+      "regions": [
+        "hatched rails",
+        "sticky header",
+        "bordered frame",
+        "corner marks",
+        "stacked sections",
+        "footer art slot"
+      ],
+      "hierarchy": "brand/navigation → visual thesis → product proof → feature grid → customization → CTA → footer",
+      "density": "quiet outer rhythm with dense inner product specimens",
+      "composition_rules": [
+        "use hairlines to connect sections",
+        "keep the frame visible at top and bottom",
+        "reserve bright accent for actions and state"
+      ],
+      "responsive_transformation": "frame and hero scale fluidly; grid sections reflow",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": [
+        "E-live-fullpage-desktop-002",
+        "E-dom-css-desktop-003"
+      ]
+    },
+    {
+      "id": "pattern.hero-proof",
+      "name": "Layered hero proof",
+      "regions": [
+        "display type",
+        "subject layer",
+        "product screenshot"
+      ],
+      "hierarchy": "type is foreground narrative; product UI is evidence below",
+      "density": "high visual impact, low textual density",
+      "composition_rules": [
+        "use an outline duplicate to create depth",
+        "overlap subject and words",
+        "fade the lower edge into page background"
+      ],
+      "responsive_transformation": "type uses container-query units; screenshot remains proportionally framed",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": [
+        "E-live-home-desktop-001",
+        "E-dom-css-desktop-003"
+      ]
+    },
+    {
+      "id": "pattern.feature-matrix",
+      "name": "Feature matrix",
+      "regions": [
+        "six equal cells",
+        "two rows",
+        "bottom-anchored UI specimens"
+      ],
+      "hierarchy": "category → benefit heading → explanatory paragraph → visual proof",
+      "density": "medium text, high UI detail",
+      "composition_rules": [
+        "1px gutters are part of the graphic",
+        "mocks can be clipped by the cell boundary",
+        "hover provides a subtle lift only"
+      ],
+      "responsive_transformation": "three columns to one column below 860px",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": [
+        "E-live-fullpage-desktop-002",
+        "E-live-hover-006"
+      ]
+    },
+    {
+      "id": "pattern.theme-split",
+      "name": "Theme playground split",
+      "regions": [
+        "large app mock",
+        "narrow control rail"
+      ],
+      "hierarchy": "application demonstration dominates; controls explain the accent system",
+      "density": "dense mock plus compact controls",
+      "composition_rules": [
+        "keep the control rail readable and quiet",
+        "use a swatch plus label, never swatch only",
+        "theme change should recolor the whole specimen"
+      ],
+      "responsive_transformation": "split becomes stacked",
+      "basis": "observed",
+      "confidence": "medium",
+      "evidence_ids": [
+        "E-live-theme-004",
+        "E-dom-css-desktop-003"
+      ]
+    }
+  ],
+  "accessibility": {
+    "semantics": {
+      "observed": [
+        "banner, navigation, main, complementary, contentinfo landmarks",
+        "h1/h2/h3 hierarchy",
+        "links for navigation and downloads",
+        "buttons with aria-pressed for interactive chips and themes"
+      ],
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": [
+        "E-live-home-desktop-001",
+        "E-live-usecase-005"
+      ]
+    },
+    "focus": {
+      "observed": "focus-visible produced a 2px accent outline with 2px offset on the use-case chip",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": [
+        "E-live-keyboard-007"
+      ]
+    },
+    "motion": {
+      "observed": "prefers-reduced-motion branch disables meaningful animation and transitions and reveals data-reveal content",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": [
+        "E-dom-css-desktop-003"
+      ]
+    },
+    "contrast": {
+      "computed_pairs": [
+        {
+          "foreground": "#fafafa",
+          "background": "#121317",
+          "ratio": 17.79
+        },
+        {
+          "foreground": "#9a9a9e",
+          "background": "#121317",
+          "ratio": 6.62
+        },
+        {
+          "foreground": "#050505",
+          "background": "#ffff50",
+          "ratio": 19.09
+        },
+        {
+          "foreground": "#8b8b95",
+          "background": "#101114",
+          "ratio": 5.6
+        }
+      ],
+      "basis": "computed",
+      "confidence": "high",
+      "evidence_ids": [
+        "E-dom-css-desktop-003"
+      ],
+      "notes": "Hairlines and the muted #5a5a5e label color should not be used as the only carrier of essential information."
+    },
+    "recommendations": [
+      {
+        "id": "a11y-live-region",
+        "statement": "Announce selected use-case changes in a polite live region in production.",
+        "basis": "recommended",
+        "confidence": "medium",
+        "evidence_ids": [
+          "E-live-usecase-005"
+        ]
+      },
+      {
+        "id": "a11y-image-alt",
+        "statement": "Keep meaningful product-proof images descriptive; keep decorative art aria-hidden.",
+        "basis": "recommended",
+        "confidence": "medium",
+        "evidence_ids": [
+          "E-live-home-desktop-001"
+        ]
+      }
+    ]
+  },
+  "content_style": {
+    "language_observed": "pt-BR",
+    "voice": [
+      "direct",
+      "technical",
+      "concise",
+      "product-led"
+    ],
+    "patterns": [
+      "lowercase monospace labels for system metadata",
+      "short uppercase display headlines",
+      "imperative or state-oriented terminal snippets",
+      "brief paragraphs that explain the proof surface"
+    ],
+    "basis": "observed",
+    "confidence": "medium",
+    "evidence_ids": [
+      "E-live-fullpage-desktop-002",
+      "E-dom-css-desktop-003"
+    ],
+    "notes": "The living report uses neutral specimen copy rather than reproducing source marketing copy."
+  },
+  "exceptions": [
+    {
+      "id": "exception.hero-overlap",
+      "statement": "Hero type and subject intentionally overlap and exceed normal content-box rhythm.",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": [
+        "E-live-home-desktop-001"
+      ]
+    },
+    {
+      "id": "exception.canvas-sunken",
+      "statement": "The orchestration canvas uses a darker #070709 surface than the main page to separate interactive state from editorial content.",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": [
+        "E-dom-css-desktop-003"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "id": "gap-mobile-render",
+      "statement": "A matched mobile runtime capture was not possible in the available cloud browser surface. Mobile rules are source observations/inferences until rendered at a narrow viewport.",
+      "basis": "inferred",
+      "confidence": "medium",
+      "evidence_ids": [
+        "E-live-home-desktop-001",
+        "E-dom-css-desktop-003"
+      ]
+    },
+    {
+      "id": "gap-motion-timeline",
+      "statement": "CSS durations and keyframes were inspected, but no frame-by-frame recording was available to measure actual render timing, stagger, or dropped frames.",
+      "basis": "inferred",
+      "confidence": "medium",
+      "evidence_ids": [
+        "E-dom-css-desktop-003"
+      ]
+    },
+    {
+      "id": "gap-authenticated-routes",
+      "statement": "Only the public landing route was in scope; authenticated application views and their states were not inspected.",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": [
+        "E-live-home-desktop-001"
+      ]
+    },
+    {
+      "id": "gap-original-assets",
+      "statement": "Original source images, brand marks, and third-party tool logos were not reused in the living report.",
+      "basis": "recommended",
+      "confidence": "high",
+      "evidence_ids": [
+        "E-skill-contract-008"
+      ]
+    }
+  ],
+  "additional_findings": [
+    {
+      "id": "finding-accent-only-theme",
+      "statement": "The visible theme interaction changes data-theme and writes --accent plus --accent-dim inline; the structural surface palette remains stable in the sampled states.",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": [
+        "E-live-theme-004"
+      ]
+    },
+    {
+      "id": "finding-status-grammar",
+      "statement": "Status is a small visual grammar: color-coded dot, terse state word, and monospace task detail. This repeats across the canvas and application mockups.",
+      "basis": "inferred",
+      "confidence": "high",
+      "evidence_ids": [
+        "E-live-fullpage-desktop-002",
+        "E-live-usecase-005"
+      ]
+    },
+    {
+      "id": "finding-decorative-grid",
+      "statement": "Radial dot grids, diagonal side hatching, and registration corners act as environmental texture without competing with content.",
+      "basis": "inferred",
+      "confidence": "high",
+      "evidence_ids": [
+        "E-live-home-desktop-001",
+        "E-live-fullpage-desktop-002"
+      ]
+    },
+    {
+      "id": "finding-source-protection",
+      "statement": "The report preserves layout rules, tokens, behavior, and component anatomy while replacing source copy, artwork, wordmark imagery, and third-party logos with neutral specimens.",
+      "basis": "recommended",
+      "confidence": "high",
+      "evidence_ids": [
+        "E-skill-contract-008"
+      ]
+    }
+  ],
+  "generated_assets": {
+    "report": "report.html",
+    "manifest": "design-system.json",
+    "evidence_index": "evidence/README.md",
+    "framework": "single-html",
+    "self_contained": true,
+    "external_runtime_dependencies": []
+  }
+}
