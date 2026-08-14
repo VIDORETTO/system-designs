@@ -1,200 +1,322 @@
-# Alethe Agents · Design System Extraction
+<div align="center">
+  <img src="../../skill/assets/icon.svg" width="72" alt="Ícone do Alethe Agents Design System" />
+  <h1>Alethe Agents · Design System Extraction</h1>
+  <p>
+    <strong>Um sistema vivo para estudar, reutilizar e evoluir uma linguagem de interface.</strong><br />
+    Explore o espécime visual, leia o contrato de tokens e rastreie<br />
+    cada decisão até sua evidência — com limites claros.
+  </p>
 
-> Um pacote autocontido para estudar, reutilizar e evoluir a linguagem visual e interativa do Alethe Agents.
+  <p>
+    <img src="https://img.shields.io/badge/living%20report-FFD400?style=for-the-badge&labelColor=151515" alt="Living report" />
+    <img src="https://img.shields.io/badge/evidence%20indexed-F75858?style=for-the-badge&labelColor=151515" alt="Evidências indexadas" />
+    <img src="https://img.shields.io/badge/no%20runtime%20deps-FFA43D?style=for-the-badge&labelColor=151515" alt="Sem dependências externas de runtime" />
+  </p>
 
-[Abrir o relatório vivo](report.html) · [Ler o manifesto](design-system.json) · [Consultar as evidências](evidence/README.md)
+  <p>
+    <a href="report.html">Abrir relatório vivo</a>
+    ·
+    <a href="design-system.json">Ler manifesto</a>
+    ·
+    <a href="evidence/README.md">Ver evidências</a>
+  </p>
 
-| Entrega | Status |
+  <p>
+    <a href="#overview">Visão rápida</a>
+    ·
+    <a href="#report">Relatório</a>
+    ·
+    <a href="#tokens">Tokens</a>
+    ·
+    <a href="#evidence">Evidências</a>
+    ·
+    <a href="#reuse">Reutilização</a>
+  </p>
+</div>
+
+---
+
+> Este pacote reconstrói regras e padrões observáveis. Ele não é uma cópia literal da landing page nem uma licença para redistribuir seus ativos.
+
+<a id="overview"></a>
+
+## ✦ O pacote em 30 segundos
+
+O Alethe Agents Design System é um artefato de extração em nível de sistema, baseado na inspeção pública da landing page do Alethe Agents.
+
+| O que você encontra | Para que serve |
 | --- | --- |
-| Página viva do design system | pronta |
-| Tokens e regras normalizados | prontos |
-| Evidências e limitações | documentadas |
-| Dependências de runtime | nenhuma |
-| Captura principal | desktop, 1363 × 936, DPR 1 |
+| Página viva e interativa | Ver foundations, componentes, estados, temas, motion e composição em ação |
+| Manifesto JSON | Consumir tokens, regras e evidências em automação |
+| Evidence index | Entender fontes, probes, cobertura e limitações |
+| README do pacote | Reproduzir a leitura e adaptar o sistema com responsabilidade |
 
-## Visão geral
+### Escopo observado
 
-Este pacote transforma a inspeção pública do Alethe Agents em um artefato reutilizável: uma página que demonstra o próprio sistema visual, um manifesto legível por máquina e um índice de evidências que separa o que foi observado do que foi inferido.
+- landing page pública;
+- shell e navegação global;
+- hero e composição principal;
+- canvas de orquestração;
+- feature grid;
+- seletor de temas;
+- download pitch;
+- footer;
+- captura principal em desktop, 1363 × 936, DPR 1;
+- tema observado: dark-lemon;
+- confiança geral: medium.
 
-O resultado não é uma cópia literal da landing page. A estrutura preserva a gramática visual e de interação — frame técnico, contraste operacional, tipografia display, estados de agentes, temas, motion e composição — usando espécimes neutros em CSS/SVG quando a referência continha arte, marca ou conteúdo protegido.
+## ⌁ Como ler o pacote
 
-## Estrutura do pacote
+~~~mermaid
+flowchart LR
+  A["Fonte pública"] --> B["Manifesto"]
+  B --> C["Relatório vivo"]
+  C --> D["Evidence index"]
+  D --> E["Adaptação própria"]
+~~~
 
-```text
-alethe-design-system/
-├── README.md                 # Guia de uso, linguagem visual e recomendações
-├── report.html                # Página viva e autocontida do design system
-├── design-system.json         # Manifesto normalizado de tokens e evidências
-└── evidence/
-    └── README.md              # Índice das capturas, probes e limitações
-```
+Leia os arquivos nesta ordem:
 
-### Papel de cada arquivo
+1. **report.html** para entender o sistema visualmente;
+2. **design-system.json** para localizar tokens e regras;
+3. **evidence/README.md** para verificar a origem das conclusões;
+4. **este README** para direção visual, acessibilidade, limites e reuso.
 
-- `report.html` é a referência visual principal. Ele contém foundations, temas, responsive specimen, motion lab, componentes, composições, acessibilidade, evidências e exportação de tokens.
-- `design-system.json` é o contrato para automação. Pode alimentar documentação, tokens CSS, temas, componentes, testes visuais ou um pipeline de design-to-code.
-- `evidence/README.md` registra a origem das conclusões, os experimentos realizados e os limites de cobertura da extração.
+<a id="report"></a>
 
-## Como abrir
+## ◇ O relatório vivo
 
-### Opção rápida
+Abra <a href="report.html"><code>report.html</code></a> para explorar uma documentação que demonstra o próprio sistema.
 
-Abra `report.html` diretamente no navegador. A página é autocontida e não depende de build, framework ou pacote externo.
+Ele reúne:
 
-### Opção recomendada
+- resumo executivo, escopo, fidelidade e confiança;
+- design DNA e princípios visuais;
+- color, typography, spacing, sizing, grid, radii, borders, shadows e icons;
+- temas e responsive specimen;
+- motion lab com replay, pause, slow mode e reduced motion;
+- componentes, variantes e estados;
+- composições de página;
+- acessibilidade e comportamento de conteúdo;
+- evidências, gaps e exceções;
+- exportação de variáveis CSS.
 
-Servir a pasta localmente evita restrições de clipboard em alguns navegadores:
+### Como abrir
 
-```bash
+#### Opção rápida
+
+Abra <code>report.html</code> diretamente no navegador. Ele é autocontido e não depende de build, framework ou pacote externo.
+
+#### Opção recomendada
+
+A partir da raiz do repositório, sirva os arquivos localmente:
+
+~~~bash
 python3 -m http.server 4173
-```
+~~~
 
-Depois acesse:
+Depois, acesse:
 
-```text
-http://localhost:4173/alethe-design-system/report.html
-```
+~~~text
+http://localhost:4173/templates/alethe-design-system/report.html
+~~~
 
-No Windows, `py -m http.server 4173` produz o mesmo resultado quando o Python está instalado.
+Servir localmente é preferível quando você quiser testar clipboard, links, keyboard navigation e interações sem restrições do navegador.
 
-## Direção visual
+<a id="tokens"></a>
 
-O sistema foi organizado em cinco princípios. Eles são mais importantes do que qualquer cor isolada:
+## ⟡ O manifesto de tokens
+
+Abra <a href="design-system.json"><code>design-system.json</code></a> para consumir o contrato machine-readable do pacote.
+
+Ele pode alimentar:
+
+- variáveis CSS;
+- temas;
+- Tailwind ou Style Dictionary;
+- documentação;
+- componentes;
+- testes visuais;
+- pipelines de design-to-code;
+- comparações entre versões.
+
+### Snapshot da assinatura visual
+
+| Token | Valor observado | Papel |
+| --- | --- | --- |
+| <code>--frame</code> | <code>#050505</code> | Canvas externo e trilhos |
+| <code>--bg</code> | <code>#121317</code> | Superfície principal |
+| <code>--ink</code> | <code>#fafafa</code> | Texto de maior prioridade |
+| <code>--ink-dim</code> | <code>#9a9a9e</code> | Texto de apoio |
+| <code>--accent</code> | <code>#ffff50</code> | Seleção, ação e sinal principal |
+| <code>--line</code> | <code>rgba(255,255,255,.06)</code> | Hairlines e separação |
+| <code>--font-display</code> | <code>Anton</code> + fallback | Títulos e presença editorial |
+| <code>--font-sans</code> | <code>Geist</code> + fallback | Corpo e interface |
+| <code>--font-mono</code> | <code>Geist Mono</code> + fallback | Status, labels e dados |
+| <code>--ease</code> | <code>cubic-bezier(.16,1,.3,1)</code> | Easing principal |
+
+Os nomes das famílias permanecem documentados, mas arquivos proprietários não foram copiados. Use fallbacks locais quando as fontes não estiverem disponíveis.
+
+## ◌ Direção visual
+
+A assinatura do sistema depende mais da relação entre princípios do que de uma cor isolada:
 
 | Princípio | Expressão visual | Regra de uso |
 | --- | --- | --- |
-| **Technical frame** | Frame central de 1280px, trilhos laterais hachurados, hairlines e marcas de registro | Faça o produto parecer um instrumento operacional, não um card genérico |
+| **Technical frame** | Frame central de aproximadamente 1280px, trilhos, hairlines e marcas de registro | Faça o produto parecer um instrumento operacional |
 | **Operational contrast** | Superfícies quase pretas, branco forte, metadados discretos e um acento vívido | Reserve o contraste máximo para hierarquia, ação e estado |
-| **Proof through UI** | Terminais, árvores, grids, dots, panes e canvas de orquestração | Mostre a capacidade do produto por meio de interface observável |
-| **Theme as accent** | A estrutura permanece estável enquanto o acento muda | Troque o sinal cromático sem desmontar a arquitetura visual |
-| **Dense details, quiet rhythm** | Tipografia grande e espaço negativo equilibrados por microcopy monospace | Use densidade para informar, não para preencher cada área vazia |
+| **Proof through UI** | Terminais, árvores, grids, dots, panes e canvas | Mostre capacidade através de interface observável |
+| **Theme as accent** | A estrutura permanece estável enquanto o acento muda | Troque o sinal cromático sem desmontar a arquitetura |
+| **Dense details, quiet rhythm** | Tipografia grande e microcopy mono equilibradas por espaço negativo | Use densidade para informar, não para preencher |
 
 ### Sensação desejada
 
-O resultado deve parecer técnico, preciso, controlável e levemente experimental. A interface pode ser densa, mas precisa continuar legível: cada elemento pequeno deve comunicar status, contexto, origem ou prova.
+O resultado deve parecer técnico, preciso, controlável e levemente experimental. Elementos pequenos precisam comunicar status, contexto, origem ou prova.
 
-## Tokens essenciais
+## ↗ Motion contract
 
-O manifesto contém a versão completa. Esta tabela resume os tokens que formam a assinatura visual:
-
-| Token | Valor observado | Função |
-| --- | --- | --- |
-| `--frame` | `#050505` | Canvas externo e trilhos |
-| `--bg` | `#121317` | Superfície principal |
-| `--ink` | `#fafafa` | Texto e títulos de maior prioridade |
-| `--ink-dim` | `#9a9a9e` | Texto de apoio |
-| `--accent` | `#ffff50` | Seleção, ação e sinal principal |
-| `--line` | `rgba(255,255,255,.06)` | Hairlines e separação sutil |
-| `--font-display` | `Anton` com fallback | Teses, títulos e presença editorial |
-| `--font-sans` | `Geist` com fallback | Corpo, interface e leitura |
-| `--font-mono` | `Geist Mono` com fallback | Status, labels, evidências e dados |
-| `--ease` | `cubic-bezier(.16,1,.3,1)` | Easing principal |
-
-Os nomes das famílias observadas permanecem no sistema, mas os arquivos proprietários não foram copiados. O navegador usa fallbacks locais quando elas não estão disponíveis.
-
-## Regras de composição
-
-- Mantenha um frame centralizado de aproximadamente `1280px` em telas largas.
-- Use bordas finas e espaçamento consistente para criar a malha; evite sombras genéricas em excesso.
-- Use a fonte display para tese visual e a monospace para informação operacional.
-- Trate o acento como um sinal escasso: seleção, foco, CTA, estado relevante e pontos de atividade.
-- Nunca comunique estado apenas pela cor. Combine dot, texto, label ou mudança de forma.
-- Em telas estreitas, empilhe colunas, permita quebra de textos e preserve o fluxo natural do documento.
-- Elementos decorativos podem ser intensos, mas nunca devem competir com texto, foco ou informação de estado.
-
-## Motion contract
-
-O laboratório de movimento do relatório permite testar o contrato temporal extraído:
+O relatório inclui um laboratório para experimentar o contrato temporal extraído:
 
 | Faixa | Uso sugerido |
 | --- | --- |
-| `120–200ms` | Hover, chip, botão e microinterações |
-| `350–600ms` | Tema, reveal, entrada de card e mudança de estado |
-| `700–1100ms` | Desenho de linha, fluxo, blink e orquestração |
-| `0.001ms` | Redução de movimento e acessibilidade |
+| <code>120–200ms</code> | Hover, chip, botão e microinterações |
+| <code>350–600ms</code> | Tema, reveal, entrada de card e mudança de estado |
+| <code>700–1100ms</code> | Desenho de linha, fluxo, blink e orquestração |
+| <code>0.001ms</code> | Redução de movimento e acessibilidade |
 
-O easing principal deve ser preservado para que entradas e deslocamentos tenham uma desaceleração expressiva, sem parecerem elásticos ou decorativos demais.
+O easing principal favorece entradas e deslocamentos com desaceleração expressiva, sem elasticidade decorativa excessiva.
 
-## Onde este design system funciona bem
+<a id="evidence"></a>
 
-### 1. Dashboards de agentes e orquestração
+## ◈ Evidências e limitações
 
-Ideal para mostrar agentes em execução, filas, dependências, logs, tarefas, consumo de contexto e estados como `running`, `waiting`, `done` e `stopped`.
+O índice completo está em <a href="evidence/README.md"><code>evidence/README.md</code></a>.
 
-### 2. Ferramentas para desenvolvedores
+### Cobertura registrada
 
-Combina com terminal web, observabilidade, debugging, pipelines, automações, ambientes de execução e produtos que precisam transmitir controle técnico.
+- <code>E-live-home-desktop-001</code> — página inicial pública em 1363 × 936, DPR 1;
+- <code>E-live-fullpage-desktop-002</code> — captura de página inteira, aproximadamente 5034px;
+- <code>E-dom-css-desktop-003</code> — DOM, acessibilidade, computed styles, fontes, media rules, keyframes, variáveis e medidas;
+- <code>E-live-theme-004</code> — 11 controles de tema ativados e verificados;
+- <code>E-live-usecase-005</code> — use case “Caçar bug” selecionado e mudança de conteúdo observada;
+- <code>E-live-hover-006</code> — hover no primeiro feature cell;
+- <code>E-live-keyboard-007</code> — avanço por Tab e foco visível;
+- <code>E-skill-contract-008</code> — contrato da skill usado como critério de evidência e qualidade.
 
-### 3. Produtos de IA com múltiplos modelos
+### Limitações importantes
 
-O sistema de temas, dots, cards e panes funciona bem para comparar modelos, visualizar roteamento, acompanhar custo e explicar decisões de um orquestrador.
+- a inspeção runtime teve acesso direto a um viewport desktop; não houve captura pareada em viewport estreito;
+- o comportamento mobile foi representado a partir das media/container queries e marcado como observado na fonte ou inferido no manifesto;
+- arte original, wordmark, screenshot de produto, avatar e logos de terceiros foram omitidos;
+- espécimes neutros em CSS/SVG demonstram as regras sem redistribuir conteúdo protegido.
 
-### 4. Backoffice operacional
+Não leia um breakpoint ou uma animação como fato de runtime se a evidência disponível for apenas uma declaração de CSS ou uma imagem estática.
 
-Pode servir como base para gestão de integrações, permissões, billing, configurações, filas de atendimento, operações internas e ferramentas administrativas de alta densidade.
-
-### 5. Landing pages de produtos técnicos
-
-A composição baseada em tese visual + prova de interface é adequada para SaaS B2B, infraestrutura, automação, segurança, dados e developer tools.
-
-### Onde usar com cuidado
-
-O sistema não é a melhor escolha sem adaptação para produtos infantis, marcas de bem-estar, experiências muito acolhedoras, e-commerces extremamente promocionais ou interfaces em que calor humano e acessibilidade cromática precisam ser o sinal dominante. Nesses casos, preserve a disciplina estrutural, mas reavalie acento, contraste, display type e densidade.
-
-## Como transformar em produto real
-
-Uma evolução prática pode seguir esta ordem:
-
-1. Importar `design-system.json` para um pipeline de tokens e gerar variáveis CSS, Tailwind ou Style Dictionary.
-2. Criar componentes base para header, chip, card de agente, status dot, window chrome, painel, tabela e motion wrapper.
-3. Definir variantes semânticas para estados operacionais e temas, mantendo `aria-pressed`, labels e foco visível.
-4. Montar telas de dashboard, gestão de agentes, automações, integrações, billing e configurações usando a mesma gramática.
-5. Adicionar testes visuais em desktop e em viewports estreitos, especialmente para grids, exportação, rodapé e conteúdo longo.
-6. Substituir os espécimes neutros por ativos próprios somente depois de validar licenças, acessibilidade e consistência de marca.
-
-## Acessibilidade incluída
+## ✓ Acessibilidade incluída
 
 O relatório demonstra e documenta:
 
 - landmarks, headings e navegação interna;
-- estados selecionados com `aria-pressed`;
+- estados selecionados com <code>aria-pressed</code>;
 - foco visível com outline de 2px e offset de 2px;
-- controles de tabs com `aria-controls`, `tabpanel` e roving `tabindex`;
-- estado `disabled` real no botão de demonstração;
-- live regions para mudanças de use case e motion;
-- ramo de `prefers-reduced-motion`;
-- fallback para conteúdo revelado quando o JavaScript ou o observer não estão disponíveis;
-- quebra segura de textos longos e prevenção de sobreposição em painéis finais.
+- tabs com <code>aria-controls</code>, <code>tabpanel</code> e roving <code>tabindex</code>;
+- estado <code>disabled</code> real;
+- live regions para alterações de use case e motion;
+- ramo de <code>prefers-reduced-motion</code>;
+- fallback quando JavaScript ou observer não estiverem disponíveis;
+- quebra segura de textos longos e prevenção de sobreposição.
 
-## Evidências e limitações
+<a id="reuse"></a>
 
-A extração foi baseada em inspeção pública, captura visual, DOM/acessibilidade, estilos computados, CSS publicado e probes de interação. A página de referência principal foi capturada em `1363 × 936`, DPR 1, com tema dark-lemon e rota pública.
+## ⌘ Como transformar em produto real
 
-Há duas limitações importantes:
+Use este pacote como uma base de raciocínio e composição:
 
-- Não houve captura runtime pareada em viewport estreito; o comportamento mobile foi reconstruído a partir das media queries e representado no relatório.
-- A arte original, wordmark, screenshots, avatar e logos de terceiros foram intencionalmente omitidos. O relatório usa espécimes neutros para demonstrar o sistema sem redistribuir conteúdo protegido.
+1. importe o manifesto para o pipeline de tokens;
+2. gere variáveis CSS, Tailwind ou Style Dictionary;
+3. crie componentes base para header, chip, agent card, status dot, window chrome, painel, tabela e motion wrapper;
+4. modele variantes semânticas para estados operacionais e temas;
+5. preserve labels, foco visível, <code>aria-pressed</code> e reduced motion;
+6. monte dashboards, integrações, automações, billing e configurações com a mesma gramática;
+7. substitua espécimes por identidade, conteúdo e assets próprios;
+8. adicione testes visuais em desktop e viewports estreitos.
 
-Consulte [`evidence/README.md`](evidence/README.md) para os IDs e o contexto de cada evidência.
+### Onde funciona bem
 
-## Validação do pacote
+- dashboards de agentes e orquestração;
+- ferramentas para desenvolvedores;
+- produtos de IA com múltiplos modelos;
+- backoffice operacional;
+- SaaS B2B, infraestrutura, automação, segurança e dados.
 
-O relatório incluído nesta distribuição foi validado com:
+### Onde adaptar com cuidado
 
-- manifesto `design-system.json`: 0 erros e 0 avisos;
+Produtos infantis, marcas de bem-estar, experiências muito acolhedoras, e-commerces extremamente promocionais e interfaces em que calor humano ou acessibilidade cromática precisam ser o sinal dominante exigem uma adaptação maior de acento, contraste, display type e densidade.
+
+## ⌘ Validação do pacote
+
+O pacote foi validado com:
+
+- manifesto <code>design-system.json</code>: 0 erros e 0 warnings;
 - JavaScript inline compilável;
 - CSS com chaves balanceadas;
 - IDs HTML únicos;
 - links internos com destinos existentes;
 - 36 botões com nome acessível;
 - fallbacks de reveal, clipboard, overflow e layout final;
-- isolamento do elemento decorativo do rodapé para evitar cobertura de conteúdo.
+- isolamento do elemento decorativo do footer.
 
-## Nota sobre direitos e publicação
+Para reproduzir a validação a partir da raiz do repositório:
 
-Este pacote é uma reconstrução de system design baseada em observação pública. Ele não inclui os ativos protegidos da referência. Antes de publicar uma implementação comercial, substitua os espécimes por identidade própria e confirme os direitos de uso de fontes, imagens, ícones, marcas e conteúdos.
+~~~bash
+python3 skill/scripts/validate_design_system.py \
+  templates/alethe-design-system/design-system.json
+~~~
+
+Para gerar uma nova baseline:
+
+~~~bash
+python3 skill/scripts/render_design_system_report.py \
+  templates/alethe-design-system/design-system.json \
+  /tmp/design-system-report.html
+~~~
+
+## ⌂ Direitos e publicação
+
+Este pacote é uma reconstrução de system design baseada em observação pública. Antes de publicar uma implementação comercial:
+
+- substitua espécimes por identidade própria;
+- confirme direitos de fontes, imagens, ícones, marcas e conteúdos;
+- não redistribua ativos omitidos da referência;
+- mantenha a proveniência e as limitações visíveis;
+- descreva diferenças materiais em vez de prometer pixel perfection sem comparação equivalente.
+
+## ▣ Estrutura do pacote
+
+~~~text
+alethe-design-system/
+├── README.md                 # este guia
+├── report.html               # relatório vivo e autocontido
+├── design-system.json        # tokens, regras e evidências
+└── evidence/
+    └── README.md             # índice de capturas e limitações
+~~~
+
+## ≡ Leituras relacionadas
+
+| Arquivo | Para aprofundar |
+| --- | --- |
+| [Templates](../README.md) | Catálogo e contrato dos pacotes |
+| [README da skill](../../skill/README.md) | Como executar uma nova extração |
+| [SKILL.md](../../skill/SKILL.md) | Contrato operacional completo |
+| [Extraction schema](../../skill/references/extraction-schema.md) | Estrutura do manifesto |
+| [Report spec](../../skill/references/report-spec.md) | Arquitetura do relatório vivo |
+| [Acquisition playbook](../../skill/references/acquisition-playbook.md) | Captura e evidências |
+| [Fonte observada](https://alethe-agents.kc1t.com/) | Página pública usada como referência |
 
 ---
 
-**Alethe Agents · living design system extraction**  
-Captura e documentação: 13 de agosto de 2026 · escopo público · fidelidade em nível de sistema
+<div align="center">
+  <sub>System-level reconstruction · neutral specimens · traceable evidence</sub>
+</div>
+
