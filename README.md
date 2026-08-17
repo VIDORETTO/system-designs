@@ -162,11 +162,19 @@ system-designs/
 │       ├── validate_design_system.py  # validação do manifesto
 │       └── render_design_system_report.py
 └── templates/
-    └── alethe-design-system/
-        ├── README.md
-        ├── design-system.json
-        ├── report.html
-        └── evidence/README.md
+    ├── saas/
+    │   ├── README.md
+    │   └── alethe-design-system/
+    │       ├── README.md
+    │       ├── design-system.json
+    │       ├── report.html
+    │       └── evidence/README.md
+    ├── ecommerce/README.md
+    ├── finance/README.md
+    ├── healthcare/README.md
+    ├── education/README.md
+    ├── media/README.md
+    └── portfolio/README.md
 ~~~
 
 ## ↗ Documentação de apoio
@@ -177,7 +185,7 @@ system-designs/
 | [acquisition-playbook.md](skill/references/acquisition-playbook.md) | Plano de captura, evidências e limites |
 | [extraction-schema.md](skill/references/extraction-schema.md) | Estrutura do manifesto <code>design-system.json</code> |
 | [report-spec.md](skill/references/report-spec.md) | Arquitetura e critérios do relatório vivo |
-| [Template Alethe](templates/alethe-design-system/README.md) | Exemplo completo de pacote gerado |
+| [Template Alethe](templates/saas/alethe-design-system/README.md) | Exemplo completo de pacote gerado |
 
 ## ⌘ Quickstart local
 
@@ -185,18 +193,18 @@ Valide um manifesto existente:
 
 ~~~bash
 python3 skill/scripts/validate_design_system.py \
-  templates/alethe-design-system/design-system.json
+  templates/saas/alethe-design-system/design-system.json
 ~~~
 
 Gere um relatório autocontido a partir dele:
 
 ~~~bash
 python3 skill/scripts/render_design_system_report.py \
-  templates/alethe-design-system/design-system.json \
+  templates/saas/alethe-design-system/design-system.json \
   /tmp/design-system-report.html
 ~~~
 
-Depois, abra <code>/tmp/design-system-report.html</code> no navegador. O template incluído em <code>templates/alethe-design-system/</code> funciona como referência completa de manifesto, relatório e índice de evidências.
+Depois, abra <code>/tmp/design-system-report.html</code> no navegador. O template incluído em <code>templates/saas/alethe-design-system/</code> funciona como referência completa de manifesto, relatório e índice de evidências.
 
 ## ◌ Princípios de leitura
 

@@ -44,6 +44,20 @@ Cada pacote combina três camadas:
 
 O objetivo é permitir leitura rápida, validação técnica e reaproveitamento responsável — sem transformar a referência em uma cópia literal do produto original.
 
+## ◇ Categorias
+
+As categorias são baseadas no domínio principal do produto. Formatos de interface, como hero, landing page ou dashboard, não criam categorias próprias e podem aparecer dentro de qualquer domínio.
+
+| Categoria | Escopo |
+| --- | --- |
+| [SaaS](saas/README.md) | Software como serviço, IA, ferramentas para desenvolvedores e plataformas B2B |
+| [Ecommerce](ecommerce/README.md) | Lojas, catálogos, varejo digital, checkout e compra online |
+| [Finance](finance/README.md) | Bancos, fintechs, pagamentos, investimentos e contabilidade |
+| [Healthcare](healthcare/README.md) | Clínicas, saúde, telemedicina, bem-estar e cuidado |
+| [Education](education/README.md) | Escolas, cursos, treinamento e aprendizagem online |
+| [Media](media/README.md) | Notícias, publicação, streaming, vídeo, áudio e conteúdo |
+| [Portfolio](portfolio/README.md) | Portfólios pessoais, estúdios, agências e apresentação de trabalho |
+
 ### O que um template não é
 
 - não é um pacote npm ou uma aplicação pronta para produção;
@@ -113,14 +127,14 @@ A partir da raiz do repositório:
 
 ~~~bash
 python3 skill/scripts/validate_design_system.py \
-  templates/alethe-design-system/design-system.json
+  templates/saas/alethe-design-system/design-system.json
 ~~~
 
 Gere uma nova baseline do relatório:
 
 ~~~bash
 python3 skill/scripts/render_design_system_report.py \
-  templates/alethe-design-system/design-system.json \
+  templates/saas/alethe-design-system/design-system.json \
   /tmp/design-system-report.html
 ~~~
 
@@ -133,14 +147,14 @@ python3 -m http.server 4173
 Depois, abra:
 
 ~~~text
-http://localhost:4173/templates/alethe-design-system/report.html
+http://localhost:4173/templates/saas/alethe-design-system/report.html
 ~~~
 
 <a id="template-incluido"></a>
 
 ## ◇ Template incluído
 
-### <code>alethe-design-system/</code>
+### <code>saas/alethe-design-system/</code>
 
 Um pacote autocontido que reconstrói, em nível de sistema, a linguagem visual e interativa do Alethe Agents.
 
@@ -183,16 +197,19 @@ O relatório não replica a landing page original. Ele preserva regras e padrõe
 ## ⟡ Anatomia do pacote
 
 ~~~text
-alethe-design-system/
+saas/
 ├── README.md
-│   └── guia de uso, direção visual e limitações
-├── report.html
-│   └── página viva, autocontida e interativa
-├── design-system.json
-│   └── tokens, regras, componentes e evidências
-└── evidence/
-    └── README.md
-        └── índice de capturas, probes e coverage note
+│   └── escopo da categoria e regra de classificação
+└── alethe-design-system/
+    ├── README.md
+    │   └── guia de uso, direção visual e limitações
+    ├── report.html
+    │   └── página viva, autocontida e interativa
+    ├── design-system.json
+    │   └── tokens, regras, componentes e evidências
+    └── evidence/
+        └── README.md
+            └── índice de capturas, probes e coverage note
 ~~~
 
 ### Papel de cada arquivo
@@ -236,24 +253,26 @@ Um novo template só deve entrar nesta pasta quando:
 ## ⊞ Como adicionar um novo template
 
 1. Extraia o sistema com a skill em <code>../skill/SKILL.md</code>.
-2. Crie uma pasta com nome estável e descritivo em <code>templates/</code>.
-3. Gere <code>design-system.json</code> e valide o manifesto.
-4. Gere <code>report.html</code> e faça a página usar os tokens extraídos.
-5. Adicione <code>evidence/README.md</code> com IDs, fontes, contexto e limitações.
-6. Escreva o README do pacote com objetivo, direção visual, estrutura, uso e direitos.
-7. Atualize este índice com o novo pacote.
-8. Teste a experiência em viewport largo, viewport estreito, teclado e reduced motion.
+2. Escolha uma categoria de domínio existente; crie uma nova somente quando o produto não couber em nenhuma categoria atual.
+3. Crie uma pasta com nome estável e descritivo em <code>templates/&lt;categoria&gt;/</code>.
+4. Gere <code>design-system.json</code> e valide o manifesto.
+5. Gere <code>report.html</code> e faça a página usar os tokens extraídos.
+6. Adicione <code>evidence/README.md</code> com IDs, fontes, contexto e limitações.
+7. Escreva o README do pacote com objetivo, direção visual, estrutura, uso e direitos.
+8. Atualize este índice com o novo pacote.
+9. Teste a experiência em viewport largo, viewport estreito, teclado e reduced motion.
 
 ### Convenção recomendada
 
 ~~~text
 templates/
-└── nome-do-template/
-    ├── README.md
-    ├── design-system.json
-    ├── report.html
-    └── evidence/
-        └── README.md
+└── categoria/
+    └── nome-do-template/
+        ├── README.md
+        ├── design-system.json
+        ├── report.html
+        └── evidence/
+            └── README.md
 ~~~
 
 Não adicione assets de referência por padrão. Se uma imagem ou fonte for necessária, documente a origem, a licença e por que um espécime neutro não atende ao caso.
@@ -273,8 +292,8 @@ Não adicione assets de referência por padrão. Se uma imagem ou fonte for nece
 | --- | --- |
 | [README da raiz](../README.md) | Para entender o repositório inteiro |
 | [README da skill](../skill/README.md) | Para executar uma nova extração |
-| [Alethe README](alethe-design-system/README.md) | Para estudar um pacote completo |
-| [Alethe evidence index](alethe-design-system/evidence/README.md) | Para ver o modelo de proveniência |
+| [Alethe README](saas/alethe-design-system/README.md) | Para estudar um pacote completo |
+| [Alethe evidence index](saas/alethe-design-system/evidence/README.md) | Para ver o modelo de proveniência |
 | [Extraction schema](../skill/references/extraction-schema.md) | Para escrever o manifesto |
 | [Report spec](../skill/references/report-spec.md) | Para construir o relatório vivo |
 | [Acquisition playbook](../skill/references/acquisition-playbook.md) | Para planejar captura e coverage |

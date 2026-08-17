@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="../../skill/assets/icon.svg" width="72" alt="Ícone do Alethe Agents Design System" />
+  <img src="../../../skill/assets/icon.svg" width="72" alt="Ícone do Alethe Agents Design System" />
   <h1>Alethe Agents · Design System Extraction</h1>
   <p>
     <strong>Um sistema vivo para estudar, reutilizar e evoluir uma linguagem de interface.</strong><br />
@@ -118,7 +118,7 @@ python3 -m http.server 4173
 Depois, acesse:
 
 ~~~text
-http://localhost:4173/templates/alethe-design-system/report.html
+http://localhost:4173/templates/saas/alethe-design-system/report.html
 ~~~
 
 Servir localmente é preferível quando você quiser testar clipboard, links, keyboard navigation e interações sem restrições do navegador.
@@ -270,14 +270,14 @@ Para reproduzir a validação a partir da raiz do repositório:
 
 ~~~bash
 python3 skill/scripts/validate_design_system.py \
-  templates/alethe-design-system/design-system.json
+  templates/saas/alethe-design-system/design-system.json
 ~~~
 
 Para gerar uma nova baseline:
 
 ~~~bash
 python3 skill/scripts/render_design_system_report.py \
-  templates/alethe-design-system/design-system.json \
+  templates/saas/alethe-design-system/design-system.json \
   /tmp/design-system-report.html
 ~~~
 
@@ -306,12 +306,12 @@ alethe-design-system/
 
 | Arquivo | Para aprofundar |
 | --- | --- |
-| [Templates](../README.md) | Catálogo e contrato dos pacotes |
-| [README da skill](../../skill/README.md) | Como executar uma nova extração |
-| [SKILL.md](../../skill/SKILL.md) | Contrato operacional completo |
-| [Extraction schema](../../skill/references/extraction-schema.md) | Estrutura do manifesto |
-| [Report spec](../../skill/references/report-spec.md) | Arquitetura do relatório vivo |
-| [Acquisition playbook](../../skill/references/acquisition-playbook.md) | Captura e evidências |
+| [Templates](../../README.md) | Catálogo e contrato dos pacotes |
+| [README da skill](../../../skill/README.md) | Como executar uma nova extração |
+| [SKILL.md](../../../skill/SKILL.md) | Contrato operacional completo |
+| [Extraction schema](../../../skill/references/extraction-schema.md) | Estrutura do manifesto |
+| [Report spec](../../../skill/references/report-spec.md) | Arquitetura do relatório vivo |
+| [Acquisition playbook](../../../skill/references/acquisition-playbook.md) | Captura e evidências |
 | [Fonte observada](https://alethe-agents.kc1t.com/) | Página pública usada como referência |
 
 ---
