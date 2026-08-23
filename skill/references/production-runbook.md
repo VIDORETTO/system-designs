@@ -10,8 +10,9 @@ Run the deterministic contract, fixture, renderer and anti-pattern checks:
 
 ## Browser quality
 
-Install the pinned Playwright dependency and Chromium:
+Install the pinned Playwright dependency, pixel comparison backend and Chromium:
 
+    python3 -m pip install -r requirements-quality.txt
     npm install
     npx playwright install chromium
 
