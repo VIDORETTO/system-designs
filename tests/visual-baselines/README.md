@@ -1,13 +1,14 @@
 # Visual baselines
 
 Browser capture writes one screenshot per target, viewport and reduced-motion
-state. Authorized teams can promote a reviewed capture into this directory
-using the exact filename from the capture manifest.
+state. This directory contains the reviewed baseline for the neutral
+`experience-layer` fixture, promoted from CI run `32615582636` after checking
+desktop/mobile normal and reduced-motion states.
 
-The CI job allows missing baselines and reports baseline-pending so a first
-run produces reviewable artifacts without silently claiming pixel parity. Once
-the baseline set is reviewed, remove the allow-missing-baseline flag from the
-workflow or change it to a protected release workflow.
+CI fails when a checked-in capture is missing or changes beyond the configured
+pixel threshold. New targets should be introduced through a review branch;
+the temporary `--allow-missing-baseline` option is reserved for that bootstrap
+step and is not part of the protected quality workflow.
 
 Baseline policy:
 
