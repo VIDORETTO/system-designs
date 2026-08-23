@@ -58,14 +58,15 @@ A implementação deve continuar separando Observed, Computed, Inferred e Recomm
 
 ## Status da implementação nesta branch
 
-Atualizado em 2026-08-22.
+Atualizado em 2026-08-23.
 
 - [x] Fases 0–6: contrato v2, Experience Layer, aquisição estática/runtime, mídia, efeitos, motion, renderer, quality gates, fixtures e documentação.
-- [x] Fase 7 operacional: picker de elemento, diff visual com fallback, extração de frames, export DESIGN.md/sidecar, benchmark de cobertura e auditoria de anti-patterns.
-- [x] DS-608: branch pronta e PR draft aberta em github.com/VIDORETTO/system-designs/pull/1; merge permanece decisão de integração.
-- [~] DS-705: o benchmark executável está disponível; a rodada comparativa em um corpus externo de sites precisa de URLs/autorização e execução de browser.
+- [x] Fase 7 operacional: picker de elemento, diff visual, extração de frames, export DESIGN.md/sidecar, benchmark de cobertura e auditoria de anti-patterns.
+- [x] Fase 8 production hardening: Playwright capture, normal/reduced-motion coverage, browser manifest validator, pixel regression runner, visual baseline policy e GitHub Actions.
+- [x] DS-608: PR #1 integrada no main em 2026-08-23.
+- [x] DS-705: corpus representativo versionado, benchmark executável e browser capture/visual gate integrados na CI; sites externos entram por configuração autorizada.
 
-Legenda: [x] implementado e validado localmente · [~] ferramenta/infraestrutura pronta, execução externa pendente · [ ] não iniciado.
+Legenda: [x] implementado e validado localmente/na CI · execução de sites externos permanece opt-in e depende de autorização.
 
 # Fase 0 — Baseline, compatibilidade e contrato
 
@@ -402,7 +403,7 @@ Estas tarefas só entram depois dos gates anteriores.
   - Sinalizar relatório neutro demais, componente sem estados, media sem fallback, claims sem evidence e shell que não usa tokens.
   - Aceite: detector explica o problema e evita juízo estético genérico.
 
-- [~] DS-705 — Benchmark em sites representativos
+- [x] DS-705 — Benchmark em sites representativos
   - Comparar cobertura em marketing, portfolio, editorial, dashboard, ecommerce e media.
   - Aceite: registrar tempo, cobertura, gaps, warnings e falsos positivos.
 
