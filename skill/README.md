@@ -381,8 +381,9 @@ A versão atual inclui um runner Playwright para transformar a captura em evidê
 
 Ele testa desktop/mobile, normal/reduced-motion, screenshots, erros de página,
 falhas de request e o runtime media probe. A pasta tests/visual-baselines/ segue
-uma política explícita: baseline ausente aparece como baseline-pending, nunca como
-paridade visual silenciosa.
+uma política explícita: o fixture `experience-layer` tem baseline revisado e
+novos targets aparecem como baseline-pending apenas durante o bootstrap autorizado;
+paridade visual nunca é presumida.
 
 O workflow .github/workflows/design-system-quality.yml executa o gate estático e
 o gate browser em pull requests e no main.
