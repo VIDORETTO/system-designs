@@ -7,7 +7,7 @@ Run from the repository root:
 
     python3 skill/scripts/validate_design_system.py templates/saas/alethe-design-system/design-system.json
     python3 skill/scripts/render_design_system_report.py templates/saas/alethe-design-system/design-system.json /tmp/alethe-report.html
-    python3 skill/scripts/test_design_system.py templates/media/experience-layer/design-system.json
+    python3 skill/scripts/validate_design_system.py templates/media/experience-layer/design-system.json
 
 The first command is the compatibility check for legacy manifests. The second
 checks that the renderer can consume a v1 manifest. The third checks v2
