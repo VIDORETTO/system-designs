@@ -45,10 +45,17 @@ def score(path: Path) -> dict[str, Any]:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("manifest", nargs="+", type=Path)
+    parser.add_argument("manifest", nargs="*", type=Path)
+    parser.add_argument("--corpus", type=Path, help="representative-corpus.json")
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()
-    result = {"schema_version": 2, "manifests": [score(path) for path in args.manifest]}
+    manifests = list(args.manifest)
+    if args.corpus:
+        corpus = json.loads(args.corpus.read_text(encoding="utf-8"))
+        manifests.extend(Path(item["manifest"]) for item in corpus.get("manifests", []) if item.get("manifest"))
+    if not manifests:
+        parser.error("provide at least one manifest or --corpus")
+    result = {"schema_version": 2, "manifests": [score(path) for path in manifests]}
     payload = json.dumps(result, ensure_ascii=False, indent=2) + "\n"
     if args.output:
         args.output.write_text(payload, encoding="utf-8")
