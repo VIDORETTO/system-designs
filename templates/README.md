@@ -320,3 +320,11 @@ O pacote demonstra:
 - política de vídeo que separa autoplay observado, fallback recomendado e limites
   de performance.
 
+
+
+## ✧ Production browser fixture
+
+The Experience Layer fixture can now be exercised by the repository browser gate.
+The standard configuration captures it at desktop/mobile and normal/reduced-motion
+states, then validates the runtime probe and screenshot manifest.
+
