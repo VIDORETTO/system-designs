@@ -33,7 +33,7 @@
   };
   const media = [...document.querySelectorAll("img,video,audio,canvas,iframe,svg")].map((node, index) => {
     const tag = node.tagName.toLowerCase();
-    const source = node.currentSrc || node.src || node.getAttribute("src") || node.getAttribute("poster") || null;
+    const source = node.currentSrc || node.src || node.getAttribute("src") || (tag === "video" ? node.getAttribute("data-source-url") : null) || node.getAttribute("poster") || null;
     return {
       id: "media-runtime-" + (index + 1),
       kind: tag === "img" ? "image" : tag,
