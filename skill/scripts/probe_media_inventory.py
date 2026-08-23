@@ -9,6 +9,7 @@ browser probe before promoting a claim to observed runtime behavior.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import html
 import json
 import re
@@ -63,8 +64,9 @@ def clean_url(value: str) -> str:
 
 
 def media_candidate(url: str, origin: str, role: str = "unknown") -> dict[str, Any]:
+    stable_id = hashlib.sha1(f"{url}\0{origin}".encode("utf-8")).hexdigest()[:8]
     return {
-        "id": "media-static-" + str(abs(hash((url, origin))))[-8:],
+        "id": "media-static-" + stable_id,
         "url": clean_url(url),
         "kind": kind_for_url(url),
         "role": role,
