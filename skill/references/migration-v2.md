@@ -25,4 +25,4 @@ Schema v2 is additive. Existing manifests continue to validate and render.
 Run the validator and regression runner before publishing:
 
     python3 skill/scripts/validate_design_system.py DESIGN_SYSTEM.json
-    python3 skill/scripts/test_design_system.py DESIGN_SYSTEM.json
+    python3 skill/scripts/validate_design_system.py DESIGN_SYSTEM.json
