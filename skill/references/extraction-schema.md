@@ -156,3 +156,113 @@ Use `exceptions` for intentional one-offs and contradictions. Use `gaps` for una
   "generated_assets": {"report": "report.html", "framework": "single-html"}
 }
 ```
+
+
+## 8. Schema v2: Experience Layer
+
+The v1 contract remains valid. Add meta.schema_version: 2 when using the optional experience layer.
+
+~~~json
+{
+  "meta": {
+    "schema_version": 2
+  },
+  "experience": {
+    "surface_mode": "experience",
+    "identity_lock": {
+      "summary": "Calm, tactile, cinematic product confidence.",
+      "thesis": "A quiet studio where the interface feels like a material object coming into focus.",
+      "sensory_words": ["calm", "tactile", "precise"],
+      "anti_generic": ["Do not flatten the focal media into a generic gradient."],
+      "basis": "inferred",
+      "confidence": "medium",
+      "evidence_ids": ["E-live-home-desktop-001"]
+    },
+    "focal_moment": {
+      "name": "Hero reveal",
+      "description": "The headline becomes legible as the background loop settles.",
+      "basis": "observed",
+      "confidence": "medium",
+      "evidence_ids": ["E-runtime-hero-media-001"]
+    },
+    "signature_elements": [],
+    "named_rules": [],
+    "dos": [],
+    "donts": [],
+    "recommendations": []
+  },
+  "elements": [],
+  "media": {
+    "policy": {},
+    "assets": []
+  },
+  "effects": []
+}
+~~~
+
+### Media asset shape
+
+~~~json
+{
+  "id": "media-hero-loop",
+  "label": "Hero atmospheric loop",
+  "kind": "video",
+  "role": "hero-background",
+  "url": "media/hero-loop.webm",
+  "poster": "./evidence/hero-poster.svg",
+  "playback": {
+    "autoplay": true,
+    "muted": true,
+    "loop": true,
+    "playsinline": true,
+    "preload": "metadata",
+    "pause_when_offscreen": true
+  },
+  "composition": {
+    "layer": "behind-content",
+    "object_fit": "cover",
+    "object_position": "62% 44%",
+    "scrim": "linear-gradient(...)",
+    "safe_text_zone": "left 42%"
+  },
+  "fallback": {
+    "poster": "./evidence/hero-poster.svg",
+    "reduced_motion": "static poster",
+    "low_bandwidth": "poster only"
+  },
+  "performance": {
+    "max_bytes_target": 2400000,
+    "offscreen": "pause and release decoder"
+  },
+  "basis": "observed",
+  "confidence": "medium",
+  "evidence_ids": ["E-runtime-hero-media-001"]
+}
+~~~
+
+Do not put essential content only in video frames. A background asset must have a poster or static fallback, and autoplay must be muted and inline. Capture remote URLs as metadata; preview only local authorized evidence in the report.
+
+### Effect and motion shape
+
+~~~json
+{
+  "id": "effect-pointer-glow",
+  "kind": "cursor-glow",
+  "target": "hero",
+  "driver": "pointer",
+  "job": "atmosphere",
+  "fallback": "static radial gradient",
+  "performance": "requestAnimationFrame-throttled",
+  "basis": "recommended",
+  "confidence": "low"
+}
+~~~
+
+Motion patterns should include trigger, driver, job, properties, duration/easing when known, performance, and a reduced_motion alternative. observed, inferred, and recommended media/effects must remain distinct.
+
+### Migration notes
+
+- v1 consumers can ignore the new optional fields.
+- v2 consumers should show a P2 quality issue when experience is absent.
+- media.assets[] is the canonical media inventory; generated_assets remains for report/evidence outputs.
+- Use gaps[] when a browser state, asset, trigger, or reduced-motion capture is unavailable.
