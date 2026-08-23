@@ -62,7 +62,7 @@ Atualizado em 2026-08-23.
 
 - [x] Fases 0–6: contrato v2, Experience Layer, aquisição estática/runtime, mídia, efeitos, motion, renderer, quality gates, fixtures e documentação.
 - [x] Fase 7 operacional: picker de elemento, diff visual, extração de frames, export DESIGN.md/sidecar, benchmark de cobertura e auditoria de anti-patterns.
-- [x] Fase 8 production hardening: Playwright capture, normal/reduced-motion coverage, browser manifest validator, pixel regression runner, visual baseline policy e GitHub Actions.
+- [x] Fase 8 production hardening: Playwright capture, normal/reduced-motion coverage, browser manifest validator, Pillow-pinned pixel regression, reviewed visual baselines, strict request-failure gate e GitHub Actions.
 - [x] DS-608: PR #1 integrada no main em 2026-08-23.
 - [x] DS-705: corpus representativo versionado, benchmark executável e browser capture/visual gate integrados na CI; sites externos entram por configuração autorizada.
 
