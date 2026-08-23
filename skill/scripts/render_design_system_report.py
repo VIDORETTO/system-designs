@@ -38,6 +38,8 @@ def safe_css(value: Any, fallback: str) -> str:
 
 def safe_href(value: Any) -> str:
     raw = str(value or "").strip()
+    if raw.startswith("//"):
+        return ""
     if raw.startswith(("./", "../", "/", "data:image/")):
         return esc(raw)
     return ""
