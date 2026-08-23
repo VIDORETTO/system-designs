@@ -304,3 +304,19 @@ Não adicione assets de referência por padrão. Se uma imagem ou fonte for nece
   <sub>Explore the specimen · inspect the contract · respect the evidence</sub>
 </div>
 
+
+
+## ✧ Fixture de Experience Layer
+
+Além dos domínios, a galeria agora inclui templates/media/experience-layer/. Ele é um
+fixture neutro para sites cuja linguagem depende de hero cinematográfico, vídeo
+de background, poster, textura, efeitos, cursor/scroll response e motion.
+
+O pacote demonstra:
+
+- design-system.json com meta.schema_version: 2;
+- report.html com mídia local neutra, controls de motion e reduced-motion;
+- evidence/ com SVGs de poster/still e mapa de proveniência;
+- política de vídeo que separa autoplay observado, fallback recomendado e limites
+  de performance.
+
