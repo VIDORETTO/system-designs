@@ -31,8 +31,9 @@ do not turn off those records to make a run green.
 2. Inspect all screenshots and the runtime probe manifest.
 3. Promote only reviewed screenshots into tests/visual-baselines/.
 4. Record why the baseline changed.
-5. Remove allow-missing-baseline from a protected release workflow once the
-   corpus is established.
+5. Keep missing-baseline failures enabled in the protected quality workflow;
+   use `--allow-missing-baseline` only while bootstrapping a new reviewed
+   target, then promote its captures and remove the temporary exception.
 
 ## Release gate
 
