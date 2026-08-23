@@ -299,6 +299,5 @@ Comandos principais:
     npm run validate:browser
     npm run visual:regression
 
-A CI sinaliza baseline-pending enquanto o conjunto visual ainda não foi revisado.
-Isso evita declarar “10/10” por uma comparação que nunca aconteceu.
+O fixture `experience-layer` já possui baseline revisado para desktop/mobile e normal/reduced-motion; a CI bloqueia mudanças acima do limite de pixels. Novos targets entram como `baseline-pending` somente durante o bootstrap autorizado.
 
