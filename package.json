@@ -6,7 +6,7 @@
   "scripts": {
     "capture:browser": "node skill/scripts/capture_browser.mjs --config skill/scripts/browser_capture_config.json --output artifacts/browser-capture",
     "validate:browser": "python3 skill/scripts/validate_capture_manifest.py artifacts/browser-capture/manifest.json",
-    "visual:regression": "python3 skill/scripts/run_visual_regression.py artifacts/browser-capture/manifest.json tests/visual-baselines artifacts/visual-regression --allow-missing-baseline"
+    "visual:regression": "python3 skill/scripts/run_visual_regression.py artifacts/browser-capture/manifest.json tests/visual-baselines artifacts/visual-regression"
   },
   "devDependencies": {
     "playwright": "1.52.0"
