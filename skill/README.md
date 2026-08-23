@@ -367,3 +367,23 @@ python3 skill/scripts/test_design_system.py
 
 Os manifests legados continuam compatíveis. Quality issues P0/P1 bloqueiam handoff; P2/P3 viram backlog explícito.
 
+
+
+## Gate de produção: browser, CI e visual regression
+
+A versão atual inclui um runner Playwright para transformar a captura em evidência reproduzível:
+
+    npm install
+    npx playwright install chromium
+    npm run capture:browser
+    npm run validate:browser
+    npm run visual:regression
+
+Ele testa desktop/mobile, normal/reduced-motion, screenshots, erros de página,
+falhas de request e o runtime media probe. A pasta tests/visual-baselines/ segue
+uma política explícita: baseline ausente aparece como baseline-pending, nunca como
+paridade visual silenciosa.
+
+O workflow .github/workflows/design-system-quality.yml executa o gate estático e
+o gate browser em pull requests e no main.
+
