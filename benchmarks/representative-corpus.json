@@ -1,0 +1,24 @@
+{
+  "schema_version": 2,
+  "name": "design-system-extraction-representative-corpus",
+  "policy": {
+    "external_urls": "only add public or explicitly authorized targets",
+    "protected_content": "never commit credentials, session state or protected captures"
+  },
+  "manifests": [
+    {
+      "id": "alethe-legacy-saas",
+      "category": "operate",
+      "modality": "legacy-live-source",
+      "manifest": "templates/saas/alethe-design-system/design-system.json",
+      "expected_sections": ["foundations", "components", "motion", "patterns"]
+    },
+    {
+      "id": "experience-layer-media",
+      "category": "experience",
+      "modality": "recording-and-runtime-fixture",
+      "manifest": "templates/media/experience-layer/design-system.json",
+      "expected_sections": ["experience", "media", "effects", "motion", "accessibility"]
+    }
+  ]
+}
