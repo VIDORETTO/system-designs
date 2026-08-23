@@ -66,6 +66,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Set up Python for pixel comparison
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install visual diff backend
+        run: python3 -m pip install --disable-pip-version-check --no-cache-dir -r requirements-quality.txt
+
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
