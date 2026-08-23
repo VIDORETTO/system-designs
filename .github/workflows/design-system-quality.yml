@@ -1,0 +1,94 @@
+name: Design system quality
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  static-quality:
+    name: Static contract and renderer
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Compile scripts
+        run: python3 -m py_compile skill/scripts/*.py
+
+      - name: Validate manifests and regression fixtures
+        run: python3 skill/scripts/test_design_system.py
+
+      - name: Audit anti-patterns
+        run: python3 skill/scripts/audit_design_system.py templates/media/experience-layer/design-system.json
+
+      - name: Benchmark extraction coverage
+        run: python3 skill/scripts/benchmark_coverage.py --corpus benchmarks/representative-corpus.json
+
+      - name: Validate browser snippets
+        run: |
+          node --check skill/scripts/runtime_media_probe.js
+          node --check skill/scripts/runtime_element_picker.js
+
+      - name: Render reference reports
+        run: |
+          mkdir -p artifacts/reports
+          python3 skill/scripts/render_design_system_report.py templates/saas/alethe-design-system/design-system.json artifacts/reports/alethe.html
+          python3 skill/scripts/render_design_system_report.py templates/media/experience-layer/design-system.json artifacts/reports/experience-layer.html
+
+      - name: Upload static artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: design-system-static-artifacts
+          path: artifacts/
+
+  browser-quality:
+    name: Browser capture and visual contract
+    runs-on: ubuntu-latest
+    needs: static-quality
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install pinned browser dependency
+        run: npm install --no-audit --no-fund
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Capture desktop/mobile and reduced-motion states
+        run: npm run capture:browser
+
+      - name: Validate capture manifest
+        run: npm run validate:browser
+
+      - name: Run visual regression
+        run: npm run visual:regression
+
+      - name: Upload browser artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: design-system-browser-artifacts
+          path: artifacts/browser-capture/
