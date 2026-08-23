@@ -318,8 +318,13 @@ skill/
 │   ├── extraction-schema.md       # schema do manifesto
 │   └── report-spec.md             # arquitetura do relatório vivo
 └── scripts/
-    ├── validate_design_system.py  # validação do JSON
-    └── render_design_system_report.py
+    ├── export_design_docs.py
+    ├── extract_video_frames.py
+    ├── probe_media_inventory.py
+    ├── render_design_system_report.py
+    ├── runtime_element_picker.js
+    ├── runtime_media_probe.js
+    └── validate_design_system.py
 ~~~
 
 ## ≡ Leituras recomendadas
@@ -358,12 +363,11 @@ A branch também traz três instrumentos reutilizáveis:
 
 O renderer só pré-visualiza assets locais/autorizados. URLs remotas permanecem como metadados com placeholder neutro, para preservar segurança e honestidade da evidência.
 
-### Validação e regressão
+### Validação do manifesto
 
 ~~~bash
 python3 skill/scripts/validate_design_system.py templates/media/experience-layer/design-system.json
-python3 skill/scripts/test_design_system.py
 ~~~
 
-Os manifests legados continuam compatíveis. Quality issues P0/P1 bloqueiam handoff; P2/P3 viram backlog explícito.
+Os manifests legados continuam compatíveis. Erros P0/P1 bloqueiam o handoff; gaps P2/P3 devem permanecer explícitos na documentação da extração.
 
