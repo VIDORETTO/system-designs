@@ -124,21 +124,3 @@ Every scroll/pointer effect must show what happens when the driver is absent or 
 
 Prefer real semantic controls for buttons, inputs, navigation, focus, disabled, error and loading states. The renderer should not interpolate untrusted HTML into examples. Use escaped data for labels and metadata.
 
-
-
-## 11. Browser and visual quality gate
-
-A production-grade report needs a repeatable rendered capture in addition to a valid JSON contract.
-
-The browser gate must:
-
-- render every configured target at matched desktop/mobile viewports;
-- capture normal and prefers-reduced-motion states;
-- collect runtime media/effect/motion evidence from the page;
-- record page errors, failed requests, title, headings and interactive/media counts;
-- validate that every viewport has both motion states;
-- compare against an authorized reviewed baseline when one exists;
-- report baseline-pending when a baseline is absent instead of silently passing pixel parity.
-
-A visual diff is a change detector, not a design judge. Any changed focal moment, text legibility, media crop or motion behavior still needs visual review.
-

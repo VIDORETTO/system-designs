@@ -278,26 +278,3 @@ Em uma sessão de navegador autorizada, use skill/scripts/runtime_media_probe.js
 
 O novo fixture em templates/media/experience-layer/ mostra o contrato v2 com background video, poster local neutro, relatório vivo, effects, motion lab, reduced-motion e provenance.
 
-
-
-## ✦ Production hardening
-
-Depois da primeira implementação, a skill ganhou um gate executável de browser:
-
-- Playwright pinado para capturar rotas, viewports desktop/mobile e reduced-motion;
-- manifest de captura com screenshots, page errors, request failures e runtime probe;
-- validação de cobertura normal/reduced-motion;
-- comparação visual por pixels com Pillow quando há baseline revisado;
-- GitHub Actions para rodar o contrato, renderer, fixtures, browser smoke e visual gate;
-- runbook de promoção de baselines e limites de autorização.
-
-Comandos principais:
-
-    npm install
-    npx playwright install chromium
-    npm run capture:browser
-    npm run validate:browser
-    npm run visual:regression
-
-O fixture `experience-layer` já possui baseline revisado para desktop/mobile e normal/reduced-motion; a CI bloqueia mudanças acima do limite de pixels. Novos targets entram como `baseline-pending` somente durante o bootstrap autorizado.
-
