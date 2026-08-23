@@ -53,7 +53,11 @@ def main() -> int:
         help="manifest paths; defaults to the media fixture",
     )
     args = parser.parse_args()
-    manifests = args.manifest or [ROOT / "templates/media/experience-layer/design-system.json"]
+    candidates = [
+        ROOT / "templates/saas/alethe-design-system/design-system.json",
+        ROOT / "templates/media/experience-layer/design-system.json",
+    ]
+    manifests = args.manifest or [path for path in candidates if path.is_file()]
     validator = load_module("design_system_validator", ROOT / "skill/scripts/validate_design_system.py")
     renderer = load_module("design_system_renderer", ROOT / "skill/scripts/render_design_system_report.py")
     failures: list[str] = []
