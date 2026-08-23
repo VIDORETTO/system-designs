@@ -62,7 +62,7 @@ Atualizado em 2026-08-22.
 
 - [x] Fases 0–6: contrato v2, Experience Layer, aquisição estática/runtime, mídia, efeitos, motion, renderer, quality gates, fixtures e documentação.
 - [x] Fase 7 operacional: picker de elemento, diff visual com fallback, extração de frames, export DESIGN.md/sidecar, benchmark de cobertura e auditoria de anti-patterns.
-- [~] DS-608: a branch está pronta para revisão; a abertura/triagem de PR permanece uma decisão de integração.
+- [x] DS-608: branch pronta e PR draft aberta em github.com/VIDORETTO/system-designs/pull/1; merge permanece decisão de integração.
 - [~] DS-705: o benchmark executável está disponível; a rodada comparativa em um corpus externo de sites precisa de URLs/autorização e execução de browser.
 
 Legenda: [x] implementado e validado localmente · [~] ferramenta/infraestrutura pronta, execução externa pendente · [ ] não iniciado.
@@ -368,7 +368,7 @@ Tornar a nova capacidade descobrível e reproduzível por outros agentes.
   - Registrar versão do schema, compatibilidade, comandos de validação e diferenças do report.
   - Aceite: um usuário consegue atualizar um manifesto existente seguindo apenas o guia.
 
-- [~] DS-608 — Preparar release/PR
+- [x] DS-608 — Preparar release/PR
   - Resumir mudanças, fixtures, gates, limitações e decisões de direitos.
   - Aceite: PR inclui screenshots do report em desktop/mobile e resultado do validator.
 
