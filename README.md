@@ -151,29 +151,33 @@ system-designs/
 ├── README.md
 ├── skill/
 │   ├── SKILL.md                       # instruções principais da skill
-│   ├── agents/openai.yaml             # nome, descrição e prompt padrão
+│   ├── agents/openai.yaml             # metadata e prompt padrão
 │   ├── assets/icon.svg                # ícone da skill
-│   ├── references/
-│   │   ├── acquisition-playbook.md    # cobertura e protocolo de evidências
-│   │   ├── examples.md                # exemplos e casos-limite
-│   │   ├── extraction-schema.md       # contrato do manifesto JSON
-│   │   └── report-spec.md             # especificação do relatório vivo
-│   └── scripts/
-│       ├── validate_design_system.py  # validação do manifesto
-│       └── render_design_system_report.py
+│   ├── references/                    # aquisição, schema e report spec
+│   └── scripts/                       # ferramentas públicas da skill
+│       ├── export_design_docs.py
+│       ├── extract_video_frames.py
+│       ├── probe_media_inventory.py
+│       ├── render_design_system_report.py
+│       ├── runtime_element_picker.js
+│       ├── runtime_media_probe.js
+│       └── validate_design_system.py
 └── templates/
-    ├── saas/
+    ├── README.md
+    ├── saas/alethe-design-system/
     │   ├── README.md
-    │   └── alethe-design-system/
-    │       ├── README.md
-    │       ├── design-system.json
-    │       ├── report.html
-    │       └── evidence/README.md
+    │   ├── design-system.json
+    │   ├── report.html
+    │   └── evidence/README.md
+    ├── media/experience-layer/
+    │   ├── README.md
+    │   ├── design-system.json
+    │   ├── report.html
+    │   └── evidence/
     ├── ecommerce/README.md
+    ├── education/README.md
     ├── finance/README.md
     ├── healthcare/README.md
-    ├── education/README.md
-    ├── media/README.md
     └── portfolio/README.md
 ~~~
 
@@ -205,6 +209,18 @@ python3 skill/scripts/render_design_system_report.py \
 ~~~
 
 Depois, abra <code>/tmp/design-system-report.html</code> no navegador. O template incluído em <code>templates/saas/alethe-design-system/</code> funciona como referência completa de manifesto, relatório e índice de evidências.
+
+## ↧ Baixar e usar a distribuição pública
+
+A branch `main` é autocontida e não exige npm, build ou dependências de runtime para explorar os templates. Depois de clonar ou baixar o ZIP, abra diretamente qualquer `report.html` no navegador:
+
+~~~bash
+git clone https://github.com/VIDORETTO/system-designs.git
+cd system-designs
+open templates/media/experience-layer/report.html
+~~~
+
+No Linux, substitua `open` por `xdg-open`; no Windows, use `start`. Para gerar uma nova saída a partir de um manifesto, os únicos scripts necessários estão em `skill/scripts/`: validação, renderização, inventário de mídia, probes runtime, extração de frames e exportação de documentação.
 
 ## ◌ Princípios de leitura
 
