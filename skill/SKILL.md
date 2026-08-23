@@ -237,5 +237,5 @@ Use the pinned Playwright runner:
 
 The runner captures every configured target at desktop/mobile and normal/reduced-motion states, writes screenshots, records page/request errors, and evaluates runtime_media_probe.js in the page context. Keep live-site configs private and authorized.
 
-The GitHub workflow in .github/workflows/design-system-quality.yml runs static validation, renderer smoke checks, browser capture and visual-regression reporting. Missing visual baselines are reported as baseline-pending until a reviewed baseline set is promoted; they are never treated as pixel parity.
+The GitHub workflow in .github/workflows/design-system-quality.yml runs static validation, renderer smoke checks, browser capture and visual-regression reporting. The checked-in experience-layer fixture has a reviewed desktop/mobile normal/reduced-motion baseline; new targets may report baseline-pending only during an authorized bootstrap and are never treated as pixel parity.
 
