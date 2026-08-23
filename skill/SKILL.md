@@ -221,3 +221,21 @@ The report must not autoplay remote or protected media. It can preview local aut
 meta.schema_version: 2 enables the optional experience, elements, media, and effects sections. Legacy manifests remain valid when those sections are absent. Run skill/scripts/validate_design_system.py before rendering; P0/P1 quality issues block handoff, while P2/P3 items become explicit follow-up work.
 
 The living report now includes identity, signature elements, media composition, effects, motion controls, component specimens, accessibility/content, evidence, gaps, and JSON export. Use the report as a specimen, not as a license to copy protected assets or copy.
+
+
+## Production browser gate
+
+The browser layer is now executable, not only a console recipe.
+
+Use the pinned Playwright runner:
+
+    npm install
+    npx playwright install chromium
+    npm run capture:browser
+    npm run validate:browser
+    npm run visual:regression
+
+The runner captures every configured target at desktop/mobile and normal/reduced-motion states, writes screenshots, records page/request errors, and evaluates runtime_media_probe.js in the page context. Keep live-site configs private and authorized.
+
+The GitHub workflow in .github/workflows/design-system-quality.yml runs static validation, renderer smoke checks, browser capture and visual-regression reporting. Missing visual baselines are reported as baseline-pending until a reviewed baseline set is promoted; they are never treated as pixel parity.
+
