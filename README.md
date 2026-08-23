@@ -258,3 +258,23 @@ Ele precisa **parecer e se comportar como uma amostra do sistema extraído**, us
 <div align="center">
   <sub>Evidence first · tokens with context · reports that demonstrate the system</sub>
 </div>
+
+
+## ✦ Experience Layer: quando o design é mais do que tokens
+
+A skill agora registra a camada que costuma desaparecer em inventários genéricos:
+
+- identidade, sensory words, anti-generic constraints e focal moment;
+- elementos de assinatura: textura, grain, silhouette, divider, cursor response e relações de camada;
+- mídia como composição: vídeo de background, poster, crop, scrim, text-safe zone, playback, performance e fallback;
+- efeitos com driver/job/fallback: scroll reveal, pointer glow, blur, blend, gradient, canvas e shader;
+- motion com propósito, não apenas duração: feedback, continuidade, hierarquia, atmosfera, navegação, estado e delight.
+
+Para investigar essa camada, use:
+
+    python3 skill/scripts/probe_media_inventory.py SOURCE --output inventory.json
+
+Em uma sessão de navegador autorizada, use skill/scripts/runtime_media_probe.js. Para um vídeo autorizado, use skill/scripts/extract_video_frames.py VIDEO OUTPUT_DIR --count 6. A documentação não baixa, reproduz ou embute mídia protegida automaticamente.
+
+O novo fixture em templates/media/experience-layer/ mostra o contrato v2 com background video, poster local neutro, relatório vivo, effects, motion lab, reduced-motion e provenance.
+

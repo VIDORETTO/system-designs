@@ -174,3 +174,50 @@ Do not call the extraction complete unless:
 ## Examples and edge cases
 
 Read [examples.md](references/examples.md) for trigger examples, screenshot-only behavior, authenticated flows, contradictory values, and expected outputs.
+
+
+## Experience Layer: identity, elements, media, effects
+
+For expressive, editorial, product-storytelling, or cinematic sites, add an Experience Layer before normalizing tokens. It prevents a generic component inventory from erasing the reason the site feels distinctive.
+
+Capture:
+
+- identity lock: one concise thesis, sensory words, anti-generic constraints, and supporting evidence;
+- focal moment: the first impression or reveal that carries the experience;
+- signature elements: material, anatomy, role, layer relationship, and protection rules;
+- named rules: reusable rules such as “media behind the reading plane” or “one focal gesture”;
+- media assets: kind, role, locator, crop, object position, scrim, blend, text-safe zone, playback, fallback, performance, and evidence;
+- effects: grain, blur, blend, gradient, canvas, shader, parallax, pointer response, and the driver/job/fallback for each;
+- motion jobs: feedback, continuity, hierarchy, atmosphere, navigation, state, or delight.
+
+Use the static candidate probe for source files:
+
+    python3 skill/scripts/probe_media_inventory.py SOURCE --output inventory.json
+
+Use skill/scripts/runtime_media_probe.js in an authorized browser session to record current DOM media, computed composition, playback state, resource timing, active Web Animations, canvas signals, and limitations. A runtime snapshot does not prove trigger semantics; sample load, scroll, pointer, focus, open/close, and reduced-motion states separately.
+
+When an authorized video file is available, use:
+
+    python3 skill/scripts/extract_video_frames.py VIDEO OUTPUT_DIR --count 6
+
+Treat frame extraction as computed evidence. It helps inspect crop, focal stability, loop continuity, and text-safe zones; it does not prove every playback state.
+
+### Background video policy
+
+A background video is valid only when its purpose is explicit and the contract records:
+
+- autoplay, muted, loop, playsinline and preload;
+- poster and reduced-motion/static fallback;
+- no essential information baked only into frames;
+- text-safe composition, crop/object-position, scrim/overlay and layer order;
+- offscreen pause/release strategy and a weight/format target;
+- mobile/data-saver behavior;
+- evidence ID plus whether playback was observed, inferred, or recommended.
+
+The report must not autoplay remote or protected media. It can preview local authorized evidence, otherwise it shows a neutral placeholder and the metadata.
+
+### Schema v2 and compatibility
+
+meta.schema_version: 2 enables the optional experience, elements, media, and effects sections. Legacy manifests remain valid when those sections are absent. Run skill/scripts/validate_design_system.py before rendering; P0/P1 quality issues block handoff, while P2/P3 items become explicit follow-up work.
+
+The living report now includes identity, signature elements, media composition, effects, motion controls, component specimens, accessibility/content, evidence, gaps, and JSON export. Use the report as a specimen, not as a license to copy protected assets or copy.

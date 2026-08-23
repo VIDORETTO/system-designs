@@ -141,3 +141,51 @@ Pause and report a gap when:
 - the available screenshots cannot support the requested fidelity.
 
 Continue with accessible evidence and clearly bound conclusions instead of inventing missing details.
+
+
+## 9. Experience/media acquisition
+
+A visually distinctive site needs an experience pass in addition to token extraction.
+
+### Experience pass
+
+1. Write a provisional identity thesis from repeated evidence; label it inferred until a source/design note supports it.
+2. Identify the first focal moment: hero reveal, product interaction, editorial transition, or other high-salience moment.
+3. Inventory signature elements by material and relationship: silhouette, scrim, texture, divider, cursor response, canvas, illustration, or layered media.
+4. Name the rules that keep the system from becoming generic. Include both observed rules and clearly labeled recommendations.
+5. Test the thesis against a second route or viewport. If it fails, narrow the claim.
+
+### Static media probe
+
+Run skill/scripts/probe_media_inventory.py against HTML/CSS/JS sources. Treat URLs, video/audio/image elements, canvas, CSS effects, keyframes, scroll/pointer hints, and Lottie/WebGL strings as candidates. The output is a source observation, not runtime proof.
+
+### Runtime media probe
+
+In an authorized browser session, paste skill/scripts/runtime_media_probe.js. Capture:
+
+- current source/currentSrc, poster, visibility, rect, object-fit/object-position, opacity, filter, backdrop-filter, blend mode, z-index;
+- autoplay/muted/loop/playsinline/paused/currentTime/duration/readyState for video/audio;
+- media resource timing and transfer-size signals;
+- active Web Animations and DOM hints for scroll, pointer, canvas, View Transitions;
+- viewport, DPR, URL, reduced-motion preference, route/state and limitations.
+
+Repeat after safe interactions. Do not infer “scroll-driven” from an animation snapshot without an interaction capture.
+
+### Video/hero procedure
+
+For each background or ambient video, record:
+
+- why video is used and which visual job it performs;
+- loop duration, first/last-frame continuity, focal stability, crop and text-safe zone;
+- autoplay, muted, loop, playsinline and preload;
+- poster, reduced-motion, low-bandwidth and mobile/data-saver fallback;
+- sound policy and captions/transcript if media is meaningful content;
+- offscreen pause/release, format/weight target and decode cost;
+- overlay/scrim/blend/layer order and whether content remains readable.
+
+If an authorized file is available, run extract_video_frames.py and inspect representative frames. If it is not available, record a gap and use recording/screenshot evidence instead. Never download or embed a protected asset merely to make the report look complete.
+
+### Effects procedure
+
+For grain, blur, gradients, blend, masks, canvas, shaders and pointer/parallax effects, capture the target, driver, job, properties, performance strategy and fallback. Every scroll/pointer effect needs a static or reduced-motion alternative. Prefer compositor-friendly transforms/opacity and observer-based reveals over continuous main-thread work.
+

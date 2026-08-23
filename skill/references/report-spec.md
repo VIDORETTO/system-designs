@@ -98,3 +98,29 @@ Do not claim the report is production-ready solely because it renders. Validate 
 - Token/code exports are copyable or downloadable.
 - Source logos, copy, photos, and personal data are omitted unless authorized.
 - No important section contains unlabeled invented values.
+
+
+## 10. Experience and media specimen
+
+For schema v2 reports, add these sections before the component inventory:
+
+- identity lock and focal moment;
+- signature elements and named rules;
+- media inventory with local poster/still previews, role, composition, playback, fallback and performance;
+- effects lab with driver, job and static/reduced fallback;
+- motion lab with replay, pause, slow and reduced-motion controls.
+
+### Media safety and fidelity
+
+Do not autoplay remote/protected media in a documentation report. If a local authorized preview is unavailable, render a neutral placeholder with the asset metadata. A video card must expose its poster, fallback, composition, and performance notes. A background video without a static or reduced-motion fallback is a P1 quality failure.
+
+Use semantic video muted playsinline controls only for local evidence previews. Essential copy must live in HTML, with text alternatives for meaningful media.
+
+### Effects and motion
+
+Every scroll/pointer effect must show what happens when the driver is absent or reduced. Show compositor/performance notes and identify whether the trigger was observed, computed, inferred, or recommended. Include prefers-reduced-motion CSS and an explicit user control in the lab.
+
+### Component specimen
+
+Prefer real semantic controls for buttons, inputs, navigation, focus, disabled, error and loading states. The renderer should not interpolate untrusted HTML into examples. Use escaped data for labels and metadata.
+

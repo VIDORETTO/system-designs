@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">Neutral hero video poster</title>
+  <desc id="desc">Abstract lime light moving behind a dark product silhouette.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#0e1014"/>
+      <stop offset=".55" stop-color="#191d24"/>
+      <stop offset="1" stop-color="#39422a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".72" cy=".38" r=".5">
+      <stop offset="0" stop-color="#c9ff55" stop-opacity=".75"/>
+      <stop offset="1" stop-color="#c9ff55" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="700" fill="url(#bg)"/>
+  <rect width="1200" height="700" fill="url(#glow)"/>
+  <path d="M0 560C220 470 310 510 510 390s350-210 690-92v402H0Z" fill="#0e1014" fill-opacity=".75"/>
+  <rect x="690" y="180" width="255" height="350" rx="44" fill="#0a0c0f" fill-opacity=".88" transform="rotate(7 690 180)"/>
+  <circle cx="815" cy="318" r="28" fill="#c9ff55" fill-opacity=".85"/>
+  <path d="M0 602h1200" stroke="#f4f1e9" stroke-opacity=".16"/>
+</svg>

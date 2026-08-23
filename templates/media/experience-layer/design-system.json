@@ -1,0 +1,933 @@
+{
+  "meta": {
+    "schema_version": 2,
+    "name": "Atmospheric Product Studio",
+    "source_name": "Neutral media-and-motion reference fixture",
+    "generated_at": "2026-08-22T00:00:00Z",
+    "scope": [
+      "experience layer",
+      "visual foundations",
+      "responsive behavior",
+      "components and states",
+      "media composition",
+      "motion and effects",
+      "accessibility"
+    ],
+    "fidelity_target": "pattern-level reconstruction without protected brand assets",
+    "overall_confidence": "medium",
+    "method_summary": "Fixture demonstrando como registrar identidade, focal moment, hero video, fallbacks, effects, motion jobs e evidência sem transformar hipótese em fato."
+  },
+  "sources": [
+    {
+      "id": "E-live-home-desktop-001",
+      "source_type": "live",
+      "locator": "https://example.invalid/studio",
+      "captured_at": "2026-08-22T00:00:00Z",
+      "context": {
+        "route": "/studio",
+        "state": "initial",
+        "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1
+        },
+        "theme": "dark"
+      },
+      "limitations": [
+        "Neutral fixture; no protected source assets are embedded."
+      ]
+    },
+    {
+      "id": "E-live-home-mobile-001",
+      "source_type": "live",
+      "locator": "https://example.invalid/studio",
+      "captured_at": "2026-08-22T00:00:00Z",
+      "context": {
+        "route": "/studio",
+        "state": "initial",
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "dpr": 3
+        },
+        "theme": "dark"
+      },
+      "limitations": [
+        "Mobile evidence confirms reflow, not every interaction state."
+      ]
+    },
+    {
+      "id": "E-runtime-hero-media-001",
+      "source_type": "recording",
+      "locator": "evidence/hero-loop-capture.webm",
+      "captured_at": "2026-08-22T00:00:00Z",
+      "context": {
+        "route": "/studio",
+        "state": "hero-background-playing",
+        "viewport": {
+          "width": 1440,
+          "height": 900,
+          "dpr": 1
+        },
+        "interval": "00:00-00:08"
+      },
+      "limitations": [
+        "Playback evidence covers the initial hero viewport only."
+      ]
+    },
+    {
+      "id": "E-source-runtime-probe-001",
+      "source_type": "source",
+      "locator": "skill/scripts/runtime_media_probe.js",
+      "captured_at": "2026-08-22T00:00:00Z",
+      "context": {
+        "route": "/studio",
+        "state": "runtime inventory"
+      },
+      "limitations": [
+        "Probe snapshot does not establish trigger semantics without interaction sampling."
+      ]
+    }
+  ],
+  "principles": [
+    {
+      "id": "principle-atmosphere-supports-clarity",
+      "label": "Atmosphere supports the focal action",
+      "statement": "Motion and media establish confidence around the product moment; they never compete with the primary action.",
+      "basis": "inferred",
+      "confidence": "medium",
+      "evidence_ids": [
+        "E-live-home-desktop-001",
+        "E-runtime-hero-media-001"
+      ]
+    },
+    {
+      "id": "principle-material-contrast",
+      "label": "Soft material contrast",
+      "statement": "Surface, grain and glow create depth through restrained contrast rather than many colors.",
+      "basis": "observed",
+      "confidence": "medium",
+      "evidence_ids": [
+        "E-live-home-desktop-001"
+      ]
+    }
+  ],
+  "experience": {
+    "surface_mode": "experience",
+    "identity_lock": {
+      "id": "identity-lock-atmospheric-studio",
+      "summary": "Calm, tactile and cinematic product confidence.",
+      "thesis": "A quiet studio where the interface feels like a material object coming into focus.",
+      "sensory_words": [
+        "calm",
+        "tactile",
+        "cinematic",
+        "precise"
+      ],
+      "anti_generic": [
+        "Avoid dashboard-first density above the fold.",
+        "Do not flatten ambient media into a static gradient when the focal moment depends on depth."
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "evidence_ids": [
+        "E-live-home-desktop-001",
+        "E-runtime-hero-media-001"
+      ]
+    },
+    "focal_moment": {
+      "id": "focal-hero-reveal",
+      "name": "Hero reveal",
+      "description": "The headline and primary action become legible as the background loop settles behind the product silhouette.",
+      "why": "It establishes the emotional promise before the visitor enters the detail sections.",
+      "basis": "observed",
+      "confidence": "medium",
+      "evidence_ids": [
+        "E-live-home-desktop-001",
+        "E-runtime-hero-media-001"
+      ]
+    },
+    "signature_elements": [
+      {
+        "id": "signature-hero-silhouette",
+        "name": "Hero silhouette",
+        "kind": "layered-media",
+        "role": "focal",
+        "anatomy": [
+          "background video",
+          "contrast overlay",
+          "product silhouette",
+          "headline",
+          "primary action"
+        ],
+        "material": "slow, low-contrast movement with a stable reading plane",
+        "basis": "observed",
+        "confidence": "medium",
+        "evidence_ids": [
+          "E-runtime-hero-media-001"
+        ]
+      },
+      {
+        "id": "signature-soft-rule",
+        "name": "Soft rule line",
+        "kind": "divider",
+        "role": "continuity",
+        "anatomy": [
+          "1px line",
+          "low-alpha neutral",
+          "wide section rhythm"
+        ],
+        "material": "thin and quiet; never a decorative border grid",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-live-home-desktop-001",
+          "E-live-home-mobile-001"
+        ]
+      }
+    ],
+    "named_rules": [
+      {
+        "id": "rule-media-behind-reading-plane",
+        "name": "Media behind the reading plane",
+        "rule": "Background motion stays behind a readable scrim and never carries essential copy.",
+        "basis": "inferred",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-runtime-hero-media-001"
+        ]
+      },
+      {
+        "id": "rule-one-focal-gesture",
+        "name": "One focal gesture",
+        "rule": "Only one dominant movement is active in a viewport region at a time.",
+        "basis": "recommended",
+        "confidence": "medium",
+        "rationale": "Preserves attention and reduces motion load."
+      }
+    ],
+    "dos": [
+      "Keep the hero video muted, inline, looped and visually subordinate.",
+      "Use a poster and a still/reduced-motion state that preserves the composition.",
+      "Name the job of every effect: atmosphere, hierarchy, feedback or continuity."
+    ],
+    "donts": [
+      "Do not autoplay sound.",
+      "Do not hide essential content inside a video frame.",
+      "Do not add parallax, grain and cursor glow without a low-power fallback."
+    ],
+    "recommendations": [
+      {
+        "id": "rec-capture-interaction-variants",
+        "label": "Capture interaction variants",
+        "recommendation": "Capture hover, focus-visible, scroll-enter and reduced-motion states at matched viewports.",
+        "basis": "recommended",
+        "confidence": "medium",
+        "rationale": "The static hero evidence is not enough to infer every trigger."
+      }
+    ]
+  },
+  "foundations": {
+    "colors": [
+      {
+        "token": "color.surface.canvas",
+        "value": "#0E1014",
+        "usage": [
+          "page background",
+          "video fallback"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-live-home-desktop-001"
+        ]
+      },
+      {
+        "token": "color.surface.raised",
+        "value": "#191D24",
+        "usage": [
+          "cards",
+          "controls"
+        ],
+        "basis": "computed",
+        "confidence": "medium",
+        "evidence_ids": [
+          "E-live-home-desktop-001"
+        ]
+      },
+      {
+        "token": "color.content.primary",
+        "value": "#F4F1E9",
+        "usage": [
+          "headings",
+          "primary copy"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-live-home-desktop-001",
+          "E-live-home-mobile-001"
+        ]
+      },
+      {
+        "token": "color.content.secondary",
+        "value": "#A9ADB5",
+        "usage": [
+          "supporting copy",
+          "metadata"
+        ],
+        "basis": "observed",
+        "confidence": "medium",
+        "evidence_ids": [
+          "E-live-home-desktop-001"
+        ]
+      },
+      {
+        "token": "color.action.primary",
+        "value": "#C9FF55",
+        "usage": [
+          "primary CTA",
+          "active emphasis"
+        ],
+        "contrast_pairs": [
+          "color.surface.canvas"
+        ],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-live-home-desktop-001"
+        ]
+      },
+      {
+        "token": "color.line.subtle",
+        "value": "rgba(244,241,233,.16)",
+        "usage": [
+          "soft rule",
+          "card boundary"
+        ],
+        "basis": "computed",
+        "confidence": "medium",
+        "evidence_ids": [
+          "E-live-home-desktop-001"
+        ]
+      }
+    ],
+    "typography": {
+      "family": "Inter, ui-sans-serif, system-ui",
+      "roles": [
+        {
+          "token": "type.display",
+          "family": "Inter",
+          "weight": 760,
+          "size": "clamp(3rem, 8vw, 8rem)",
+          "line_height": 0.88,
+          "letter_spacing": "-0.09em",
+          "usage": "hero headline",
+          "basis": "computed",
+          "confidence": "medium",
+          "evidence_ids": [
+            "E-live-home-desktop-001",
+            "E-live-home-mobile-001"
+          ]
+        },
+        {
+          "token": "type.body",
+          "family": "Inter",
+          "weight": 400,
+          "size": "1rem",
+          "line_height": 1.55,
+          "letter_spacing": "0",
+          "usage": "body copy",
+          "basis": "observed",
+          "confidence": "medium",
+          "evidence_ids": [
+            "E-live-home-desktop-001"
+          ]
+        }
+      ]
+    },
+    "spacing": [
+      {
+        "token": "space.1",
+        "value": "0.25rem",
+        "basis": "computed",
+        "confidence": "medium",
+        "evidence_ids": [
+          "E-live-home-desktop-001"
+        ]
+      },
+      {
+        "token": "space.4",
+        "value": "1rem",
+        "basis": "computed",
+        "confidence": "medium",
+        "evidence_ids": [
+          "E-live-home-desktop-001",
+          "E-live-home-mobile-001"
+        ]
+      },
+      {
+        "token": "space.12",
+        "value": "3rem",
+        "basis": "computed",
+        "confidence": "medium",
+        "evidence_ids": [
+          "E-live-home-desktop-001"
+        ]
+      }
+    ],
+    "sizing": {
+      "content_max": "1320px",
+      "control_height": "44px",
+      "icon_sizes": [
+        "16px",
+        "20px",
+        "24px"
+      ],
+      "basis": "computed",
+      "confidence": "medium",
+      "evidence_ids": [
+        "E-live-home-desktop-001"
+      ]
+    },
+    "grid": {
+      "max_width": "1320px",
+      "desktop_gutter": "1.4rem",
+      "mobile_gutter": "1rem",
+      "columns": "12",
+      "basis": "computed",
+      "confidence": "medium",
+      "evidence_ids": [
+        "E-live-home-desktop-001",
+        "E-live-home-mobile-001"
+      ]
+    },
+    "radii": [
+      {
+        "token": "radius.card",
+        "value": "18px",
+        "basis": "computed",
+        "confidence": "medium",
+        "evidence_ids": [
+          "E-live-home-desktop-001"
+        ]
+      }
+    ],
+    "borders": [
+      {
+        "token": "border.subtle",
+        "value": "1px solid rgba(244,241,233,.16)",
+        "basis": "computed",
+        "confidence": "medium",
+        "evidence_ids": [
+          "E-live-home-desktop-001"
+        ]
+      }
+    ],
+    "shadows": [
+      {
+        "token": "shadow.ambient",
+        "value": "0 24px 80px rgba(0,0,0,.18)",
+        "basis": "inferred",
+        "confidence": "low",
+        "evidence_ids": [
+          "E-live-home-desktop-001"
+        ]
+      }
+    ],
+    "opacity": [
+      {
+        "token": "opacity.overlay",
+        "value": 0.64,
+        "basis": "computed",
+        "confidence": "medium",
+        "evidence_ids": [
+          "E-runtime-hero-media-001"
+        ]
+      }
+    ],
+    "z_index": [
+      {
+        "token": "layer.media",
+        "value": 0,
+        "basis": "inferred",
+        "confidence": "medium",
+        "evidence_ids": [
+          "E-runtime-hero-media-001"
+        ]
+      },
+      {
+        "token": "layer.content",
+        "value": 1,
+        "basis": "inferred",
+        "confidence": "medium",
+        "evidence_ids": [
+          "E-runtime-hero-media-001"
+        ]
+      }
+    ],
+    "iconography": {
+      "library": "stroke-based utility icons",
+      "stroke": "1.5px",
+      "basis": "inferred",
+      "confidence": "low",
+      "evidence_ids": [
+        "E-live-home-desktop-001"
+      ]
+    },
+    "imagery": {
+      "language": "soft crops, sparse subjects, restrained saturation",
+      "treatment": [
+        "scrim",
+        "object-fit cover",
+        "focal point protected from copy"
+      ],
+      "basis": "observed",
+      "confidence": "medium",
+      "evidence_ids": [
+        "E-runtime-hero-media-001"
+      ]
+    }
+  },
+  "responsive": {
+    "rules": [
+      {
+        "id": "responsive-hero-reflow",
+        "name": "Hero reflow",
+        "viewport_range": "390–767px",
+        "change": "headline and action stack; media crop tightens; navigation collapses",
+        "behavior": "reflow",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": [
+          "E-live-home-mobile-001",
+          "E-live-home-desktop-001"
+        ]
+      },
+      {
+        "id": "responsive-background-crop",
+        "name": "Background crop protection",
+        "viewport_range": "all",
+        "change": "object-position favors the product silhouette as aspect ratio changes",
+        "behavior": "container-change",
+        "basis": "inferred",
+        "confidence": "medium",
+        "evidence_ids": [
+          "E-runtime-hero-media-001"
+        ]
+      }
+    ]
+  },
+  "motion": {
+    "reduced_motion": {
+      "policy": "Freeze decorative movement, retain state feedback and preserve the same reading hierarchy.",
+      "implementation": "poster/still for media; opacity and color for transitions",
+      "basis": "recommended",
+      "confidence": "high"
+    },
+    "patterns": [
+      {
+        "id": "motion-hero-settle",
+        "name": "Hero settle",
+        "trigger": "load",
+        "driver": "load",
+        "job": "atmosphere",
+        "properties": [
+          "opacity",
+          "transform"
+        ],
+        "duration": "900ms",
+        "easing": "cubic-bezier(.22,1,.36,1)",
+        "performance": "transform and opacity only; compositor-friendly",
+        "reduced_motion": "show poster and skip translate",
+        "basis": "observed",
+        "confidence": "medium",
+        "evidence_ids": [
+          "E-runtime-hero-media-001"
+        ]
+      },
+      {
+        "id": "motion-scroll-reveal",
+        "name": "Section reveal",
+        "trigger": "scroll",
+        "driver": "scroll",
+        "job": "continuity",
+        "properties": [
+          "opacity",
+          "translateY"
+        ],
+        "duration": "500ms",
+        "easing": "cubic-bezier(.22,1,.36,1)",
+        "stagger": "80ms",
+        "performance": "IntersectionObserver; stop observing after reveal",
+        "reduced_motion": "instant visibility with no translation",
+        "basis": "inferred",
+        "confidence": "medium",
+        "evidence_ids": [
+          "E-source-runtime-probe-001"
+        ]
+      }
+    ]
+  },
+  "components": [
+    {
+      "id": "component-primary-action",
+      "name": "Primary action",
+      "anatomy": [
+        "label",
+        "optional leading icon",
+        "focus ring"
+      ],
+      "variants": [
+        "solid",
+        "quiet"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "focus-visible",
+        "pressed",
+        "disabled"
+      ],
+      "interaction": "button",
+      "content_limits": {
+        "label": "one short phrase",
+        "max_width": "18rem"
+      },
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": [
+        "E-live-home-desktop-001",
+        "E-live-home-mobile-001"
+      ]
+    },
+    {
+      "id": "component-media-card",
+      "name": "Media card",
+      "anatomy": [
+        "poster or still",
+        "eyebrow",
+        "title",
+        "metadata"
+      ],
+      "variants": [
+        "image",
+        "video",
+        "audio"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "focus-visible",
+        "loading",
+        "error"
+      ],
+      "interaction": "link",
+      "content_limits": {
+        "title_lines": 2,
+        "metadata_lines": 1
+      },
+      "basis": "inferred",
+      "confidence": "medium",
+      "evidence_ids": [
+        "E-live-home-desktop-001"
+      ]
+    },
+    {
+      "id": "component-navigation",
+      "name": "Navigation",
+      "anatomy": [
+        "wordmark",
+        "links",
+        "primary action",
+        "mobile menu trigger"
+      ],
+      "variants": [
+        "desktop",
+        "mobile"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "focus-visible",
+        "active",
+        "expanded"
+      ],
+      "interaction": "navigation",
+      "basis": "observed",
+      "confidence": "medium",
+      "evidence_ids": [
+        "E-live-home-desktop-001",
+        "E-live-home-mobile-001"
+      ]
+    }
+  ],
+  "elements": [
+    {
+      "id": "element-grain-overlay",
+      "kind": "texture",
+      "role": "decorative",
+      "material": "low-alpha grain layer over the hero scrim",
+      "anatomy": [
+        "pseudo-element",
+        "blend mode",
+        "low opacity"
+      ],
+      "basis": "observed",
+      "confidence": "medium",
+      "evidence_ids": [
+        "E-runtime-hero-media-001"
+      ]
+    },
+    {
+      "id": "element-cursor-glow",
+      "kind": "pointer-response",
+      "role": "ambient",
+      "material": "soft radial glow following pointer inside the hero",
+      "anatomy": [
+        "pointer position",
+        "radial gradient",
+        "clamped bounds"
+      ],
+      "basis": "inferred",
+      "confidence": "low",
+      "evidence_ids": [
+        "E-source-runtime-probe-001"
+      ]
+    }
+  ],
+  "media": {
+    "policy": {
+      "summary": "Background video is an atmospheric layer: silent, inline, looped, poster-backed and optional.",
+      "autoplay_requires": [
+        "muted",
+        "playsinline",
+        "poster",
+        "reduced-motion fallback",
+        "offscreen pause"
+      ],
+      "quality": "prefer a short loop with a stable focal area and no essential text baked into frames",
+      "accessibility": "never rely on video for essential information"
+    },
+    "assets": [
+      {
+        "id": "media-hero-loop",
+        "label": "Hero atmospheric loop",
+        "kind": "video",
+        "role": "hero-background",
+        "url": "media/hero-loop.webm",
+        "poster": "./evidence/hero-poster.svg",
+        "preview_url": null,
+        "alt": "Abstract light moving behind a product silhouette",
+        "duration": "8s",
+        "playback": {
+          "autoplay": true,
+          "muted": true,
+          "loop": true,
+          "playsinline": true,
+          "preload": "metadata",
+          "pause_when_offscreen": true
+        },
+        "composition": {
+          "layer": "behind-content",
+          "object_fit": "cover",
+          "object_position": "62% 44%",
+          "scrim": "linear-gradient(90deg, rgba(14,16,20,.88), rgba(14,16,20,.24))",
+          "blend": "normal",
+          "safe_text_zone": "left 42%"
+        },
+        "fallback": {
+          "poster": "./evidence/hero-poster.svg",
+          "reduced_motion": "static poster with no decorative translation",
+          "low_bandwidth": "poster only"
+        },
+        "performance": {
+          "max_bytes_target": 2400000,
+          "offscreen": "pause and release decoder when outside viewport",
+          "mobile": "prefer poster below 480px if data saver is active"
+        },
+        "basis": "observed",
+        "confidence": "medium",
+        "evidence_ids": [
+          "E-runtime-hero-media-001"
+        ]
+      },
+      {
+        "id": "media-product-still",
+        "label": "Product still",
+        "kind": "image",
+        "role": "content",
+        "url": "media/product-still.avif",
+        "preview_url": "./evidence/product-still.svg",
+        "alt": "Neutral product still used to anchor the content section",
+        "ratio": "4:3",
+        "crop": "center",
+        "basis": "observed",
+        "confidence": "medium",
+        "evidence_ids": [
+          "E-live-home-desktop-001"
+        ]
+      }
+    ],
+    "resources": [
+      {
+        "url": "media/hero-loop.webm",
+        "initiator": "video",
+        "duration_ms": 132,
+        "transfer_size": 1832000,
+        "basis": "computed",
+        "confidence": "low",
+        "evidence_ids": [
+          "E-source-runtime-probe-001"
+        ]
+      }
+    ]
+  },
+  "effects": [
+    {
+      "id": "effect-grain",
+      "kind": "grain",
+      "target": "hero",
+      "driver": "time",
+      "job": "atmosphere",
+      "fallback": "static low-alpha texture",
+      "performance": "CSS pseudo-element; no per-pixel JavaScript",
+      "basis": "observed",
+      "confidence": "medium",
+      "evidence_ids": [
+        "E-runtime-hero-media-001"
+      ]
+    },
+    {
+      "id": "effect-scroll-reveal",
+      "kind": "reveal",
+      "target": "section",
+      "driver": "scroll",
+      "job": "continuity",
+      "fallback": "instant visibility",
+      "performance": "IntersectionObserver; no continuous scroll handler",
+      "basis": "inferred",
+      "confidence": "medium",
+      "evidence_ids": [
+        "E-source-runtime-probe-001"
+      ]
+    },
+    {
+      "id": "effect-pointer-glow",
+      "kind": "cursor-glow",
+      "target": "hero",
+      "driver": "pointer",
+      "job": "atmosphere",
+      "fallback": "static radial gradient",
+      "performance": "throttle pointer updates with requestAnimationFrame",
+      "basis": "recommended",
+      "confidence": "low",
+      "rationale": "Optional enhancement; never required for comprehension."
+    }
+  ],
+  "patterns": [
+    {
+      "id": "pattern-hero-to-proof",
+      "name": "Hero to proof",
+      "template": [
+        "hero",
+        "proof strip",
+        "media card grid",
+        "primary action"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "evidence_ids": [
+        "E-live-home-desktop-001"
+      ]
+    },
+    {
+      "id": "pattern-cinematic-section",
+      "name": "Cinematic section",
+      "template": [
+        "eyebrow",
+        "large statement",
+        "single focal media",
+        "supporting metadata"
+      ],
+      "basis": "inferred",
+      "confidence": "medium",
+      "evidence_ids": [
+        "E-live-home-desktop-001",
+        "E-live-home-mobile-001"
+      ]
+    }
+  ],
+  "accessibility": {
+    "focus": "visible 3px primary outline with 3px offset",
+    "keyboard": "all actions and media controls reachable in DOM order",
+    "contrast": "primary action paired with dark canvas; verify supporting text per route",
+    "motion": "prefers-reduced-motion disables decorative movement and preserves state change",
+    "media": "video is muted and non-essential; poster provides equivalent visual context",
+    "basis": "inferred",
+    "confidence": "medium",
+    "evidence_ids": [
+      "E-live-home-desktop-001",
+      "E-live-home-mobile-001"
+    ]
+  },
+  "content_style": {
+    "voice": [
+      "calm",
+      "specific",
+      "confident"
+    ],
+    "sentence_length": "short to medium",
+    "headlines": "one idea per line; avoid generic feature clouds",
+    "content_limits": "preserve wrapping as part of hierarchy",
+    "basis": "inferred",
+    "confidence": "low",
+    "evidence_ids": [
+      "E-live-home-desktop-001"
+    ]
+  },
+  "exceptions": [
+    {
+      "id": "exception-mobile-media",
+      "label": "Mobile may use poster-only hero",
+      "reason": "Data saver and viewport crop can make autoplay video counterproductive.",
+      "basis": "recommended",
+      "confidence": "medium"
+    }
+  ],
+  "gaps": [
+    {
+      "id": "gap-reduced-motion-runtime",
+      "label": "Reduced-motion runtime capture pending",
+      "basis": "inferred",
+      "confidence": "medium",
+      "notes": "The contract includes a fallback; capture the actual route with OS/browser reduced-motion enabled."
+    }
+  ],
+  "additional_findings": [
+    {
+      "id": "finding-video-is-composition",
+      "label": "Video is a composition layer",
+      "finding": "The meaningful design decision is the relationship between playback, crop, scrim, text-safe zone and still fallback.",
+      "basis": "inferred",
+      "confidence": "high",
+      "evidence_ids": [
+        "E-runtime-hero-media-001"
+      ]
+    }
+  ],
+  "generated_assets": {
+    "poster": {
+      "path": "evidence/hero-poster.svg",
+      "basis": "recommended",
+      "confidence": "high",
+      "notes": "Neutral local poster for report preview only."
+    },
+    "frame_manifest": {
+      "path": "evidence/hero-loop-frames/manifest.json",
+      "basis": "computed",
+      "confidence": "low",
+      "notes": "Populate when an authorized video file is available."
+    }
+  }
+}

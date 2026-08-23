@@ -338,3 +338,32 @@ skill/
 <div align="center">
   <sub>Observed facts · explicit confidence · reusable grammar · safe evidence</sub>
 </div>
+
+
+## Experience Layer, mídia e efeitos
+
+Para sites em que a identidade depende de atmosfera, vídeo, textura, canvas ou movimento, o manifesto pode usar schema_version: 2 e adicionar:
+
+- experience: identity lock, focal moment, signature elements, named rules, do/don’t e recomendações;
+- elements: detalhes materiais e anatômicos que fazem a composição deixar de ser genérica;
+- media: inventário de imagens, vídeos, áudio, canvas, posters, crop, scrim, playback, fallback e performance;
+- effects: grain, blur, blend, gradients, pointer/scroll/canvas/shader e seus fallbacks;
+- motion: trigger, driver, job, properties, performance e reduced-motion.
+
+A branch também traz três instrumentos reutilizáveis:
+
+- skill/scripts/probe_media_inventory.py: varredura estática de HTML/CSS/JS;
+- skill/scripts/runtime_media_probe.js: snapshot seguro para colar no console de uma sessão autorizada;
+- skill/scripts/extract_video_frames.py: frames representativos e manifest de proveniência quando ffmpeg/ffprobe estiverem disponíveis.
+
+O renderer só pré-visualiza assets locais/autorizados. URLs remotas permanecem como metadados com placeholder neutro, para preservar segurança e honestidade da evidência.
+
+### Validação e regressão
+
+~~~bash
+python3 skill/scripts/validate_design_system.py templates/media/experience-layer/design-system.json
+python3 skill/scripts/test_design_system.py
+~~~
+
+Os manifests legados continuam compatíveis. Quality issues P0/P1 bloqueiam handoff; P2/P3 viram backlog explícito.
+
