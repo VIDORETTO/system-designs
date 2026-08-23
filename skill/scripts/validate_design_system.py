@@ -31,6 +31,22 @@ TOP_LEVEL = {
     "additional_findings",
     "generated_assets",
 }
+REQUIRED_TOP_LEVEL = {
+    "meta",
+    "sources",
+    "principles",
+    "foundations",
+    "responsive",
+    "motion",
+    "components",
+    "patterns",
+    "accessibility",
+    "content_style",
+    "exceptions",
+    "gaps",
+    "additional_findings",
+    "generated_assets",
+}
 META_REQUIRED = {
     "name",
     "source_name",
@@ -280,6 +296,7 @@ def validate_motion(
     errors: list[str],
     warnings: list[str],
     issues: list[dict[str, str]],
+    enriched: bool = False,
 ) -> None:
     if motion is None:
         return
@@ -287,7 +304,7 @@ def validate_motion(
         add(errors, "$.motion", "must be an object")
         return
     reduced = motion.get("reduced_motion")
-    if reduced is None and motion.get("patterns"):
+    if enriched and reduced is None and motion.get("patterns"):
         add_issue(issues, "P1", "$.motion", "motion section has no global reduced_motion policy")
     patterns = motion.get("patterns", [])
     if not isinstance(patterns, list):
@@ -299,15 +316,16 @@ def validate_motion(
             add(errors, path, "must be an object")
             continue
         validate_claim_fields(pattern, path, source_ids, errors, warnings)
-        for field in ("name", "trigger", "properties"):
-            if not pattern.get(field):
-                add_issue(issues, "P2", path, f"motion pattern missing '{field}'")
+        if enriched:
+            for field in ("name", "trigger", "properties"):
+                if not pattern.get(field):
+                    add_issue(issues, "P2", path, f"motion pattern missing '{field}'")
         driver = pattern.get("driver")
         if driver is not None and driver not in MOTION_DRIVERS:
             add(errors, f"{path}.driver", f"must be one of {sorted(MOTION_DRIVERS)}")
-        if not pattern.get("reduced_motion"):
+        if enriched and not pattern.get("reduced_motion"):
             add_issue(issues, "P1", path, "motion pattern has no reduced_motion alternative")
-        if not pattern.get("performance"):
+        if enriched and not pattern.get("performance"):
             add_issue(issues, "P2", path, "motion pattern has no performance note")
 
 
@@ -317,6 +335,7 @@ def validate_components(
     errors: list[str],
     warnings: list[str],
     issues: list[dict[str, str]],
+    enriched: bool = False,
 ) -> None:
     if components is None:
         return
@@ -335,7 +354,7 @@ def validate_components(
         states = component.get("states")
         if isinstance(states, list) and any(state in {"hover", "focus-visible"} for state in states):
             continue
-        if component.get("interaction"):
+        if enriched and component.get("interaction"):
             add_issue(issues, "P2", path, "interactive component does not document hover/focus-visible states")
 
 
@@ -346,7 +365,7 @@ def validate(data: Any) -> tuple[list[str], list[str], list[dict[str, str]]]:
     if not isinstance(data, dict):
         return ["$: root must be a JSON object"], warnings, issues
 
-    for key in sorted(TOP_LEVEL - set(data)):
+    for key in sorted(REQUIRED_TOP_LEVEL - set(data)):
         add(errors, "$", f"missing required top-level key '{key}'")
     for key in sorted(set(data) - TOP_LEVEL):
         add(warnings, "$", f"unknown top-level key '{key}'; consider additional_findings")
@@ -416,8 +435,9 @@ def validate(data: Any) -> tuple[list[str], list[str], list[dict[str, str]]]:
     validate_elements(data.get("elements"), source_ids, errors, warnings, issues)
     validate_media(data.get("media"), source_ids, errors, warnings, issues)
     validate_effects(data.get("effects"), source_ids, errors, warnings, issues)
-    validate_motion(data.get("motion"), source_ids, errors, warnings, issues)
-    validate_components(data.get("components"), source_ids, errors, warnings, issues)
+    enriched = isinstance(meta, dict) and meta.get("schema_version", 1) >= 2
+    validate_motion(data.get("motion"), source_ids, errors, warnings, issues, enriched=enriched)
+    validate_components(data.get("components"), source_ids, errors, warnings, issues, enriched=enriched)
 
     if isinstance(sources, list):
         viewports = {
