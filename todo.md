@@ -55,29 +55,41 @@ A implementação deve continuar separando Observed, Computed, Inferred e Recomm
 
 ---
 
+
+## Status da implementação nesta branch
+
+Atualizado em 2026-08-22.
+
+- [x] Fases 0–6: contrato v2, Experience Layer, aquisição estática/runtime, mídia, efeitos, motion, renderer, quality gates, fixtures e documentação.
+- [x] Fase 7 operacional: picker de elemento, diff visual com fallback, extração de frames, export DESIGN.md/sidecar, benchmark de cobertura e auditoria de anti-patterns.
+- [~] DS-608: a branch está pronta para revisão; a abertura/triagem de PR permanece uma decisão de integração.
+- [~] DS-705: o benchmark executável está disponível; a rodada comparativa em um corpus externo de sites precisa de URLs/autorização e execução de browser.
+
+Legenda: [x] implementado e validado localmente · [~] ferramenta/infraestrutura pronta, execução externa pendente · [ ] não iniciado.
+
 # Fase 0 — Baseline, compatibilidade e contrato
 
 ## Objetivo
 
 Criar uma base estável para a evolução sem quebrar o schema, o template Alethe ou os scripts atuais.
 
-- [ ] DS-000 — Registrar baseline atual
+- [x] DS-000 — Registrar baseline atual
   - Arquivos: skill/SKILL.md, skill/references, skill/scripts, templates/saas/alethe-design-system.
   - Aceite: validação atual, geração do relatório e estrutura do template ficam registradas no README da branch ou em uma nota de benchmark.
 
-- [ ] DS-001 — Introduzir versionamento do manifesto
+- [x] DS-001 — Introduzir versionamento do manifesto
   - Adicionar meta.schema_version sem tornar o campo obrigatório para manifests antigos.
   - Aceite: validator aceita manifests sem versão como versão legada e identifica a versão normalizada quando presente.
 
-- [ ] DS-002 — Definir política de compatibilidade
+- [x] DS-002 — Definir política de compatibilidade
   - Documentar quais campos são mantidos, quais são opcionais e como uma migração será feita.
   - Aceite: existe uma tabela de migração entre o schema atual e a Experience Layer.
 
-- [ ] DS-003 — Definir enums e IDs estáveis
+- [x] DS-003 — Definir enums e IDs estáveis
   - Enums para surface_mode, media.kind, media.role, effects.driver, motion.job e fallback.
   - Aceite: nomes estão documentados e não dependem de nomes de classe ou framework.
 
-- [ ] DS-004 — Criar fixture mínimo da nova camada
+- [x] DS-004 — Criar fixture mínimo da nova camada
   - Adicionar um manifesto pequeno com identity_lock, um elemento-signature, um vídeo observado e um motion pattern.
   - Aceite: fixture valida e contém evidência resolvível, confiança e limitações.
 
@@ -93,31 +105,31 @@ O fixture legado Alethe e o fixture novo validam juntos. Nenhuma alteração de 
 
 Incorporar o melhor do Impeccable sem transformar a extração em redesign: modo da superfície, identidade lock, focal moment e regras nomeadas.
 
-- [ ] DS-100 — Adicionar experience.surface_mode
+- [x] DS-100 — Adicionar experience.surface_mode
   - Valores: persuade, operate, read, experience.
   - Aceite: SKILL.md explica como o modo muda prioridade de motion, densidade, mídia e interação.
 
-- [ ] DS-101 — Adicionar experience.identity_lock
+- [x] DS-101 — Adicionar experience.identity_lock
   - Registrar superfície dominante, acento, tipografia, topologia, material, densidade e voz quando observáveis.
   - Aceite: uma frase de identidade pode ser rastreada a evidências e não usa nomes de estilos como conclusão sem dados.
 
-- [ ] DS-102 — Adicionar signature_elements
+- [x] DS-102 — Adicionar signature_elements
   - Modelar elementos que definem a experiência mesmo quando aparecem uma única vez: hero, marca, cursor, textura, grid, frame, separador, canvas ou tratamento de imagem.
   - Aceite: elementos únicos não são forçados a virar componente reutilizável.
 
-- [ ] DS-103 — Adicionar focal_moment
+- [x] DS-103 — Adicionar focal_moment
   - Registrar o momento que carrega a personalidade da primeira viewport: mecanismo, escala, posição, trigger e importância.
   - Aceite: o relatório consegue destacar o focal moment e explicar por que ele é significativo.
 
-- [ ] DS-104 — Adicionar named_rules, dos e donts
+- [x] DS-104 — Adicionar named_rules, dos e donts
   - Regras curtas, citable e baseadas em evidência ou explicitamente recomendadas.
   - Aceite: toda regra possui basis, confidence e evidence_ids quando não for recomendação.
 
-- [ ] DS-105 — Separar sistema observado de oportunidades
+- [x] DS-105 — Separar sistema observado de oportunidades
   - Criar uma área explícita para oportunidades recomendadas, incluindo mídia ou efeitos que não existem na fonte.
   - Aceite: uma recomendação de background video nunca aparece dentro de tokens observados.
 
-- [ ] DS-106 — Atualizar examples.md
+- [x] DS-106 — Atualizar examples.md
   - Incluir exemplos de site Persuade com vídeo, Experience com canvas e Operate sem motion decorativo.
   - Aceite: os exemplos explicam quando não adicionar efeitos.
 
@@ -133,36 +145,36 @@ Uma leitura sem assets ou motion ainda produz uma identidade honesta, com gaps e
 
 Transformar a coleta de mídia e efeitos em um protocolo repetível, com evidência suficiente para reconstrução.
 
-- [ ] DS-200 — Criar probe de inventário de mídia no runtime
+- [x] DS-200 — Criar probe de inventário de mídia no runtime
   - Detectar img, picture, source, video, audio, canvas, svg, iframe, Lottie e assets carregados dinamicamente.
   - Registrar locator, tipo MIME, dimensões, duração, poster, peso, fonte e status de carregamento.
   - Aceite: o probe distingue conteúdo, decoração, background e mídia de demonstração.
 
-- [ ] DS-201 — Criar probe de CSS visual
+- [x] DS-201 — Criar probe de CSS visual
   - Detectar background-image, gradients, pseudo-elements, masks, clip-path, filter, backdrop-filter, mix-blend-mode, object-fit, object-position, z-index e stacking contexts.
   - Aceite: o relatório consegue explicar a composição por camadas sem depender apenas de screenshot.
 
-- [ ] DS-202 — Criar probe de drivers de interação
+- [x] DS-202 — Criar probe de drivers de interação
   - Detectar animation/keyframes, transitions, requestAnimationFrame, IntersectionObserver, listeners de scroll/pointer, animation-timeline e View Transitions quando acessíveis.
   - Aceite: cada driver pode ser classificado como tempo, scroll, pointer, gesture ou state.
 
-- [ ] DS-203 — Registrar playback de vídeo
+- [x] DS-203 — Registrar playback de vídeo
   - Capturar autoplay, muted, loop, playsinline, controls, preload, poster, currentTime, duration e comportamento de pause/resume.
   - Aceite: vídeo decorativo sem áudio e vídeo de conteúdo são diferenciados.
 
-- [ ] DS-204 — Capturar filmstrip e frames-chave
+- [x] DS-204 — Capturar filmstrip e frames-chave
   - Para vídeo ou recording autorizado, registrar início, meio, fim, frame de poster e momentos de mudança.
   - Aceite: cada frame possui timestamp, viewport e evidence ID; se não for possível medir, registrar gap.
 
-- [ ] DS-205 — Capturar composição do asset
+- [x] DS-205 — Capturar composição do asset
   - Registrar crop, ponto focal, overlay, blend, máscara, camada, proporção e relação com texto/CTA.
   - Aceite: desktop e mobile podem ter regras distintas de crop ou substituição.
 
-- [ ] DS-206 — Capturar fallbacks e condições
+- [x] DS-206 — Capturar fallbacks e condições
   - Testar reduced motion, Save-Data quando controlável, mídia bloqueada, rede lenta, viewport estreito e elemento fora da viewport.
   - Aceite: ausência de teste vira gap, nunca comportamento presumido.
 
-- [ ] DS-207 — Preservar proveniência e direitos
+- [x] DS-207 — Preservar proveniência e direitos
   - Criar padrão para referenciar asset sem re-hospedar conteúdo protegido; registrar origem, hash ou locator quando permitido.
   - Aceite: report usa poster/placeholder neutro quando a mídia original não pode ser distribuída.
 
@@ -178,35 +190,35 @@ Uma página com vídeo, canvas ou textura consegue gerar um inventário de camad
 
 Expandir o contrato JSON sem duplicar tokens nem misturar comportamento observado com recomendação.
 
-- [ ] DS-300 — Adicionar foundations.media ou media.assets
+- [x] DS-300 — Adicionar foundations.media ou media.assets
   - Modelar kind, role, locator, poster, intrinsic, playback, composition, responsive, accessibility, performance, basis, confidence e evidence_ids.
   - Aceite: background video possui poster, reduced-motion e estratégia offscreen explícitos.
 
-- [ ] DS-301 — Adicionar elements[]
+- [x] DS-301 — Adicionar elements[]
   - Modelar id, kind, role, layer, anatomy, material, geometry, content behavior, tokens_used, responsive_behavior e interaction.
   - Aceite: elementos-signature podem existir sem virar componentes genéricos.
 
-- [ ] DS-302 — Adicionar effects[]
+- [x] DS-302 — Adicionar effects[]
   - Modelar kind, target, driver, properties, layering, intensity, trigger, fallback, performance e accessibility.
   - Aceite: parallax, cursor, grain, shader, mask e filter são descritos por propósito e não apenas por tecnologia.
 
-- [ ] DS-303 — Enriquecer motion
+- [x] DS-303 — Enriquecer motion
   - Adicionar thesis, job, driver, trigger, target, phases, duration, delay, stagger, easing, loop, interruption, reversal, scroll range, reduced_motion e performance.
   - Aceite: motion de screenshot recebe candidate/inferred, não easing observado falso.
 
-- [ ] DS-304 — Separar timing observado de timing recomendado
+- [x] DS-304 — Separar timing observado de timing recomendado
   - Registrar raw measurements, measured ranges, source declarations e recommendations em campos diferentes.
   - Aceite: uma duração baseada em frame rate não é apresentada como CSS exato.
 
-- [ ] DS-305 — Adicionar media/motion accessibility
+- [x] DS-305 — Adicionar media/motion accessibility
   - Registrar aria-hidden, alt, captions, audio policy, focus impact, reduced-motion alternative e state communication.
   - Aceite: o validator sinaliza autoplay sem fallback ou movimento sem alternativa.
 
-- [ ] DS-306 — Adicionar performance budget por mídia/efeito
+- [x] DS-306 — Adicionar performance budget por mídia/efeito
   - Registrar bytes, preload, lazy strategy, offscreen pause, GPU/CPU cost observado e fallback de baixo custo.
   - Aceite: efeitos caros têm estado de risco ou estratégia de degradação.
 
-- [ ] DS-307 — Refinar componentes representativos
+- [x] DS-307 — Refinar componentes representativos
   - Selecionar 5–10 componentes que expressem a gramática: botão, input, nav, chip, card e assinaturas.
   - Registrar variantes, estados, content rules e snippets self-contained quando possível.
   - Aceite: não extrair wrappers ou one-offs sem intenção repetida.
@@ -223,44 +235,44 @@ O schema representa tanto um dashboard sem mídia como uma landing page cinemato
 
 Fazer o report.html demonstrar os padrões extraídos, em vez de apenas exibir cards com metadados.
 
-- [ ] DS-400 — Adicionar seção Identity & Design DNA
+- [x] DS-400 — Adicionar seção Identity & Design DNA
   - Mostrar surface mode, identity lock, focal moment, named rules, dos/donts e limites.
   - Aceite: Observed, Inferred e Recommended são visualmente distinguíveis.
 
-- [ ] DS-401 — Adicionar galeria de signature elements
+- [x] DS-401 — Adicionar galeria de signature elements
   - Mostrar elemento, papel, camadas, tokens, evidências e responsive behavior.
   - Aceite: a galeria funciona com espécime neutro quando o asset original é protegido.
 
-- [ ] DS-402 — Criar component specimen engine
+- [x] DS-402 — Criar component specimen engine
   - Renderizar HTML/CSS real para componentes representativos, com escopo de classes e ícones inline quando aplicável.
   - Demonstrar default, hover, focus-visible, active, disabled, loading e error.
   - Aceite: componentes são alcançáveis por teclado e não são apenas screenshots.
 
-- [ ] DS-403 — Criar media lab
+- [x] DS-403 — Criar media lab
   - Mostrar poster, frame strip, metadados de playback, crop, overlays, fallbacks e origem.
   - Aceite: não iniciar áudio; não autoplayar loops de forma perturbadora; oferecer replay e poster.
 
-- [ ] DS-404 — Criar effects lab
+- [x] DS-404 — Criar effects lab
   - Permitir alternar time, scroll, pointer, static fallback, low-power e reduced-motion.
   - Aceite: remoção do efeito mantém conteúdo e hierarquia legíveis.
 
-- [ ] DS-405 — Tornar motion lab específico por pattern
+- [x] DS-405 — Tornar motion lab específico por pattern
   - Cada padrão tem replay, pause, slow, reduced motion, timeline, properties e evidence IDs.
   - Aceite: eliminar o motion-dot genérico como única demonstração.
 
-- [ ] DS-406 — Adicionar responsive comparison
+- [x] DS-406 — Adicionar responsive comparison
   - Mostrar a mesma região em desktop/mobile, com reflow, hide/show, reorder, replacement, density e crop.
   - Aceite: layout usa media queries reais, não imagem desktop escalada.
 
-- [ ] DS-407 — Renderizar accessibility, content_style e performance
+- [x] DS-407 — Renderizar accessibility, content_style e performance
   - Mostrar contraste, focus, alt/captions, long-content behavior, localization, autoplay policy e budgets.
   - Aceite: falhas da fonte permanecem visíveis como source findings; não são corrigidas silenciosamente.
 
-- [ ] DS-408 — Melhorar evidence viewer
+- [x] DS-408 — Melhorar evidence viewer
   - Permitir filtrar por evidence ID, viewport, estado, timestamp e fonte.
   - Aceite: cada claim principal leva ao contexto da evidência ou ao gap.
 
-- [ ] DS-409 — Expandir exports
+- [x] DS-409 — Expandir exports
   - Exportar CSS variables para tokens, motion, media e effects; opcionalmente gerar uma narrativa DESIGN.md.
   - Aceite: valores recomendados não entram no export observado sem rótulo.
 
@@ -276,39 +288,39 @@ O relatório usa os tokens extraídos em seu próprio shell, mostra os estados p
 
 Reduzir falsos positivos e impedir que extrações incompletas sejam chamadas de prontas.
 
-- [ ] DS-500 — Validar novos enums e estruturas
+- [x] DS-500 — Validar novos enums e estruturas
   - Verificar experience, elements, media, effects e motion.
   - Aceite: IDs, evidence_ids, basis e confidence são validados recursivamente.
 
-- [ ] DS-501 — Criar quality gates específicos de mídia
+- [x] DS-501 — Criar quality gates específicos de mídia
   - Sinalizar autoplay sem muted, video sem poster/fallback, ausência de mobile strategy, ausência de reduced-motion ou preload sem justificativa.
   - Aceite: o warning explica impacto e como resolver.
 
-- [ ] DS-502 — Criar quality gates específicos de motion
+- [x] DS-502 — Criar quality gates específicos de motion
   - Sinalizar pattern sem trigger, job, properties, timing, reduced motion ou performance.
   - Aceite: screenshots-only nunca exigem dados impossíveis; devem registrar gap.
 
-- [ ] DS-503 — Criar quality gates de componentes
+- [x] DS-503 — Criar quality gates de componentes
   - Sinalizar componente sem anatomia, estados relevantes, content rules ou foco quando interativo.
   - Aceite: estados não disponíveis são gaps, não valores inventados.
 
-- [ ] DS-504 — Criar score e severidade P0–P3
+- [x] DS-504 — Criar score e severidade P0–P3
   - Separar erros bloqueadores, gaps maiores, inconsistências menores e polish.
   - Aceite: o resultado contém score, evidências, falsos positivos possíveis e próximos passos.
 
-- [ ] DS-505 — Criar fixtures de regressão
+- [x] DS-505 — Criar fixtures de regressão
   - Landing com background video; portfolio com canvas/pointer; dashboard sem mídia decorativa; screenshot-only; recording-only; mídia inacessível/protegida.
   - Aceite: todos validam com os warnings esperados e outputs estáveis.
 
-- [ ] DS-506 — Testar renderer e HTML
+- [x] DS-506 — Testar renderer e HTML
   - Verificar JSON embutido, CSS balanceado, IDs únicos, links, clipboard fallback, focus, overflow e scripts.
   - Aceite: geração repetida produz HTML válido e navegável.
 
-- [ ] DS-507 — Verificar viewports e estados
+- [x] DS-507 — Verificar viewports e estados
   - Renderizar 390×844, 768×1024 quando relevante e 1440×900; testar keyboard e prefers-reduced-motion.
   - Aceite: cada viewport inspecionado aparece no handoff.
 
-- [ ] DS-508 — Criar benchmark de cobertura
+- [x] DS-508 — Criar benchmark de cobertura
   - Medir tokens com evidência, componentes com estados, motion com timing, mídia com fallback e claims sem provenance.
   - Aceite: a evolução da skill pode ser comparada entre versões.
 
@@ -324,39 +336,39 @@ O template legado continua com zero erros. Fixtures novos capturam casos difíce
 
 Tornar a nova capacidade descobrível e reproduzível por outros agentes.
 
-- [ ] DS-600 — Atualizar skill/SKILL.md
+- [x] DS-600 — Atualizar skill/SKILL.md
   - Incluir Experience Layer, inventário de mídia, effects lab, background video protocol e critérios de não-invenção.
   - Aceite: workflow principal aponta para as novas referências na ordem correta.
 
-- [ ] DS-601 — Atualizar acquisition-playbook.md
+- [x] DS-601 — Atualizar acquisition-playbook.md
   - Adicionar protocolo de vídeo, filmstrip, camadas, canvas, WebGL, pointer, scroll e condições de fallback.
   - Aceite: cada protocolo possui evidência mínima, limites e stop conditions.
 
-- [ ] DS-602 — Atualizar extraction-schema.md
+- [x] DS-602 — Atualizar extraction-schema.md
   - Documentar novas estruturas, enums, exemplos e migração.
   - Aceite: schema mantém um exemplo mínimo e um exemplo multimídia completo.
 
-- [ ] DS-603 — Atualizar report-spec.md
+- [x] DS-603 — Atualizar report-spec.md
   - Tornar media lab, effects lab, component specimens e evidence viewer parte da especificação.
   - Aceite: acceptance checklist cobre playback, poster, reduced motion e performance.
 
-- [ ] DS-604 — Atualizar examples.md
+- [x] DS-604 — Atualizar examples.md
   - Incluir casos de vídeo observado, vídeo recomendado, canvas, screenshot-only e source/runtime disagreement.
   - Aceite: exemplos mostram respostas honestas para gaps.
 
-- [ ] DS-605 — Atualizar templates
+- [x] DS-605 — Atualizar templates
   - Expandir o template Alethe sem quebrar seu pacote e criar ao menos um fixture media/portfolio.
   - Aceite: README do template explica direitos, assets neutros e como abrir o report.
 
-- [ ] DS-606 — Atualizar README raiz e metadata
+- [x] DS-606 — Atualizar README raiz e metadata
   - Explicar o novo escopo, exemplos de invocação e outputs.
   - Aceite: a descrição curta da skill menciona media, motion e visual effects sem prometer clonagem.
 
-- [ ] DS-607 — Criar changelog/migration guide
+- [x] DS-607 — Criar changelog/migration guide
   - Registrar versão do schema, compatibilidade, comandos de validação e diferenças do report.
   - Aceite: um usuário consegue atualizar um manifesto existente seguindo apenas o guia.
 
-- [ ] DS-608 — Preparar release/PR
+- [~] DS-608 — Preparar release/PR
   - Resumir mudanças, fixtures, gates, limitações e decisões de direitos.
   - Aceite: PR inclui screenshots do report em desktop/mobile e resultado do validator.
 
@@ -370,27 +382,27 @@ Outra pessoa consegue executar a skill, entender o novo schema, validar um fixtu
 
 Estas tarefas só entram depois dos gates anteriores.
 
-- [ ] DS-700 — Browser live mode com element picker
+- [x] DS-700 — Browser live mode com element picker
   - Selecionar um elemento, mostrar identidade extraída e gerar variantes no overlay.
   - Não substituir o fluxo de extração evidence-first.
 
-- [ ] DS-701 — Visual diff e focal-moment review
+- [x] DS-701 — Visual diff e focal-moment review
   - Comparar screenshots pareados e medir diferenças por região sem prometer pixel perfection.
   - Aceite: comparação identifica material differences e mantém evidência.
 
-- [ ] DS-702 — Pipeline de thumbnails/filmstrips
+- [x] DS-702 — Pipeline de thumbnails/filmstrips
   - Gerar frames de vídeo e previews de assets quando ffmpeg ou ferramenta equivalente estiver disponível.
   - Aceite: fallback apenas com metadata se a ferramenta não existir.
 
-- [ ] DS-703 — Export opcional para DESIGN.md + sidecar
+- [x] DS-703 — Export opcional para DESIGN.md + sidecar
   - Produzir narrativa durável, tokens portáteis e extensões para motion/media/effects.
   - Aceite: frontmatter não duplica o JSON e a fonte de verdade é explícita.
 
-- [ ] DS-704 — Detector de anti-patterns de documentação
+- [x] DS-704 — Detector de anti-patterns de documentação
   - Sinalizar relatório neutro demais, componente sem estados, media sem fallback, claims sem evidence e shell que não usa tokens.
   - Aceite: detector explica o problema e evita juízo estético genérico.
 
-- [ ] DS-705 — Benchmark em sites representativos
+- [~] DS-705 — Benchmark em sites representativos
   - Comparar cobertura em marketing, portfolio, editorial, dashboard, ecommerce e media.
   - Aceite: registrar tempo, cobertura, gaps, warnings e falsos positivos.
 
