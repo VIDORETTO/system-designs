@@ -81,7 +81,7 @@ jobs:
         run: npm run capture:browser
 
       - name: Validate capture manifest
-        run: npm run validate:browser
+        run: npm run validate:browser -- --strict-request-failures
 
       - name: Run visual regression
         run: npm run visual:regression
