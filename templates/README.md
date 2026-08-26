@@ -194,6 +194,13 @@ O template trabalha com cinco ideias principais:
 
 O relatório não replica a landing page original. Ele preserva regras e padrões usando conteúdo neutro quando a referência continha arte, marca ou material protegido.
 
+### <code>portfolio/ruben-marcus-agent-ready/</code>
+
+Pacote de portfólio técnico com canvas preto, ticker de disponibilidade, sinal
+verde fluorescente, grid responsivo de projetos, filtros, menu mobile e motion
+em camadas. Consulte o [README do pacote](portfolio/ruben-marcus-agent-ready/README.md)
+para a cobertura, as limitações e os comandos de validação.
+
 ## ⟡ Anatomia do pacote
 
 ~~~text

@@ -1,0 +1,1180 @@
+{
+  "meta": {
+    "name": "Ruben Marcus · Agent-ready dark interface system",
+    "source_name": "rubenmarcus.dev · Portfólio",
+    "generated_at": "2026-08-25T21:31:58-03:00",
+    "scope": [
+      "portfolio index route",
+      "global shell and fixed ticker",
+      "filter interaction",
+      "desktop and mobile navigation",
+      "scroll state",
+      "supporting site-wide recording for visual/motion language"
+    ],
+    "fidelity_target": "system-level documentation and reusable specimen",
+    "overall_confidence": "medium",
+    "method_summary": "Runtime DOM, computed styles, root CSS variables, font-face rules, responsive media rules, safe filter/menu/hover/focus/scroll interactions, two rendered viewports, and a user-supplied 30 fps screen recording were combined. Exact source copy, logos, personal imagery, and external widgets are intentionally excluded from the report."
+  },
+  "sources": [
+    {
+      "id": "E-live-portfolio-desktop-001",
+      "source_type": "live",
+      "locator": "https://www.rubenmarcus.dev/pt/portfolio",
+      "captured_at": "2026-08-25T21:20:00-03:00",
+      "context": {
+        "route": "/pt/portfolio",
+        "viewport": "1440x900",
+        "dpr": 1,
+        "zoom": 1,
+        "theme": "dark",
+        "locale": "pt-BR",
+        "auth_state": "public",
+        "state": "top of route; 30 projects loaded"
+      },
+      "limitations": ["CDP screenshot capture became unstable after the first desktop capture; DOM and computed-style inspection remained available."]
+    },
+    {
+      "id": "E-live-portfolio-mobile-002",
+      "source_type": "live",
+      "locator": "https://www.rubenmarcus.dev/pt/portfolio",
+      "captured_at": "2026-08-25T21:22:00-03:00",
+      "context": {
+        "route": "/pt/portfolio",
+        "viewport": "390x844",
+        "dpr": 1,
+        "zoom": 1,
+        "theme": "dark",
+        "locale": "pt-BR",
+        "auth_state": "public",
+        "state": "top of route; compact header and single-column cards"
+      },
+      "limitations": ["Mobile visual screenshot timed out in the browser surface; layout, breakpoints, component visibility, and computed metrics were inspected live."]
+    },
+    {
+      "id": "E-live-portfolio-filter-003",
+      "source_type": "live",
+      "locator": "https://www.rubenmarcus.dev/pt/portfolio#g=ai",
+      "captured_at": "2026-08-25T21:25:00-03:00",
+      "context": {
+        "viewport": "1440x900",
+        "state": "AI & sistemas de agents filter selected",
+        "interaction": "safe click on filter button; reset to Todos after inspection"
+      },
+      "limitations": ["Only one representative filter was exercised; other taxonomy combinations were not sampled."]
+    },
+    {
+      "id": "E-live-portfolio-hover-focus-004",
+      "source_type": "live",
+      "locator": "https://www.rubenmarcus.dev/pt/portfolio",
+      "captured_at": "2026-08-25T21:26:00-03:00",
+      "context": {
+        "viewport": "1440x900",
+        "state": "card hover and filter-button keyboard focus",
+        "interaction": "pointer moved over first card; Tab focus placed on Todos filter"
+      },
+      "limitations": ["The highlighted first card is a static featured variant, so its hover transform is intentionally different from linked cards."]
+    },
+    {
+      "id": "E-live-portfolio-menu-005",
+      "source_type": "live",
+      "locator": "https://www.rubenmarcus.dev/pt/portfolio",
+      "captured_at": "2026-08-25T21:27:00-03:00",
+      "context": {
+        "viewport": "390x844",
+        "state": "mobile navigation open, then closed",
+        "interaction": "safe click on Open menu and Close menu"
+      },
+      "limitations": ["Overlay links were not followed; the test only inspected open/close semantics and visible DOM state."]
+    },
+    {
+      "id": "E-live-portfolio-scroll-006",
+      "source_type": "live",
+      "locator": "https://www.rubenmarcus.dev/pt/portfolio",
+      "captured_at": "2026-08-25T21:28:00-03:00",
+      "context": {
+        "viewport": "1440x900",
+        "state": "scrolled header",
+        "interaction": "safe page scroll; header--scrolled state inspected"
+      },
+      "limitations": ["The smooth-scroll surface limited the sampled scroll delta; only the fixed-header state was needed for this claim."]
+    },
+    {
+      "id": "E-live-portfolio-css-007",
+      "source_type": "source",
+      "locator": "Runtime CSS rules and CSS custom properties on https://www.rubenmarcus.dev/pt/portfolio",
+      "captured_at": "2026-08-25T21:29:00-03:00",
+      "context": {
+        "viewport_samples": ["1440x900", "390x844"],
+        "inspection": "document.styleSheets, @font-face, @media, @keyframes, computed styles"
+      },
+      "limitations": ["Runtime rules may include shared or route-adjacent styles; claims are limited to selectors and values observed in the page bundle."]
+    },
+    {
+      "id": "E-recording-001",
+      "source_type": "recording",
+      "locator": "user-supplied screen recording; source file is not redistributed (see evidence/README.md#recording)",
+      "captured_at": "2026-08-26T00:15:21-03:00",
+      "context": {
+        "duration": "122.99s",
+        "frame_rate": "30 fps",
+        "resolution": "1862x908",
+        "state": "site-wide walkthrough across home, FAQ, AI, and portfolio sections",
+        "audio": "present but not analyzed"
+      },
+      "limitations": ["A screen recording supports visual sequence and approximate pacing, but does not prove DOM semantics or exact CSS timing for every route."]
+    },
+    {
+      "id": "E-recording-storyboard-002",
+      "source_type": "recording",
+      "locator": "user-supplied screen recording, sampled at 1 fps; frames are not redistributed (see evidence/README.md#recording)",
+      "captured_at": "2026-08-25T21:30:00-03:00",
+      "context": {
+        "sampling": "one frame per second for the first 12 seconds of E-recording-001",
+        "purpose": "visual evidence of fixed shell, hero, long-scroll rhythm, and section transitions"
+      },
+      "limitations": ["Storyboard is a downscaled contact sheet; use the source recording for timing context."]
+    },
+    {
+      "id": "E-computed-contrast-008",
+      "source_type": "live",
+      "locator": "Deterministic contrast calculation from runtime tokens on https://www.rubenmarcus.dev/pt/portfolio",
+      "captured_at": "2026-08-25T21:32:00-03:00",
+      "context": {
+        "method": "WCAG relative luminance formula; opaque text colors composited over #000000 where applicable"
+      },
+      "limitations": ["Semi-transparent borders and textures are not treated as body text contrast pairs."]
+    }
+  ],
+  "principles": [
+    {
+      "label": "Terminal contrast",
+      "value": "Black canvas, cream reading text, fluorescent green signal",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": ["E-live-portfolio-desktop-001", "E-live-portfolio-mobile-002", "E-recording-storyboard-002"],
+      "notes": "The palette is deliberately small and high-signal: green is reserved for status, active controls, markers, and links."
+    },
+    {
+      "label": "Human-readable systems language",
+      "value": "Editorial display type is paired with code-like metadata, chips, and labels",
+      "basis": "inferred",
+      "confidence": "high",
+      "evidence_ids": ["E-live-portfolio-desktop-001", "E-live-portfolio-css-007"],
+      "notes": "The interface reads like an engineering portfolio without collapsing into a raw developer console."
+    },
+    {
+      "label": "Calm surface, kinetic layer",
+      "value": "Static black cards and grids are animated by ticker movement, reveal, hover glow, dither, and scan treatments",
+      "basis": "inferred",
+      "confidence": "medium",
+      "evidence_ids": ["E-live-portfolio-css-007", "E-live-portfolio-hover-focus-004", "E-recording-001"],
+      "notes": "Motion is ambient and progressive rather than a constant large-scale transition."
+    },
+    {
+      "label": "Evidence before ornament",
+      "value": "Project metadata, counts, technologies, and links are visible before secondary decoration",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": ["E-live-portfolio-desktop-001", "E-recording-001"],
+      "notes": "The portfolio card anatomy prioritizes title, role/date, description, tags, and action."
+    }
+  ],
+  "foundations": {
+    "colors": [
+      {
+        "token": "color.background.canvas",
+        "value": "#000000",
+        "usage": ["page canvas", "body background", "card background"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-desktop-001", "E-live-portfolio-mobile-002", "E-live-portfolio-css-007"],
+        "contrast_context": {"paired_text": "#f5f1ea", "ratio": 18.65, "basis": "computed", "evidence_ids": ["E-computed-contrast-008"]}
+      },
+      {
+        "token": "color.surface.glass",
+        "value": "rgba(6, 8, 15, .72)",
+        "usage": ["scrolled header", "blurred utility surfaces"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-scroll-006", "E-live-portfolio-css-007"]
+      },
+      {
+        "token": "color.text.primary",
+        "value": "#f5f1ea",
+        "usage": ["headings", "body text", "active text"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-desktop-001", "E-live-portfolio-mobile-002"],
+        "contrast_context": {"paired_background": "#000000", "ratio": 18.65, "basis": "computed", "evidence_ids": ["E-computed-contrast-008"]}
+      },
+      {
+        "token": "color.text.muted",
+        "value": "rgba(245, 241, 234, .82)",
+        "usage": ["descriptions", "secondary navigation", "supporting text"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-desktop-001", "E-live-portfolio-css-007"],
+        "contrast_context": {"paired_background": "#000000", "ratio": 12.32, "basis": "computed", "evidence_ids": ["E-computed-contrast-008"]}
+      },
+      {
+        "token": "color.text.subtle",
+        "value": "rgba(245, 241, 234, .55)",
+        "usage": ["project metadata", "low-emphasis footer text"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-desktop-001", "E-live-portfolio-css-007"],
+        "contrast_context": {"paired_background": "#000000", "ratio": 5.7, "basis": "computed", "evidence_ids": ["E-computed-contrast-008"]}
+      },
+      {
+        "token": "color.accent.primary",
+        "value": "#00ff41",
+        "usage": ["active filter border", "ticker text", "focus ring source", "status signal"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-desktop-001", "E-live-portfolio-filter-003", "E-live-portfolio-css-007"],
+        "contrast_context": {"paired_background": "#000000", "ratio": 15.38, "basis": "computed", "evidence_ids": ["E-computed-contrast-008"]}
+      },
+      {
+        "token": "color.accent.soft",
+        "value": "#4ade80",
+        "usage": ["active text", "CTA text", "secondary green highlights"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-desktop-001", "E-live-portfolio-filter-003", "E-live-portfolio-css-007"],
+        "contrast_context": {"paired_background": "#000000", "ratio": 12.05, "basis": "computed", "evidence_ids": ["E-computed-contrast-008"]}
+      },
+      {
+        "token": "color.accent.deep",
+        "value": "#15803d",
+        "usage": ["ticker separators", "deep ambient glow"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-css-007"],
+        "contrast_context": {"paired_background": "#000000", "ratio": 4.19, "basis": "computed", "evidence_ids": ["E-computed-contrast-008"]}
+      },
+      {
+        "token": "color.border.default",
+        "value": "rgba(134, 239, 172, .1)",
+        "usage": ["card border", "filter border", "header scrolled divider"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-desktop-001", "E-live-portfolio-css-007"]
+      },
+      {
+        "token": "color.border.strong",
+        "value": "rgba(134, 239, 172, .18)",
+        "usage": ["secondary borders", "quiet emphasis"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-css-007"]
+      },
+      {
+        "token": "color.border.bright",
+        "value": "rgba(134, 239, 172, .32)",
+        "usage": ["featured card border", "hover border family"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-hover-focus-004", "E-live-portfolio-css-007"]
+      },
+      {
+        "token": "color.focus.ring",
+        "value": "rgba(0, 255, 65, .72)",
+        "usage": ["keyboard focus outline"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-hover-focus-004", "E-live-portfolio-css-007"]
+      }
+    ],
+    "typography": [
+      {
+        "token": "font.display",
+        "value": "Uncut Sans, Space Grotesk, system-ui, -apple-system, sans-serif",
+        "family": "Uncut Sans",
+        "files": ["/fonts/uncut-sans-400.woff2", "/fonts/uncut-sans-500.woff2", "/fonts/uncut-sans-600.woff2", "/fonts/uncut-sans-700.woff2"],
+        "weight": [400, 500, 600, 700],
+        "size": "clamp(2.25rem, 5vw, 3.75rem); runtime portfolio h1: 60px desktop / 36px mobile",
+        "line_height": "1.02; runtime h1: 61.2px desktop / 36.72px mobile",
+        "letter_spacing": "-0.012em; runtime h1: -0.72px desktop / -0.432px mobile",
+        "transform": "none",
+        "usage": ["section headings", "brand", "navigation", "mobile overlay"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-desktop-001", "E-live-portfolio-mobile-002", "E-live-portfolio-css-007"]
+      },
+      {
+        "token": "font.body",
+        "value": "Gabarito, Inter, system-ui, -apple-system, sans-serif",
+        "family": "Gabarito",
+        "files": ["/fonts/gabarito-var.woff2"],
+        "weight": "400 700 variable",
+        "size": "16px root; 16.8px section description",
+        "line_height": "1.65 root; 1.6 section description",
+        "letter_spacing": "normal",
+        "transform": "none",
+        "usage": ["body copy", "project descriptions", "footer copy"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-desktop-001", "E-live-portfolio-mobile-002", "E-live-portfolio-css-007"]
+      },
+      {
+        "token": "font.mono",
+        "value": "JetBrains Mono, SFMono-Regular, Menlo, monospace",
+        "family": "JetBrains Mono",
+        "files": ["https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap"],
+        "weight": [400, 500],
+        "size": "0.66rem–0.72rem for metadata, filters, ticker, and labels",
+        "line_height": "approximately 1.65",
+        "letter_spacing": "0.03em for filters; 0.16em for ticker labels",
+        "transform": "uppercase for ticker and section metadata",
+        "usage": ["metadata", "filter pills", "ticker", "section index", "chips"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-desktop-001", "E-live-portfolio-css-007"]
+      }
+    ],
+    "spacing": [
+      {
+        "token": "space.inline.xs",
+        "value": "0.4rem / 6.4px",
+        "usage": ["chip gaps", "small inline groups"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-css-007"]
+      },
+      {
+        "token": "space.inline.sm",
+        "value": "0.55rem / 8.8px",
+        "usage": ["ticker item gap", "compact metadata"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-css-007"]
+      },
+      {
+        "token": "space.control",
+        "value": "0.75rem / 12px",
+        "usage": ["filter pill horizontal padding", "mobile container padding"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-mobile-002", "E-live-portfolio-css-007"]
+      },
+      {
+        "token": "space.grid",
+        "value": "1.25rem / 20px",
+        "usage": ["portfolio card grid gap"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-desktop-001", "E-live-portfolio-mobile-002", "E-live-portfolio-css-007"]
+      },
+      {
+        "token": "space.section.mobile",
+        "value": "88px",
+        "usage": ["section vertical rhythm under desktop breakpoint"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-css-007"]
+      },
+      {
+        "token": "space.section.desktop",
+        "value": "160px",
+        "usage": ["section vertical rhythm at desktop"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-desktop-001", "E-live-portfolio-css-007"]
+      },
+      {
+        "token": "space.page.gutter",
+        "value": "clamp(1.5rem, 5vw, 3.5rem)",
+        "usage": ["responsive horizontal page gutter"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-desktop-001", "E-live-portfolio-mobile-002", "E-live-portfolio-css-007"]
+      }
+    ],
+    "sizing": [
+      {
+        "token": "size.content.max",
+        "value": "1200px",
+        "usage": ["container max width", "footer inner"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-desktop-001", "E-live-portfolio-css-007"]
+      },
+      {
+        "token": "size.text.max",
+        "value": "68ch",
+        "usage": ["readable text measure"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-css-007"]
+      },
+      {
+        "token": "size.ticker.height",
+        "value": "32px",
+        "usage": ["fixed top availability marquee"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-desktop-001", "E-live-portfolio-mobile-002", "E-live-portfolio-css-007"]
+      },
+      {
+        "token": "size.header.height",
+        "value": "76.56px computed at runtime",
+        "usage": ["fixed header including 16px block padding"],
+        "basis": "computed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-desktop-001", "E-live-portfolio-mobile-002"]
+      },
+      {
+        "token": "size.social.icon",
+        "value": "36px square",
+        "usage": ["desktop social icon hit area"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-css-007"]
+      },
+      {
+        "token": "size.card.media",
+        "value": "approximately 16:9; desktop 347.33×194.36px, mobile 340×190.25px",
+        "usage": ["portfolio cover area"],
+        "basis": "computed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-desktop-001", "E-live-portfolio-mobile-002"]
+      }
+    ],
+    "grid": [
+      {
+        "token": "grid.portfolio.desktop",
+        "value": "repeat(3, 1fr)",
+        "range": "min-width: 1080px",
+        "gap": "1.25rem",
+        "content_width": "1088px at 1440 runtime sample",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-desktop-001", "E-live-portfolio-css-007"]
+      },
+      {
+        "token": "grid.portfolio.tablet",
+        "value": "repeat(2, 1fr)",
+        "range": "min-width: 720px and max-width: 1079px",
+        "gap": "1.25rem",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-css-007"]
+      },
+      {
+        "token": "grid.portfolio.mobile",
+        "value": "1fr",
+        "range": "below 720px",
+        "gap": "1.25rem",
+        "content_width": "342px at 390 runtime sample",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-mobile-002", "E-live-portfolio-css-007"]
+      },
+      {
+        "token": "grid.container",
+        "value": "max-width: 1200px; inline padding clamp(1.5rem, 5vw, 3.5rem)",
+        "range": "all viewports",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-desktop-001", "E-live-portfolio-mobile-002", "E-live-portfolio-css-007"]
+      }
+    ],
+    "radii": [
+      {
+        "token": "radius.card",
+        "value": "16px",
+        "usage": ["portfolio cards"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-desktop-001", "E-live-portfolio-mobile-002", "E-live-portfolio-css-007"]
+      },
+      {
+        "token": "radius.button",
+        "value": "12px",
+        "usage": ["button family outside filter pills"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-css-007"]
+      },
+      {
+        "token": "radius.pill",
+        "value": "9999px",
+        "usage": ["filter pills", "chips", "rounded controls"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-filter-003", "E-live-portfolio-css-007"]
+      }
+    ],
+    "borders": [
+      {
+        "token": "border.default",
+        "value": "1px solid var(--line)",
+        "usage": ["cards", "filters", "overlay links"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-css-007"]
+      },
+      {
+        "token": "border.featured",
+        "value": "1px solid rgba(0, 255, 65, .32)",
+        "usage": ["highlighted card variant"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-hover-focus-004"]
+      }
+    ],
+    "shadows": [
+      {
+        "token": "shadow.filter.active",
+        "value": "0 0 0 1px rgba(0,255,65,.18), 0 4px 18px rgba(0,255,65,.10)",
+        "usage": ["selected filter pill"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-filter-003", "E-live-portfolio-css-007"]
+      },
+      {
+        "token": "shadow.card.hover",
+        "value": "0 20px 52px rgba(0,0,0,.55), 0 0 0 1px rgba(0,255,65,.12)",
+        "usage": ["linked portfolio card hover"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-css-007"]
+      },
+      {
+        "token": "shadow.glow.soft",
+        "value": "0 0 12px rgba(0,255,65,.35)",
+        "usage": ["ticker text", "hover CTA text"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-css-007"]
+      }
+    ],
+    "opacity": [
+      {
+        "token": "opacity.muted",
+        "value": "0.82",
+        "usage": ["secondary copy"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-css-007"]
+      },
+      {
+        "token": "opacity.muted.soft",
+        "value": "0.55",
+        "usage": ["metadata and quiet copy"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-css-007"]
+      },
+      {
+        "token": "opacity.noise",
+        "value": "0.045",
+        "usage": ["fixed noise overlay"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-css-007"]
+      }
+    ],
+    "z_index": [
+      {
+        "token": "z.background",
+        "value": "1",
+        "usage": ["noise and dot texture"],
+        "basis": "observed",
+        "confidence": "medium",
+        "evidence_ids": ["E-live-portfolio-css-007"]
+      },
+      {
+        "token": "z.content",
+        "value": "2",
+        "usage": ["main and footer content above texture"],
+        "basis": "observed",
+        "confidence": "medium",
+        "evidence_ids": ["E-live-portfolio-css-007"]
+      },
+      {
+        "token": "z.nav",
+        "value": "1000",
+        "usage": ["fixed header"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-css-007"]
+      },
+      {
+        "token": "z.ticker",
+        "value": "1001",
+        "usage": ["fixed availability marquee above header"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-css-007"]
+      }
+    ],
+    "iconography": [
+      {
+        "token": "icon.system",
+        "value": "Inline SVG, mostly filled marks for social links; thin line treatment where strokes are used",
+        "usage": ["social links", "compact utilities", "external-link arrows"],
+        "size": "16–18px icon boxes; 36px desktop hit areas",
+        "stroke": "1.6–1.7 where applicable",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-mobile-002", "E-live-portfolio-css-007"]
+      },
+      {
+        "token": "icon.marker",
+        "value": "Text glyphs and bracketed markers such as ↗, +, [!] and ✦",
+        "usage": ["external actions", "featured state", "ticker separators"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-desktop-001", "E-recording-storyboard-002"]
+      }
+    ],
+    "imagery": [
+      {
+        "token": "imagery.card.cover",
+        "value": "Black base with green dither/voxel/scanline treatment and approximately 16:9 crop",
+        "usage": ["portfolio project covers"],
+        "treatment": "overflow hidden, lazy-loaded image, filter/opacity/transform transition on interaction",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-desktop-001", "E-live-portfolio-css-007", "E-recording-001"]
+      },
+      {
+        "token": "imagery.background",
+        "value": "Low-opacity noise plus green radial dots; some site routes add code-like or wire-floor textures",
+        "usage": ["ambient page background"],
+        "treatment": "fixed pseudo-elements, pointer-events none, low opacity, blend/texture layers",
+        "basis": "observed",
+        "confidence": "medium",
+        "evidence_ids": ["E-live-portfolio-css-007", "E-recording-storyboard-002"]
+      }
+    ]
+  },
+  "responsive": {
+    "rules": [
+      {
+        "element": "site header navigation",
+        "range": "min-width: 1220px",
+        "transformation": "Inline primary nav and social links are visible; burger is hidden.",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-desktop-001", "E-live-portfolio-css-007"]
+      },
+      {
+        "element": "site header navigation",
+        "range": "below 1220px",
+        "transformation": "Primary nav collapses to a burger. At 390px the overlay is a full-screen dialog with 2rem display links and 40ms stagger increments.",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-mobile-002", "E-live-portfolio-menu-005", "E-live-portfolio-css-007"]
+      },
+      {
+        "element": "portfolio grid",
+        "range": "below 720px",
+        "transformation": "Single-column stack; at 390px the content column is 342px with 24px side gutters.",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-mobile-002", "E-live-portfolio-css-007"]
+      },
+      {
+        "element": "portfolio grid",
+        "range": "720px–1079px",
+        "transformation": "Two equal columns.",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-css-007"]
+      },
+      {
+        "element": "portfolio grid",
+        "range": "1080px and above",
+        "transformation": "Three equal columns; runtime sample at 1440px is 1088px wide with 20px gaps.",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-desktop-001", "E-live-portfolio-css-007"]
+      },
+      {
+        "element": "section title",
+        "range": "all viewports",
+        "transformation": "Fluid clamp size with text wrapping from 60px / 720px measure on desktop to 36px / 342px measure on mobile.",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-desktop-001", "E-live-portfolio-mobile-002", "E-live-portfolio-css-007"]
+      },
+      {
+        "element": "footer columns",
+        "range": "base → 720px → 1080px",
+        "transformation": "One column at base, two columns from 720px, then 1.2fr plus three equal link columns from 1080px.",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-mobile-002", "E-live-portfolio-desktop-001", "E-live-portfolio-css-007"]
+      },
+      {
+        "element": "fixed shell",
+        "range": "all viewports",
+        "transformation": "A 32px availability ticker occupies the top edge; the header is fixed below it at top: 32px. Scrolled state adds glass background, divider, and 16px blur.",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-desktop-001", "E-live-portfolio-mobile-002", "E-live-portfolio-scroll-006", "E-live-portfolio-css-007"]
+      }
+    ],
+    "container_behavior": {
+      "max_width": "1200px",
+      "gutter": "clamp(1.5rem, 5vw, 3.5rem)",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": ["E-live-portfolio-desktop-001", "E-live-portfolio-mobile-002", "E-live-portfolio-css-007"]
+    },
+    "fluid_values": [
+      {
+        "token": "fluid.page.gutter",
+        "value": "clamp(1.5rem, 5vw, 3.5rem)",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-css-007"]
+      },
+      {
+        "token": "fluid.section.title",
+        "value": "clamp(2.25rem, 5vw, 3.75rem)",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-css-007"]
+      }
+    ]
+  },
+  "motion": {
+    "duration_tiers": [
+      {"token": "motion.micro", "value": "0.18s", "usage": ["input border transition"], "basis": "observed", "confidence": "high", "evidence_ids": ["E-live-portfolio-css-007"]},
+      {"token": "motion.default", "value": "0.22s", "usage": ["hover, focus, header state, filter state"], "basis": "observed", "confidence": "high", "evidence_ids": ["E-live-portfolio-hover-focus-004", "E-live-portfolio-scroll-006", "E-live-portfolio-css-007"]},
+      {"token": "motion.reveal", "value": "0.64s", "usage": ["image filter/opacity/transform reveal"], "basis": "observed", "confidence": "high", "evidence_ids": ["E-live-portfolio-css-007"]},
+      {"token": "motion.enter", "value": "0.70s", "usage": ["portfolio card rise-in"], "basis": "observed", "confidence": "high", "evidence_ids": ["E-live-portfolio-desktop-001", "E-live-portfolio-css-007"]},
+      {"token": "motion.marquee", "value": "52s linear infinite", "usage": ["availability ticker track"], "basis": "observed", "confidence": "high", "evidence_ids": ["E-live-portfolio-css-007"]}
+    ],
+    "easing_families": [
+      {"token": "ease.default", "value": "cubic-bezier(.22, 1, .36, 1)", "usage": ["hover and state transitions"], "basis": "observed", "confidence": "high", "evidence_ids": ["E-live-portfolio-css-007"]},
+      {"token": "ease.emphasis", "value": "cubic-bezier(.16, 1, .3, 1)", "usage": ["card reveal and emphasized entry"], "basis": "observed", "confidence": "high", "evidence_ids": ["E-live-portfolio-desktop-001", "E-live-portfolio-css-007"]},
+      {"token": "ease.linear", "value": "linear", "usage": ["marquee and scan loops"], "basis": "observed", "confidence": "high", "evidence_ids": ["E-live-portfolio-css-007"]}
+    ],
+    "patterns": [
+      {
+        "id": "motion.ticker",
+        "name": "Availability marquee",
+        "trigger": "continuous after load",
+        "properties": ["transform: translateX(0 → -50%)"],
+        "delay": "0s",
+        "duration": "52s",
+        "easing": "linear",
+        "choreography": "single repeated track; green dot pulse is independent at 1.8s",
+        "interruption": "hover, focus-visible, and focus-within pause the track",
+        "reduced_motion": "track and dot animations disabled",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-desktop-001", "E-live-portfolio-mobile-002", "E-live-portfolio-css-007"]
+      },
+      {
+        "id": "motion.card-reveal",
+        "name": "Portfolio card rise-in",
+        "trigger": "portfolio list enters / is initialized",
+        "properties": ["opacity: 0 → 1", "transform: translateY(14px) → 0"],
+        "delay": "calc(min(index, 11) * 70ms + .1s)",
+        "duration": "0.70s",
+        "easing": "cubic-bezier(.16, 1, .3, 1)",
+        "choreography": "staggered per card, capped at index 11",
+        "interruption": "not directly sampled during capture",
+        "reduced_motion": "cards become immediately visible with no transform/animation",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-desktop-001", "E-live-portfolio-css-007"]
+      },
+      {
+        "id": "motion.card-hover",
+        "name": "Card hover signal",
+        "trigger": "pointer enters linked card",
+        "properties": ["border-color", "translateY(-4px)", "box-shadow", "radial glow opacity", "image transform/filter", "CTA opacity"],
+        "delay": "0s",
+        "duration": "0.22s for state; 0.90s sweep; 1.60s scan; 2.40s shimmer; 7s alternate Ken Burns",
+        "easing": "ease.default for state, linear for scan, ease-in-out for shimmer",
+        "choreography": "hover state reveals layered decorations; image loop runs while hovered",
+        "interruption": "decorative loops stop when hover ends; source does not specify reversal timing beyond CSS transition",
+        "reduced_motion": "no lift, no decorative loops, no sweep/scan/shimmer",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-hover-focus-004", "E-live-portfolio-css-007"]
+      },
+      {
+        "id": "motion.header-scroll",
+        "name": "Scrolled glass header",
+        "trigger": "page scroll crosses the header threshold",
+        "properties": ["background-color", "border-color", "backdrop-filter blur(16px)"],
+        "delay": "0s",
+        "duration": "0.22s",
+        "easing": "cubic-bezier(.22, 1, .36, 1)",
+        "choreography": "single shell state; ticker remains above it",
+        "interruption": "reverses as the header returns to top state",
+        "reduced_motion": "transition disabled by source reduced-motion rules",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-scroll-006", "E-live-portfolio-css-007"]
+      },
+      {
+        "id": "motion.mobile-overlay",
+        "name": "Mobile menu stagger",
+        "trigger": "Open menu button",
+        "properties": ["opacity", "translateY(8px) → 0"],
+        "delay": "0, 40, 80, 120, 160ms… per link",
+        "duration": "source keyframe; exact runtime duration not surfaced in the inspected rule",
+        "easing": "not proven from available runtime rule",
+        "choreography": "vertical overlay links enter sequentially",
+        "interruption": "close action removes the dialog; close animation not sampled",
+        "reduced_motion": "not independently captured; source includes reduced-motion view-transition fallback",
+        "basis": "observed",
+        "confidence": "medium",
+        "evidence_ids": ["E-live-portfolio-menu-005", "E-live-portfolio-css-007"]
+      },
+      {
+        "id": "motion.site-scroll",
+        "name": "Long-scroll pacing",
+        "trigger": "user scroll gesture in the supplied recording",
+        "properties": ["continuous vertical position; section reveal composition"],
+        "delay": null,
+        "duration": "not measured as a single transition",
+        "easing": "smooth-scroll behavior is inferred from the Lenis runtime class and recording feel",
+        "choreography": "fixed ticker/header frame the content while sections pass underneath",
+        "interruption": "user can interrupt by changing scroll direction",
+        "reduced_motion": "not proven by the recording",
+        "basis": "inferred",
+        "confidence": "medium",
+        "evidence_ids": ["E-recording-001", "E-recording-storyboard-002", "E-live-portfolio-css-007"]
+      }
+    ],
+    "reduced_motion": {
+      "value": "Source CSS disables ticker/dot/card/hover decorative animation and removes card lift under prefers-reduced-motion: reduce.",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": ["E-live-portfolio-css-007"],
+      "runtime_note": "The inspected browser reported matchMedia('(prefers-reduced-motion: reduce)').matches = false; the report exposes a manual reduced-motion specimen as well."
+    },
+    "performance_observations": [
+      {
+        "label": "Compositor-friendly emphasis",
+        "value": "Most sampled motion uses opacity, transform, filter, and backdrop-filter rather than layout properties.",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-portfolio-css-007"]
+      }
+    ]
+  },
+  "components": [
+    {
+      "id": "component.ticker",
+      "name": "Availability ticker",
+      "role": "fixed status marquee",
+      "anatomy": ["viewport-wide band", "repeated mono text items", "separator glyphs", "pulsing status dot"],
+      "variants": ["default", "hover/focus paused"],
+      "sizes": ["32px fixed height"],
+      "states": ["running", "paused on hover", "paused on focus", "reduced motion"],
+      "tokens_used": ["color.accent.primary", "color.accent.deep", "font.mono", "size.ticker.height", "motion.marquee"],
+      "content_rules": ["short uppercase availability/capability phrases", "repeat track for seamless loop"],
+      "responsive_behavior": "same fixed band across desktop and mobile; text remains clipped by overflow and masked at edges",
+      "interaction": "hover, focus-visible, and focus-within pause movement",
+      "accessibility": "focus-visible outline is provided; motion is disabled under reduced-motion",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": ["E-live-portfolio-desktop-001", "E-live-portfolio-mobile-002", "E-live-portfolio-css-007"]
+    },
+    {
+      "id": "component.header",
+      "name": "Fixed site header",
+      "role": "primary navigation shell",
+      "anatomy": ["brand link", "desktop primary nav", "locale switch", "social links", "mobile burger"],
+      "variants": ["top transparent", "scrolled glass", "mobile"],
+      "sizes": ["76.56px computed header box", "16px block padding", "36px social hit areas"],
+      "states": ["default", "scrolled", "current link", "mobile menu open", "keyboard focus"],
+      "tokens_used": ["color.surface.glass", "color.border.default", "font.display", "z.nav", "motion.default", "blur-md"],
+      "content_rules": ["short one-word or acronym navigation labels", "current route uses green underline/active signal"],
+      "responsive_behavior": "inline nav at 1220px+, burger and overlay below that range",
+      "interaction": "scroll changes glass state; burger toggles a modal-like overlay",
+      "accessibility": "navigation landmark; burger exposes aria-expanded and accessible Open/Close menu labels",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": ["E-live-portfolio-desktop-001", "E-live-portfolio-mobile-002", "E-live-portfolio-menu-005", "E-live-portfolio-scroll-006"]
+    },
+    {
+      "id": "component.mobile-overlay",
+      "name": "Mobile navigation overlay",
+      "role": "modal navigation",
+      "anatomy": ["full-screen dark surface", "vertical link list", "bottom borders", "active route color"],
+      "variants": ["open", "closed"],
+      "sizes": ["max-width 420px nav column", "2rem display links"],
+      "states": ["entering", "open", "closed"],
+      "tokens_used": ["color.background.canvas", "color.text.primary", "color.accent.soft", "radius.card", "motion.mobile-overlay"],
+      "content_rules": ["one primary route per row", "short labels support large type"],
+      "responsive_behavior": "only exposed when desktop nav is hidden",
+      "interaction": "close via same burger; focus trapping was not independently audited",
+      "accessibility": "role=dialog, aria-modal=true, aria-label=Site navigation",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": ["E-live-portfolio-menu-005", "E-live-portfolio-css-007"]
+    },
+    {
+      "id": "component.section-header",
+      "name": "Section header",
+      "role": "content hierarchy",
+      "anatomy": ["mono index", "slash separator", "eyebrow", "display title", "supporting description", "optional cross-link"],
+      "variants": ["left-aligned portfolio header", "centered route header observed in recording"],
+      "sizes": ["max width 720px", "16px internal gap", "48px bottom margin in desktop portfolio sample"],
+      "states": ["static", "reveal on route entry"],
+      "tokens_used": ["font.display", "font.mono", "color.text.primary", "color.text.muted", "color.accent.soft", "size.text.max"],
+      "content_rules": ["index and eyebrow use compact metadata language", "title wraps naturally and uses balanced text"],
+      "responsive_behavior": "heading scales from 60px desktop to 36px mobile; measure follows content column",
+      "interaction": "cross-links use text arrow treatment; no form behavior",
+      "accessibility": "heading hierarchy is exposed as h1 on portfolio route",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": ["E-live-portfolio-desktop-001", "E-live-portfolio-mobile-002", "E-recording-001"]
+    },
+    {
+      "id": "component.filter-pill",
+      "name": "Filter pill",
+      "role": "taxonomy control",
+      "anatomy": ["button label", "count suffix"],
+      "variants": ["default", "selected", "keyboard focus"],
+      "sizes": ["33.38px computed height in the inspected viewport", "12px horizontal padding"],
+      "states": ["default", "hover", "pressed/selected", "focus-visible"],
+      "tokens_used": ["radius.pill", "font.mono", "color.border.default", "color.accent.primary", "shadow.filter.active", "motion.default"],
+      "content_rules": ["short taxonomy label plus numeric count", "long labels wrap into their own row on mobile"],
+      "responsive_behavior": "inline flex-wrap on desktop; long pills occupy full mobile row when needed",
+      "interaction": "click updates URL hash, aria-pressed, visible result count, and active style",
+      "accessibility": "native button with pressed state and status feedback nearby",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": ["E-live-portfolio-filter-003", "E-live-portfolio-hover-focus-004", "E-live-portfolio-mobile-002"]
+    },
+    {
+      "id": "component.portfolio-card",
+      "name": "Portfolio card",
+      "role": "project preview",
+      "anatomy": ["cover image", "featured marker", "title", "company/date metadata", "description", "technology chips", "case-study action", "external visit action"],
+      "variants": ["featured highlighted", "static featured article", "linked project card", "with/without image", "with/without actions"],
+      "sizes": ["desktop 349.33px wide sample", "mobile 342px wide sample", "16px radius", "approximately 16:9 cover"],
+      "states": ["entering", "default", "hover", "focus-visible on linked card", "reduced motion"],
+      "tokens_used": ["color.background.canvas", "color.border.default", "color.border.bright", "font.body", "font.mono", "radius.card", "motion.card-reveal", "motion.card-hover"],
+      "content_rules": ["title stays short", "company/date is compact mono metadata", "description can be multi-line", "chips are pill-shaped and wrap", "actions sit at card end when available"],
+      "responsive_behavior": "three columns → two → one; cover keeps ratio and body grows with content",
+      "interaction": "linked cards lift 4px, brighten border, reveal glow and image motion; static featured card keeps cursor default",
+      "accessibility": "images expose alt text; actions use visible text; linked cards are native anchors",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": ["E-live-portfolio-desktop-001", "E-live-portfolio-mobile-002", "E-live-portfolio-hover-focus-004", "E-live-portfolio-css-007", "E-recording-001"]
+    },
+    {
+      "id": "component.chip",
+      "name": "Technology chip",
+      "role": "compact metadata",
+      "anatomy": ["optional voxel/dot icon", "technology label"],
+      "variants": ["plain", "with green marker"],
+      "sizes": ["pill radius", "approximately 13px marker"],
+      "states": ["static"],
+      "tokens_used": ["radius.pill", "font.mono", "color.text.subtle", "color.border.default"],
+      "content_rules": ["one technology or capability per chip", "short labels preferred"],
+      "responsive_behavior": "wraps within card body",
+      "interaction": "non-interactive in inspected portfolio route",
+      "accessibility": "metadata remains text-readable and is not color-only",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": ["E-live-portfolio-desktop-001", "E-live-portfolio-mobile-002", "E-live-portfolio-css-007"]
+    },
+    {
+      "id": "component.footer-signup",
+      "name": "Footer and signup cluster",
+      "role": "site closure and optional subscription",
+      "anatomy": ["brand/role block", "page links", "product links", "social links", "email input", "submit button", "public activity block", "footer metadata"],
+      "variants": ["desktop four-column", "tablet two-column", "mobile one-column"],
+      "sizes": ["48px top padding", "28px bottom padding", "1200px max inner container"],
+      "states": ["default", "input focus", "validation/submission not sampled"],
+      "tokens_used": ["font.body", "font.mono", "color.text.primary", "color.text.subtle", "color.border.default", "radius.pill"],
+      "content_rules": ["short route/product link labels", "signup field uses compact mono placeholder"],
+      "responsive_behavior": "1 → 2 → 4 column composition at 720/1080px",
+      "interaction": "email form exists but was not submitted",
+      "accessibility": "contentinfo landmark and labeled form are present; submission/error states remain a gap",
+      "basis": "observed",
+      "confidence": "medium",
+      "evidence_ids": ["E-live-portfolio-desktop-001", "E-live-portfolio-mobile-002", "E-live-portfolio-css-007"]
+    }
+  ],
+  "patterns": [
+    {
+      "id": "pattern.site-shell",
+      "name": "Site shell",
+      "shell_regions": ["fixed availability ticker", "fixed header", "content canvas with texture layers", "main route content", "footer", "floating utilities"],
+      "hierarchy": "ticker → brand/nav → indexed route header → route-specific content → footer closure",
+      "density": "medium; large display type and generous section spacing balance dense metadata",
+      "composition_rules": ["content remains inside a centered max-width container", "green signals actions/current/availability", "background decoration stays behind content", "fixed shell persists while content scrolls"],
+      "responsive_transformation": "desktop inline nav becomes mobile modal overlay; content columns reflow; footer changes from four to one column",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": ["E-live-portfolio-desktop-001", "E-live-portfolio-mobile-002", "E-live-portfolio-menu-005", "E-recording-001"]
+    },
+    {
+      "id": "pattern.portfolio-archive",
+      "name": "Portfolio archive",
+      "shell_regions": ["indexed header", "curated cross-link", "three filter groups", "result status", "project grid", "footer"],
+      "hierarchy": "one h1 → supporting paragraph → filter controls → status → cards",
+      "density": "dense after a quiet editorial intro; 30 cards with compact metadata",
+      "composition_rules": ["filter groups are horizontally wrapped pills", "featured cards use stronger green border", "card action stays at bottom of body", "images are visual anchors but not the only content carrier"],
+      "responsive_transformation": "filters wrap, long filter labels become full rows, grid collapses 3→2→1, headings scale down",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": ["E-live-portfolio-desktop-001", "E-live-portfolio-mobile-002", "E-live-portfolio-filter-003", "E-recording-001"]
+    },
+    {
+      "id": "pattern.long-scroll-story",
+      "name": "Long-scroll story",
+      "shell_regions": ["persistent ticker/header", "large route sections", "ambient code/dither textures", "repeated cards or accordions", "metric/CTA blocks"],
+      "hierarchy": "indexed section label → large statement → supporting evidence → interactive/linked detail",
+      "density": "alternates sparse hero/statement frames with denser cards, FAQ rows, and metrics",
+      "composition_rules": ["fixed shell acts as a visual ruler", "section numbers and mono labels create a recurring cadence", "green accents surface interactive affordances and system status"],
+      "responsive_transformation": "inferred from recording and shared CSS; exact route-specific mobile layout was not audited",
+      "basis": "inferred",
+      "confidence": "medium",
+      "evidence_ids": ["E-recording-001", "E-recording-storyboard-002", "E-live-portfolio-css-007"]
+    }
+  ],
+  "accessibility": {
+    "landmarks": [
+      {"value": "banner, navigation, main, contentinfo, status, labeled groups, and mobile dialog are present in the inspected route", "basis": "observed", "confidence": "high", "evidence_ids": ["E-live-portfolio-desktop-001", "E-live-portfolio-mobile-002", "E-live-portfolio-menu-005"]}
+    ],
+    "focus": [
+      {"value": "2px solid rgba(0,255,65,.72) outline with 2px offset was observed on the focused filter button", "basis": "observed", "confidence": "high", "evidence_ids": ["E-live-portfolio-hover-focus-004", "E-live-portfolio-css-007"]}
+    ],
+    "keyboard": [
+      {"value": "Filter controls are native buttons and expose aria-pressed; mobile menu uses aria-expanded; overlay is labeled as a modal dialog", "basis": "observed", "confidence": "high", "evidence_ids": ["E-live-portfolio-filter-003", "E-live-portfolio-menu-005"]}
+    ],
+    "images": [
+      {"value": "Portfolio cover images expose alt text matching their project label", "basis": "observed", "confidence": "high", "evidence_ids": ["E-live-portfolio-desktop-001"]}
+    ],
+    "contrast": [
+      {"value": "Primary text, muted text, primary green, and soft green exceed 4.5:1 over the black canvas in deterministic calculations; subtle border tokens are decorative, not text", "basis": "computed", "confidence": "high", "evidence_ids": ["E-computed-contrast-008"]}
+    ],
+    "reduced_motion": [
+      {"value": "Source media queries disable ticker, dot, card entrance, hover lift, and decorative loops when prefers-reduced-motion is reduce", "basis": "observed", "confidence": "high", "evidence_ids": ["E-live-portfolio-css-007"]}
+    ],
+    "gaps": [
+      "Focus trapping and return focus for the mobile dialog were not independently audited.",
+      "Newsletter validation, error, success, and submission states were not exercised."
+    ]
+  },
+  "content_style": {
+    "language": "pt-BR on supplied route; English alternate available",
+    "voice": "direct, technical, editorial, evidence-led",
+    "patterns": ["uppercase mono labels", "indexed section names", "company · date range metadata", "short action labels with arrows", "capability/technology chips"],
+    "basis": "observed",
+    "confidence": "high",
+    "evidence_ids": ["E-live-portfolio-desktop-001", "E-live-portfolio-mobile-002", "E-recording-001"],
+    "report_handling": "The living report uses neutral specimen copy to avoid copying the source site's proprietary marketing language."
+  },
+  "exceptions": [
+    {
+      "label": "Featured card exception",
+      "value": "The first highlighted project card is a static article with stronger border but no linked-card lift behavior.",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": ["E-live-portfolio-hover-focus-004", "E-live-portfolio-css-007"]
+    },
+    {
+      "label": "Cards blend into the canvas",
+      "value": "Card background is the same black as the page; hierarchy comes from border, radius, image, spacing, and hover glow rather than a lighter surface fill.",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": ["E-live-portfolio-desktop-001", "E-live-portfolio-mobile-002"]
+    },
+    {
+      "label": "Glass only on scroll",
+      "value": "The header is transparent at the top and gains a translucent surface and blur after scrolling.",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": ["E-live-portfolio-scroll-006", "E-live-portfolio-css-007"]
+    },
+    {
+      "label": "Shared route decoration",
+      "value": "Code-like textures, wire floors, AEO/nominee widgets, and audio utilities appear in the recording or shared bundle but are not all specific to the portfolio route.",
+      "basis": "inferred",
+      "confidence": "medium",
+      "evidence_ids": ["E-recording-001", "E-live-portfolio-css-007"]
+    }
+  ],
+  "gaps": [
+    {
+      "label": "Mobile screenshot surface",
+      "value": "The live mobile DOM and computed layout were inspected at 390x844, but the browser screenshot command timed out after the initial desktop capture.",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": ["E-live-portfolio-mobile-002"]
+    },
+    {
+      "label": "Tablet runtime",
+      "value": "720px and 1080px breakpoint behavior is source-defined and high-confidence, but no separate tablet render was captured.",
+      "basis": "observed",
+      "confidence": "medium",
+      "evidence_ids": ["E-live-portfolio-css-007"]
+    },
+    {
+      "label": "Exact route-level transition timing",
+      "value": "The recording shows smooth scrolling and content pacing but does not prove exact trigger/settle durations for every route transition.",
+      "basis": "inferred",
+      "confidence": "medium",
+      "evidence_ids": ["E-recording-001", "E-recording-storyboard-002"]
+    },
+    {
+      "label": "Form states",
+      "value": "The footer email field was observed but not submitted; validation, error, success, and server response behavior remain unknown.",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": ["E-live-portfolio-desktop-001", "E-live-portfolio-mobile-002"]
+    },
+    {
+      "label": "Protected source assets",
+      "value": "The report intentionally omits source logos, portrait imagery, external widgets, and long source copy; the extraction describes their treatment as patterns only.",
+      "basis": "recommended",
+      "confidence": "high",
+      "evidence_ids": []
+    }
+  ],
+  "additional_findings": [
+    {
+      "label": "Root token visibility",
+      "value": "The runtime exposes a compact semantic token layer on :root, including colors, type families, spacing anchors, blur, radii, motion, and z-index.",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": ["E-live-portfolio-css-007"]
+    },
+    {
+      "label": "Texture is structural, not decorative only",
+      "value": "Fixed noise and dot pseudo-elements establish depth across otherwise black surfaces, while card-specific dither/scan layers add local energy.",
+      "basis": "inferred",
+      "confidence": "medium",
+      "evidence_ids": ["E-live-portfolio-css-007", "E-recording-storyboard-002"]
+    },
+    {
+      "label": "Counts are part of control affordance",
+      "value": "Filter counts communicate dataset size beside each taxonomy label and the status region reports the filtered result count.",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": ["E-live-portfolio-desktop-001", "E-live-portfolio-filter-003"]
+    },
+    {
+      "label": "Ambient utility layer",
+      "value": "The recording and live DOM show floating audio, nomination, and AEO-related utilities. They are contextual enhancements rather than core portfolio grammar and are not reproduced in the report.",
+      "basis": "observed",
+      "confidence": "medium",
+      "evidence_ids": ["E-live-portfolio-desktop-001", "E-recording-001"]
+    }
+  ],
+  "generated_assets": {
+    "report": "report.html",
+    "framework": "single-html",
+    "evidence_directory": "evidence/",
+    "token_output": "embedded CSS custom properties in report.html",
+    "rerun": "python skill/scripts/validate_design_system.py templates/portfolio/ruben-marcus-agent-ready/design-system.json; python skill/scripts/render_design_system_report.py templates/portfolio/ruben-marcus-agent-ready/design-system.json /tmp/ruben-marcus-agent-ready-baseline.html",
+    "report_note": "report.html is an enriched single-file specimen built from this manifest; the repository renderer command above produces a compatible baseline if regeneration is preferred."
+  }
+}
