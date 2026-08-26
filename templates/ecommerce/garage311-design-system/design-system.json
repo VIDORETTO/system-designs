@@ -1,0 +1,1200 @@
+{
+  "meta": {
+    "schema_version": 2,
+    "name": "Garage 311 Commerce Design System",
+    "source_name": "Garage 311 public storefront",
+    "generated_at": "2026-08-26T08:44:53-03:00",
+    "scope": [
+      "global storefront shell",
+      "home catalog and merchandising sections",
+      "product detail and purchase panel",
+      "responsive mobile substitution",
+      "footer, support, cookie and newsletter surfaces"
+    ],
+    "fidelity_target": "system-level",
+    "overall_confidence": "medium",
+    "method_summary": "Combined two live public routes, four fresh Chrome renders at 1440x900 and 390x844, two supplied full-page screenshots, inline theme variables, linked CSS, and safe visual comparison. Source-defined interactions are labeled separately from runtime-observed appearance.",
+    "instruction_handling": "The supplied images were treated as visual evidence only. Text, labels, and UI visible inside the images were not treated as instructions.",
+    "limitations_summary": "No authenticated flow, checkout submission, destructive action, browser-level keyboard traversal, focus-ring capture, or reduced-motion runtime capture was performed. The report uses neutral specimen copy and placeholders instead of reusing protected logos, product photography, or marketing copy."
+  },
+  "sources": [
+    {
+      "id": "E-live-home-desktop-1440x900-001",
+      "source_type": "live",
+      "locator": "https://www.garage311.com.br/",
+      "captured_at": "2026-08-26T08:44:53-03:00",
+      "context": {
+        "viewport": "1440x900",
+        "dpr": 1,
+        "zoom": 1,
+        "theme": "light",
+        "locale": "pt-BR",
+        "auth_state": "signed out",
+        "ui_state": "initial load with cookie banner visible",
+        "method": "Chrome headless rendered screenshot",
+        "local_evidence": "evidence/live-home-desktop-1440x900.png"
+      },
+      "limitations": [
+        "Viewport capture shows the initial viewport, not the full live page.",
+        "Hover, focus, open-menu, carousel and scroll states were not captured in this render."
+      ]
+    },
+    {
+      "id": "E-live-home-mobile-390x844-001",
+      "source_type": "live",
+      "locator": "https://www.garage311.com.br/",
+      "captured_at": "2026-08-26T08:44:53-03:00",
+      "context": {
+        "viewport": "390x844",
+        "dpr": 1,
+        "zoom": 1,
+        "theme": "light",
+        "locale": "pt-BR",
+        "auth_state": "signed out",
+        "ui_state": "initial load with cookie banner visible",
+        "method": "Chrome CDP device-metrics override with 390 CSS px rendered screenshot",
+        "local_evidence": "evidence/live-home-mobile-390x844.png"
+      },
+      "limitations": [
+        "Mobile render is a viewport capture and does not prove drawer-open or focus behavior.",
+        "The hero is visibly cropped at the narrow viewport; the asset itself was not copied into the report.",
+        "The storefront carousel can select a different initial slide across captures."
+      ]
+    },
+    {
+      "id": "E-live-product-desktop-1440x900-001",
+      "source_type": "live",
+      "locator": "https://www.garage311.com.br/motor-de-partida-arranque-cg150-titan-fan-sport-2004-a-2015-cg125-fan-2009-a-2015-nxr125-nxr150-bros-2006-a-2016",
+      "captured_at": "2026-08-26T08:44:53-03:00",
+      "context": {
+        "viewport": "1440x900",
+        "dpr": 1,
+        "zoom": 1,
+        "theme": "light",
+        "locale": "pt-BR",
+        "auth_state": "signed out",
+        "ui_state": "initial load with cookie banner visible",
+        "method": "Chrome headless rendered screenshot",
+        "local_evidence": "evidence/live-product-desktop-1440x900.png"
+      },
+      "limitations": [
+        "No purchase, CEP calculation, payment expansion, or share action was submitted.",
+        "The cookie banner occludes the bottom edge of the first viewport."
+      ]
+    },
+    {
+      "id": "E-live-product-mobile-390x844-001",
+      "source_type": "live",
+      "locator": "https://www.garage311.com.br/motor-de-partida-arranque-cg150-titan-fan-sport-2004-a-2015-cg125-fan-2009-a-2015-nxr125-nxr150-bros-2006-a-2016",
+      "captured_at": "2026-08-26T08:44:53-03:00",
+      "context": {
+        "viewport": "390x844",
+        "dpr": 1,
+        "zoom": 1,
+        "theme": "light",
+        "locale": "pt-BR",
+        "auth_state": "signed out",
+        "ui_state": "initial load with cookie banner visible",
+        "method": "Chrome CDP device-metrics override with 390 CSS px rendered screenshot",
+        "local_evidence": "evidence/live-product-mobile-390x844.png"
+      },
+      "limitations": [
+        "The product title and purchase panel continue below the viewport; only the top reflow is observed.",
+        "No mobile menu or search overlay was opened."
+      ]
+    },
+    {
+      "id": "E-shot-home-supplied-001",
+      "source_type": "screenshot",
+      "locator": "evidence/screenshot-home-supplied.png",
+      "captured_at": "2026-08-26",
+      "context": {
+        "viewport": "1533x5674 source image; resized in chat to 553x2048",
+        "theme": "light",
+        "locale": "pt-BR",
+        "route": "home",
+        "ui_state": "long page reference"
+      },
+      "limitations": [
+        "Screenshot dimensions and device pixel ratio are supplied metadata, not independently verified.",
+        "Static image cannot prove hover, focus, motion, or DOM semantics."
+      ]
+    },
+    {
+      "id": "E-shot-product-supplied-001",
+      "source_type": "screenshot",
+      "locator": "evidence/screenshot-product-supplied.png",
+      "captured_at": "2026-08-26",
+      "context": {
+        "viewport": "1533x3287 source image; resized in chat to 955x2048",
+        "theme": "light",
+        "locale": "pt-BR",
+        "route": "product detail",
+        "ui_state": "long page reference with cookie banner"
+      },
+      "limitations": [
+        "Static image cannot prove hover, focus, motion, or DOM semantics.",
+        "Cookie bar obscures some product-detail content in the supplied reference."
+      ]
+    },
+    {
+      "id": "E-source-theme-inline-001",
+      "source_type": "source",
+      "locator": "https://www.garage311.com.br/ (inline style and linked font declarations)",
+      "captured_at": "2026-08-26T08:44:53-03:00",
+      "context": {
+        "method": "HTTP source inspection",
+        "routes": ["home", "product detail"],
+        "scope": "theme variables, Google Fonts links, order declarations"
+      },
+      "limitations": [
+        "Source declarations can be overridden by runtime order, state, or platform scripts."
+      ]
+    },
+    {
+      "id": "E-source-theme-css-001",
+      "source_type": "source",
+      "locator": "https://www.garage311.com.br/tema.css?v=20260512-141451",
+      "captured_at": "2026-08-26T08:44:53-03:00",
+      "context": {
+        "method": "HTTP CSS inspection",
+        "scope": "base font, legacy primary/secondary aliases, foundational selectors"
+      },
+      "limitations": [
+        "The stylesheet is a live remote artifact and may change after capture."
+      ]
+    },
+    {
+      "id": "E-source-custom-css-001",
+      "source_type": "source",
+      "locator": "https://cdn.awsli.com.br/temasv2/4712/__theme_custom.css?v=1775828310",
+      "captured_at": "2026-08-26T08:44:53-03:00",
+      "context": {
+        "method": "HTTP CSS inspection",
+        "scope": "layout, components, responsive ranges, borders, radii, shadows, transitions"
+      },
+      "limitations": [
+        "Source-defined timing and states were not separately measured with a frame recorder.",
+        "Platform CSS includes more themes and components than the two supplied routes visibly exercise."
+      ]
+    }
+  ],
+  "principles": [
+    {
+      "id": "principle-blue-utility",
+      "statement": "Use a blue utility hierarchy: light blue header, deep navy navigation and title text, saturated blue actions and prices.",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": ["E-live-home-desktop-1440x900-001", "E-live-product-desktop-1440x900-001", "E-source-theme-inline-001"]
+    },
+    {
+      "id": "principle-merchandising-first",
+      "statement": "Let product imagery and price dominate each merchandising unit while secondary copy stays compact and clamped.",
+      "basis": "inferred",
+      "confidence": "high",
+      "evidence_ids": ["E-shot-home-supplied-001", "E-shot-product-supplied-001", "E-source-custom-css-001"]
+    },
+    {
+      "id": "principle-conversion-reassurance",
+      "statement": "Repeat reassurance near conversion: delivery, fast shipping, guarantee, Pix discount, payment detail and availability.",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": ["E-shot-home-supplied-001", "E-shot-product-supplied-001", "E-live-product-desktop-1440x900-001"]
+    },
+    {
+      "id": "principle-structured-density",
+      "statement": "Organize a broad inventory into named sections with four-up desktop merchandising and compact mobile substitutions.",
+      "basis": "observed",
+      "confidence": "medium",
+      "evidence_ids": ["E-shot-home-supplied-001", "E-live-home-mobile-390x844-001", "E-source-custom-css-001"]
+    },
+    {
+      "id": "principle-functional-chrome",
+      "statement": "Keep functional chrome mostly flat and white, reserving shadows and small radii for menus, cards, inputs and floating controls.",
+      "basis": "inferred",
+      "confidence": "high",
+      "evidence_ids": ["E-shot-product-supplied-001", "E-source-custom-css-001"]
+    }
+  ],
+  "experience": {
+    "surface_mode": "persuade",
+    "identity_lock": {
+      "summary": "High-contrast blue/yellow motorcycle-parts commerce with practical reassurance and product-first density.",
+      "thesis": "A dependable parts counter translated into a bright, fast-moving storefront: utility blue establishes trust, yellow flags offers, and isolated product cutouts make compatibility and value scannable.",
+      "sensory_words": ["practical", "bright", "mechanical", "reassuring", "dense"],
+      "anti_generic": [
+        "Do not replace the blue/yellow utility palette with a soft SaaS gradient.",
+        "Do not bury product images under decorative cards or oversized editorial whitespace.",
+        "Do not turn fitment and price information into abstract marketing copy."
+      ],
+      "basis": "inferred",
+      "confidence": "high",
+      "evidence_ids": ["E-shot-home-supplied-001", "E-shot-product-supplied-001", "E-live-home-desktop-1440x900-001"]
+    },
+    "focal_moment": {
+      "name": "Hero merchandising reveal",
+      "description": "A full-width promotional image introduces the storefront before benefits and product rails take over.",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": ["E-shot-home-supplied-001", "E-live-home-desktop-1440x900-001", "E-live-home-mobile-390x844-001"]
+    },
+    "signature_elements": [
+      {
+        "id": "signature-blue-yellow-rail",
+        "name": "Blue/yellow utility rail",
+        "material": "solid color bands and high-contrast type",
+        "role": "brand orientation and promotion",
+        "anatomy": "thin announcement strip, light-blue header, navy category bar, yellow offer accents",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-home-desktop-1440x900-001", "E-source-theme-inline-001"]
+      },
+      {
+        "id": "signature-product-cutouts",
+        "name": "Isolated mechanical product cutouts",
+        "material": "photographic product imagery on white",
+        "role": "catalog recognition and conversion",
+        "anatomy": "centered contain-style image, compact title, price, payment cue, action row",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-shot-home-supplied-001", "E-shot-product-supplied-001", "E-source-custom-css-001"]
+      },
+      {
+        "id": "signature-reassurance-strip",
+        "name": "Benefits/reassurance strip",
+        "material": "white strip with blue line icons and dark text",
+        "role": "reduce purchase hesitation",
+        "anatomy": "icon, bold benefit label, smaller explanatory line, dividers on desktop",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-shot-home-supplied-001", "E-live-home-mobile-390x844-001"]
+      },
+      {
+        "id": "signature-floating-support",
+        "name": "Floating support stack",
+        "material": "circular green/blue buttons with white line icons",
+        "role": "persistent assistance",
+        "anatomy": "right-edge vertical stack on desktop; mobile visibility/state not fully captured",
+        "basis": "observed",
+        "confidence": "medium",
+        "evidence_ids": ["E-shot-product-supplied-001", "E-live-product-desktop-1440x900-001", "E-source-theme-inline-001"]
+      }
+    ],
+    "named_rules": [
+      {
+        "id": "rule-one-focal-product",
+        "rule": "One dominant product image or hero composition per viewport; supporting metadata remains subordinate.",
+        "basis": "inferred",
+        "confidence": "high",
+        "evidence_ids": ["E-shot-product-supplied-001", "E-live-product-mobile-390x844-001"]
+      },
+      {
+        "id": "rule-price-blue-action-blue",
+        "rule": "Use the darker blue for price/emphasis and the brighter action blue for purchase buttons and controls.",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-source-theme-inline-001", "E-live-product-desktop-1440x900-001"]
+      },
+      {
+        "id": "rule-clamp-for-density",
+        "rule": "Clamp product names to a small number of lines so rails align and prices remain visible.",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-source-custom-css-001", "E-shot-home-supplied-001"]
+      }
+    ],
+    "dos": [
+      "Keep inventory, fitment, price and shipping reassurance scannable.",
+      "Use neutral white surfaces to let mechanical imagery read clearly.",
+      "Preserve compact, high-contrast utility controls at mobile widths."
+    ],
+    "donts": [
+      "Do not copy the source logo, product photography, promotional artwork or exact product copy into a new implementation without authorization.",
+      "Do not rely on color alone to communicate stock, discount or action state."
+    ],
+    "recommendations": [
+      "Make the hero message HTML text with a static image fallback when accessibility or localization is required.",
+      "Expose carousel pause/next/previous controls and a visible focus ring in any implementation of this grammar."
+    ]
+  },
+  "foundations": {
+    "colors": [
+      {
+        "token": "color.brand.navy",
+        "value": "#001C39",
+        "usage": ["section headings", "navigation background", "dark text on light-blue header accents"],
+        "contrast_pairs": [{"foreground": "#001C39", "background": "#FFFFFF", "ratio": 17.14, "context": "normal text"}, {"foreground": "#001C39", "background": "#F5F5F5", "ratio": 15.72, "context": "muted section surface"}],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-source-theme-inline-001", "E-live-home-desktop-1440x900-001"]
+      },
+      {
+        "token": "color.action.primary",
+        "value": "#0070DF",
+        "usage": ["purchase buttons", "primary controls", "active action surfaces"],
+        "contrast_pairs": [{"foreground": "#FFFFFF", "background": "#0070DF", "ratio": 4.79, "context": "button label"}],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-source-theme-inline-001", "E-live-product-desktop-1440x900-001"]
+      },
+      {
+        "token": "color.brand.blue.strong",
+        "value": "#0069D1",
+        "usage": ["prices", "links", "support icons", "information emphasis"],
+        "contrast_pairs": [{"foreground": "#0069D1", "background": "#FFFFFF", "ratio": 5.33, "context": "price/link text"}],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-source-theme-inline-001", "E-live-product-desktop-1440x900-001"]
+      },
+      {
+        "token": "color.brand.blue.info",
+        "value": "#005EBC",
+        "usage": ["legacy primary alias", "info highlight", "theme base links and borders"],
+        "contrast_pairs": [{"foreground": "#FFFFFF", "background": "#005EBC", "ratio": 6.54, "context": "white text on info/action surface; computed from source value"}],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-source-theme-css-001", "E-source-theme-inline-001"]
+      },
+      {
+        "token": "color.header.light",
+        "value": "#71B8FF",
+        "usage": ["main header band", "mobile header band"],
+        "contrast_pairs": [{"foreground": "#001C39", "background": "#71B8FF", "ratio": 8.16, "context": "dark header text/icons"}],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-source-theme-inline-001", "E-live-home-mobile-390x844-001"]
+      },
+      {
+        "token": "color.navigation.navy",
+        "value": "#001C39",
+        "usage": ["desktop category navigation", "menu labels in light mode"],
+        "contrast_pairs": [{"foreground": "#FFFFFF", "background": "#001C39", "ratio": 17.14, "context": "navigation labels"}],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-source-theme-inline-001", "E-live-home-desktop-1440x900-001"]
+      },
+      {
+        "token": "color.accent.yellow",
+        "value": "#FFC42C",
+        "usage": ["promotion strip", "cart quantity badge", "offer emphasis"],
+        "contrast_pairs": [{"foreground": "#001C39", "background": "#FFC42C", "ratio": 10.76, "context": "dark text on yellow badge/offer"}],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-source-theme-inline-001", "E-live-home-desktop-1440x900-001"]
+      },
+      {
+        "token": "color.support.green",
+        "value": "#27BF64",
+        "usage": ["WhatsApp/support floating control"],
+        "contrast_pairs": [{"foreground": "#FFFFFF", "background": "#27BF64", "ratio": 2.41, "context": "icon-only control; do not use as small text background without reassessment"}],
+        "basis": "observed",
+        "confidence": "medium",
+        "evidence_ids": ["E-source-theme-inline-001", "E-live-product-desktop-1440x900-001"]
+      },
+      {
+        "token": "color.surface.page",
+        "value": "#FFFFFF",
+        "usage": ["page background", "header and product surfaces", "footer surfaces"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-source-theme-inline-001", "E-live-home-desktop-1440x900-001"]
+      },
+      {
+        "token": "color.surface.muted",
+        "value": "#F5F5F5",
+        "usage": ["brand strip", "blog/description sections", "Pix/payment chip backgrounds"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-source-theme-inline-001", "E-shot-product-supplied-001"]
+      },
+      {
+        "token": "color.text.primary",
+        "value": "#201F1F",
+        "usage": ["body text", "product title text", "footer copy"],
+        "contrast_pairs": [{"foreground": "#201F1F", "background": "#FFFFFF", "ratio": 16.44, "context": "normal text"}],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-source-theme-inline-001", "E-source-custom-css-001"]
+      },
+      {
+        "token": "color.text.secondary",
+        "value": "#606060",
+        "usage": ["supporting copy", "breadcrumbs", "secondary metadata"],
+        "contrast_pairs": [{"foreground": "#606060", "background": "#FFFFFF", "ratio": 6.29, "context": "normal text"}],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-source-theme-inline-001", "E-source-custom-css-001"]
+      },
+      {
+        "token": "color.border.subtle",
+        "value": "#ECECEC",
+        "usage": ["card borders", "tab rules", "section dividers"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-source-custom-css-001", "E-live-product-desktop-1440x900-001"]
+      },
+      {
+        "token": "color.border.alpha",
+        "value": "rgba(144, 144, 144, 0.22)",
+        "usage": ["desktop benefit-strip dividers", "header separators"],
+        "basis": "observed",
+        "confidence": "medium",
+        "evidence_ids": ["E-source-custom-css-001"]
+      }
+    ],
+    "typography": [
+      {
+        "token": "type.family.ui",
+        "family": "Rubik",
+        "weight": "400/500/700",
+        "size": null,
+        "line_height": null,
+        "letter_spacing": null,
+        "transform": "none",
+        "usage": ["body", "inputs", "buttons", "navigation", "product UI"],
+        "fallbacks": ["Arial", "Helvetica", "sans-serif"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-source-theme-inline-001"]
+      },
+      {
+        "token": "type.family.legacy-title",
+        "family": "Open Sans",
+        "weight": "300/400/600/700",
+        "size": null,
+        "line_height": null,
+        "letter_spacing": null,
+        "transform": "none",
+        "usage": ["baseline theme .titulo declaration; implementation is overridden by the inline Rubik rule for the store"],
+        "fallbacks": ["serif"],
+        "basis": "observed",
+        "confidence": "medium",
+        "evidence_ids": ["E-source-theme-inline-001", "E-source-theme-css-001"]
+      },
+      {
+        "token": "type.role.section-heading",
+        "family": "Rubik",
+        "weight": 700,
+        "size": "20px",
+        "line_height": "20px",
+        "letter_spacing": null,
+        "transform": "none",
+        "usage": ["category/vitrine headings"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-source-custom-css-001", "E-shot-home-supplied-001"]
+      },
+      {
+        "token": "type.role.product-card-name",
+        "family": "Rubik",
+        "weight": 400,
+        "size": "15-16px",
+        "line_height": "17-18px",
+        "letter_spacing": null,
+        "transform": "none",
+        "usage": ["catalog card title, clamped to 1-3 lines by variant"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-source-custom-css-001"]
+      },
+      {
+        "token": "type.role.card-price",
+        "family": "Rubik",
+        "weight": 700,
+        "size": "21px",
+        "line_height": "21px",
+        "letter_spacing": null,
+        "transform": "none",
+        "usage": ["catalog price emphasis"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-source-custom-css-001", "E-shot-home-supplied-001"]
+      },
+      {
+        "token": "type.role.detail-price",
+        "family": "Rubik",
+        "weight": 700,
+        "size": "30px",
+        "line_height": "30px",
+        "letter_spacing": null,
+        "transform": "none",
+        "usage": ["product detail price"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-source-custom-css-001", "E-live-product-desktop-1440x900-001"]
+      }
+    ],
+    "spacing": {
+      "primitive_scale": [3, 4, 5, 7, 8, 10, 12, 15, 18, 20, 25, 28, 30, 35, 40, 50, 70],
+      "semantic_aliases": {
+        "space.card-inline": "8-12px",
+        "space.control-inline": "10-15px",
+        "space.section": "20-35px",
+        "space.page-block": "40-70px"
+      },
+      "exceptions": ["Hero/banner and product image composition uses optical spacing that is asset-dependent."],
+      "basis": "inferred",
+      "confidence": "medium",
+      "evidence_ids": ["E-source-custom-css-001", "E-shot-home-supplied-001", "E-shot-product-supplied-001"]
+    },
+    "sizing": [
+      {"token": "size.container.max", "value": "1260px", "usage": ["desktop page container"], "basis": "observed", "confidence": "high", "evidence_ids": ["E-source-custom-css-001"]},
+      {"token": "size.container.mobile-gutter", "value": "10px", "usage": ["mobile page container padding"], "basis": "observed", "confidence": "high", "evidence_ids": ["E-source-custom-css-001"]},
+      {"token": "size.header.min-height", "value": "80px", "usage": ["desktop header band"], "basis": "observed", "confidence": "high", "evidence_ids": ["E-source-custom-css-001"]},
+      {"token": "size.navigation.height", "value": "55px", "usage": ["desktop category bar"], "basis": "observed", "confidence": "high", "evidence_ids": ["E-source-custom-css-001"]},
+      {"token": "size.card.action-height", "value": "35px", "usage": ["catalog card action button"], "basis": "observed", "confidence": "high", "evidence_ids": ["E-source-custom-css-001"]},
+      {"token": "size.detail.action-height", "value": "50-53px", "usage": ["product detail purchase button"], "basis": "observed", "confidence": "high", "evidence_ids": ["E-source-custom-css-001", "E-live-product-desktop-1440x900-001"]},
+      {"token": "size.newsletter-input-height", "value": "40px", "usage": ["newsletter field"], "basis": "observed", "confidence": "high", "evidence_ids": ["E-source-custom-css-001"]},
+      {"token": "size.mobile-product-thumb", "value": "74px", "usage": ["mobile product gallery thumbnail"], "basis": "observed", "confidence": "high", "evidence_ids": ["E-source-custom-css-001"]}
+    ],
+    "grid": [
+      {
+        "token": "grid.page-container",
+        "value": "max-width: 1260px; padding: 0 20px desktop / 0 10px <=1024px",
+        "usage": ["global content alignment"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-source-custom-css-001"]
+      },
+      {
+        "token": "grid.catalog-desktop",
+        "value": "four visible merchandising units in supplied long-page composition; source also supports named 5-up variants",
+        "usage": ["home vitrines and related products"],
+        "basis": "observed",
+        "confidence": "medium",
+        "evidence_ids": ["E-shot-home-supplied-001", "E-shot-product-supplied-001", "E-source-custom-css-001"]
+      },
+      {
+        "token": "grid.detail-desktop",
+        "value": "flex row: gallery/media region plus purchase/detail region with approximately 40px inter-column margin",
+        "usage": ["product detail"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-product-desktop-1440x900-001", "E-source-custom-css-001"]
+      },
+      {
+        "token": "grid.mobile",
+        "value": "single-column page flow with horizontal overflow/scroll substitutions for quick navigation and some rails; product list supports 1- or 2-column named variants",
+        "usage": ["mobile storefront"],
+        "basis": "observed",
+        "confidence": "medium",
+        "evidence_ids": ["E-live-home-mobile-390x844-001", "E-live-product-mobile-390x844-001", "E-source-custom-css-001"]
+      }
+    ],
+    "radii": [
+      {"token": "radius.control.sm", "value": "3px", "usage": ["catalog CTA, inputs, small badges"], "basis": "observed", "confidence": "high", "evidence_ids": ["E-source-custom-css-001"]},
+      {"token": "radius.card", "value": "4px", "usage": ["product cards, blog cards, menus"], "basis": "observed", "confidence": "high", "evidence_ids": ["E-source-custom-css-001"]},
+      {"token": "radius.surface.md", "value": "5-10px", "usage": ["banner arrows, support surfaces, chips"], "basis": "observed", "confidence": "medium", "evidence_ids": ["E-source-custom-css-001"]},
+      {"token": "radius.pill", "value": "50px", "usage": ["search/newsletter inputs and rounded utility controls"], "basis": "observed", "confidence": "high", "evidence_ids": ["E-source-custom-css-001"]},
+      {"token": "radius.circle", "value": "50%", "usage": ["floating support buttons, icon affordances"], "basis": "observed", "confidence": "high", "evidence_ids": ["E-source-custom-css-001", "E-live-product-desktop-1440x900-001"]}
+    ],
+    "borders": [
+      {"token": "border.subtle", "value": "1px solid #ECECEC", "usage": ["card hover state, tabs, inputs"], "basis": "observed", "confidence": "high", "evidence_ids": ["E-source-custom-css-001"]},
+      {"token": "border.alpha-divider", "value": "1px solid rgba(144,144,144,0.22)", "usage": ["benefit strip desktop dividers"], "basis": "observed", "confidence": "medium", "evidence_ids": ["E-source-custom-css-001"]}
+    ],
+    "shadows": [
+      {"token": "shadow.header", "value": "0 1px 4px 0 rgba(82,82,82,0.13)", "usage": ["sticky header and shell"], "basis": "observed", "confidence": "high", "evidence_ids": ["E-source-custom-css-001"]},
+      {"token": "shadow.card-hover", "value": "0 1px 6px 3px rgba(181,181,181,0.15)", "usage": ["catalog card hover"], "basis": "observed", "confidence": "high", "evidence_ids": ["E-source-custom-css-001"]},
+      {"token": "shadow.menu", "value": "0 10px 24px rgba(0,0,0,0.08)", "usage": ["desktop mega-menu"], "basis": "observed", "confidence": "high", "evidence_ids": ["E-source-custom-css-001"]}
+    ],
+    "opacity": [
+      {"token": "opacity.hover-muted", "value": 0.8, "usage": ["desktop navigation hover"], "basis": "observed", "confidence": "high", "evidence_ids": ["E-source-custom-css-001"]},
+      {"token": "opacity.brand-muted", "value": 0.8, "usage": ["grayscale brand strip imagery"], "basis": "observed", "confidence": "medium", "evidence_ids": ["E-source-custom-css-001"]}
+    ],
+    "z_index": [
+      {"token": "z.header", "value": 7, "usage": ["sticky header"], "basis": "observed", "confidence": "high", "evidence_ids": ["E-source-custom-css-001"]},
+      {"token": "z.mobile-overlay", "value": 8, "usage": ["mobile menu/search overlay"], "basis": "observed", "confidence": "high", "evidence_ids": ["E-source-custom-css-001"]},
+      {"token": "z.full-page-loading", "value": 9999999, "usage": ["loading veil"], "basis": "observed", "confidence": "high", "evidence_ids": ["E-source-theme-inline-001"]}
+    ],
+    "iconography": [
+      {
+        "token": "icon.system",
+        "value": "Inline SVG plus Font Awesome 3/4 compatibility font files",
+        "usage": ["search, menu, cart, benefits, share, support, arrows"],
+        "style": "mostly line/outline iconography with blue or white fills",
+        "size_range": "13-32px",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-source-theme-css-001", "E-source-custom-css-001", "E-shot-product-supplied-001"]
+      }
+    ],
+    "imagery": [
+      {
+        "token": "image.product.contain",
+        "value": "Centered product photography on white; contain-like framing and minimal chrome",
+        "usage": ["catalog cards", "product gallery", "related products"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-shot-home-supplied-001", "E-shot-product-supplied-001", "E-source-custom-css-001"]
+      },
+      {
+        "token": "image.hero.full-bleed",
+        "value": "Full-width promotional banner; mobile uses an intentionally cropped/oversized image region",
+        "usage": ["home hero"],
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-live-home-desktop-1440x900-001", "E-live-home-mobile-390x844-001", "E-source-custom-css-001"]
+      },
+      {
+        "token": "image.blog.cover",
+        "value": "Card-top cover crop with object-fit cover and hover scale candidate",
+        "usage": ["latest posts section"],
+        "basis": "observed",
+        "confidence": "medium",
+        "evidence_ids": ["E-shot-home-supplied-001", "E-source-custom-css-001"]
+      }
+    ]
+  },
+  "responsive": {
+    "breakpoint_candidates": [
+      {"range": ">=1025px", "label": "desktop", "basis": "observed", "confidence": "high", "evidence_ids": ["E-source-custom-css-001"]},
+      {"range": "<=1024px", "label": "mobile/tablet substitution", "basis": "observed", "confidence": "high", "evidence_ids": ["E-source-custom-css-001"]},
+      {"range": "351-600px", "label": "two-column mobile product-list variant when configured", "basis": "observed", "confidence": "high", "evidence_ids": ["E-source-custom-css-001"]},
+      {"range": "<=350px", "label": "single-column narrow mobile variant", "basis": "observed", "confidence": "high", "evidence_ids": ["E-source-custom-css-001"]}
+    ],
+    "container_behavior": [
+      {"rule": "Desktop container caps at 1260px with 20px side padding.", "basis": "observed", "confidence": "high", "evidence_ids": ["E-source-custom-css-001"]},
+      {"rule": "At <=1024px the container becomes full width with 10px side padding.", "basis": "observed", "confidence": "high", "evidence_ids": ["E-source-custom-css-001"]}
+    ],
+    "rules": [
+      {"id": "responsive-header-substitute", "element": "header/navigation", "transformation": "desktop utility header and category bar become a compact mobile header with hamburger, search icon, centered logo and horizontally scrolling quick links", "basis": "observed", "confidence": "high", "evidence_ids": ["E-live-home-desktop-1440x900-001", "E-live-home-mobile-390x844-001", "E-source-custom-css-001"]},
+      {"id": "responsive-detail-stack", "element": "product detail", "transformation": "gallery and purchase panel change from side-by-side flex regions to a vertical flow; product image remains the first focal element", "basis": "observed", "confidence": "high", "evidence_ids": ["E-live-product-desktop-1440x900-001", "E-live-product-mobile-390x844-001", "E-shot-product-supplied-001"]},
+      {"id": "responsive-hero-crop", "element": "home hero", "transformation": "desktop full-width banner becomes a narrow overflow/cropped image composition; arrows are hidden and dots remain", "basis": "observed", "confidence": "high", "evidence_ids": ["E-live-home-desktop-1440x900-001", "E-live-home-mobile-390x844-001", "E-source-custom-css-001"]},
+      {"id": "responsive-benefit-rail", "element": "benefits strip", "transformation": "desktop uses divided horizontal benefits; mobile collapses/scrolls so one benefit can dominate the narrow viewport", "basis": "observed", "confidence": "medium", "evidence_ids": ["E-shot-home-supplied-001", "E-live-home-mobile-390x844-001", "E-source-custom-css-001"]},
+      {"id": "responsive-catalog-density", "element": "product lists", "transformation": "source exposes one- and two-column mobile list variants, with card image-height adjustment below 370px", "basis": "observed", "confidence": "high", "evidence_ids": ["E-source-custom-css-001"]},
+      {"id": "responsive-overlay", "element": "mobile menu/search", "transformation": "desktop mega-menu is replaced by fixed full-height overlays; drawer width is 290px and enters from the left", "basis": "observed", "confidence": "high", "evidence_ids": ["E-source-custom-css-001"]}
+    ],
+    "fluid_values": [
+      {"value": "none encoded as a proven clamp() rule", "basis": "observed", "confidence": "medium", "evidence_ids": ["E-source-custom-css-001"], "note": "The inspected theme uses discrete media-query ranges and flex/grid substitutions more than fluid typography."
+      }
+    ],
+    "rendered_viewports_assessed": ["1440x900", "390x844"],
+    "unrendered_viewports": ["768x1024 tablet"],
+    "basis": "observed",
+    "confidence": "high",
+    "evidence_ids": ["E-live-home-desktop-1440x900-001", "E-live-home-mobile-390x844-001", "E-live-product-desktop-1440x900-001", "E-live-product-mobile-390x844-001", "E-source-custom-css-001"]
+  },
+  "motion": {
+    "duration_tiers": [
+      {"token": "motion.quick", "value": "150-200ms", "usage": ["hover opacity/filter", "card actions", "desktop submenu"], "basis": "observed", "confidence": "high", "evidence_ids": ["E-source-custom-css-001"]},
+      {"token": "motion.standard", "value": "300-400ms", "usage": ["mobile drawer/search overlay", "sticky header state"], "basis": "observed", "confidence": "high", "evidence_ids": ["E-source-custom-css-001"]},
+      {"token": "motion.content-image", "value": "500ms", "usage": ["blog image hover scale"], "basis": "observed", "confidence": "high", "evidence_ids": ["E-source-custom-css-001"]}
+    ],
+    "patterns": [
+      {
+        "id": "motion-desktop-submenu",
+        "name": "Desktop mega-menu reveal",
+        "trigger": "pointer hover on category item",
+        "driver": "pointer",
+        "job": "navigation",
+        "properties": ["visibility", "opacity", "transform: translateY"],
+        "delay": "none observed",
+        "duration": "200ms",
+        "easing": "cubic-bezier(0.34, 0.57, 0.57, 1)",
+        "choreography": "single surface reveal; child content is present in the submenu",
+        "interruption": "not runtime-tested",
+        "reduced_motion": "recommended: show menu instantly with no transform",
+        "performance": "opacity/transform are compositor-friendly; visibility gates hit testing",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-source-custom-css-001"]
+      },
+      {
+        "id": "motion-mobile-drawer",
+        "name": "Mobile drawer/search entrance",
+        "trigger": "mobile menu or search control activation",
+        "driver": "gesture",
+        "job": "navigation",
+        "properties": ["opacity", "transform: translateX(-100%) to translateX(0)"],
+        "delay": "none observed",
+        "duration": "300-400ms",
+        "easing": "ease-in on initial search state; generic transition on active state",
+        "choreography": "full-height overlay with a fixed 290px menu panel",
+        "interruption": "not runtime-tested",
+        "reduced_motion": "recommended: open/close without slide",
+        "performance": "transform/opacity preferred; overlay uses fixed positioning",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-source-custom-css-001"]
+      },
+      {
+        "id": "motion-sticky-header",
+        "name": "Sticky header state",
+        "trigger": "scroll state adds body.fixed",
+        "driver": "scroll",
+        "job": "continuity",
+        "properties": ["top", "opacity", "box-shadow"],
+        "delay": "none observed",
+        "duration": "400ms",
+        "easing": "ease-in-out",
+        "choreography": "header and desktop menu retain high z-index while becoming sticky",
+        "interruption": "not runtime-tested",
+        "reduced_motion": "recommended: switch state instantly",
+        "performance": "fixed/sticky positioning and opacity/box-shadow; runtime cost not measured",
+        "basis": "observed",
+        "confidence": "medium",
+        "evidence_ids": ["E-source-custom-css-001"]
+      },
+      {
+        "id": "motion-card-hover",
+        "name": "Catalog card hover emphasis",
+        "trigger": "pointer hover",
+        "driver": "pointer",
+        "job": "feedback",
+        "properties": ["border", "box-shadow", "action position/opacity"],
+        "delay": "none observed",
+        "duration": "200ms",
+        "easing": "ease-in-out/ease-out by property",
+        "choreography": "card remains stable while action area becomes more prominent",
+        "interruption": "not runtime-tested",
+        "reduced_motion": "recommended: preserve border/shadow state without transition",
+        "performance": "avoid layout shifts; prefer opacity/box-shadow and stable card height",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-source-custom-css-001"]
+      },
+      {
+        "id": "motion-blog-image-scale",
+        "name": "Blog cover image scale",
+        "trigger": "pointer hover on blog card",
+        "driver": "pointer",
+        "job": "delight",
+        "properties": ["transform: scale(1.1)"],
+        "delay": "none observed",
+        "duration": "500ms",
+        "easing": "not specified",
+        "choreography": "image stays clipped within rounded cover frame",
+        "interruption": "not runtime-tested",
+        "reduced_motion": "recommended: disable scale and preserve crop",
+        "performance": "transform plus overflow clipping",
+        "basis": "observed",
+        "confidence": "high",
+        "evidence_ids": ["E-source-custom-css-001"]
+      }
+    ],
+    "reduced_motion": {
+      "source_behavior": "No explicit prefers-reduced-motion branch was found in the inspected CSS snapshot.",
+      "report_behavior": "The living report disables specimen transitions when reduced motion is selected and honors the system media query.",
+      "basis": "recommended",
+      "confidence": "low",
+      "evidence_ids": []
+    }
+  },
+  "components": [
+    {
+      "id": "component-announcement-strip",
+      "name": "Announcement strip",
+      "role": "promotion/status rail",
+      "anatomy": ["thin full-width band", "small icon", "short centered message"],
+      "variants": ["desktop", "mobile"],
+      "sizes": ["compact"],
+      "states": ["default", "hover", "focus-visible"],
+      "tokens_used": ["color.action.primary", "color.accent.yellow", "type.family.ui"],
+      "content_rules": ["Keep to one short promotional sentence; preserve contrast and do not encode the offer by color alone."],
+      "responsive_behavior": "Remains full width; type and spacing compact on mobile.",
+      "interaction": "Static in captured evidence; no activation observed.",
+      "accessibility": "Should be a complementary/status region with readable text and no essential information in an icon alone.",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": ["E-live-home-desktop-1440x900-001", "E-live-home-mobile-390x844-001", "E-shot-product-supplied-001"]
+    },
+    {
+      "id": "component-header-shell",
+      "name": "Header shell",
+      "role": "global navigation and account/cart entry",
+      "anatomy": ["brand mark area", "search control", "support/account links", "cart", "category navigation"],
+      "variants": ["desktop utility header", "mobile compact header"],
+      "sizes": ["80px desktop header plus 55px category bar", "compact mobile header"],
+      "states": ["default", "sticky source-defined", "scrolled source-defined", "hover", "focus-visible"],
+      "tokens_used": ["color.header.light", "color.navigation.navy", "size.header.min-height", "shadow.header", "z.header"],
+      "content_rules": ["Search placeholder is short; nav labels are concise category nouns; account/cart remain visually secondary to search."],
+      "responsive_behavior": "Desktop exposes full search and account/support text; <=1024px hides utility text and substitutes menu/search icons with horizontally clipped quick links.",
+      "interaction": "Category hover submenu and sticky state are source-defined; mobile menu/search overlays are source-defined.",
+      "accessibility": "Use a landmark nav, labeled search input, buttons with accessible names, and a visible focus ring; runtime focus was not captured.",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": ["E-live-home-desktop-1440x900-001", "E-live-home-mobile-390x844-001", "E-source-custom-css-001"]
+    },
+    {
+      "id": "component-search",
+      "name": "Search control",
+      "role": "site search",
+      "anatomy": ["pill field", "placeholder", "search icon/button"],
+      "variants": ["desktop inline", "mobile icon with full-screen overlay"],
+      "sizes": ["40-44px field height candidate from source and render"],
+      "states": ["empty", "focused gap", "active overlay source-defined", "hover", "focus-visible"],
+      "tokens_used": ["radius.pill", "color.surface.muted", "color.text.secondary", "type.family.ui"],
+      "content_rules": ["Use a direct Portuguese placeholder or neutral equivalent; keep query input wide on desktop."],
+      "responsive_behavior": "Inline field on desktop; icon opens a fixed full-screen search surface on mobile.",
+      "interaction": "Search overlay source-defined with left-to-right transform; no query submitted.",
+      "accessibility": "Needs an explicit label, autocomplete behavior, escape close and focus return; these were not runtime-tested.",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": ["E-live-home-desktop-1440x900-001", "E-live-home-mobile-390x844-001", "E-source-custom-css-001"]
+    },
+    {
+      "id": "component-category-navigation",
+      "name": "Category navigation",
+      "role": "inventory discovery",
+      "anatomy": ["all-categories entry", "category links", "chevrons", "offer entry", "desktop mega-menu/mobile drawer"],
+      "variants": ["desktop horizontal menu", "desktop hover mega-menu", "mobile drawer"],
+      "sizes": ["55px desktop item height", "290px mobile drawer width"],
+      "states": ["default", "hover", "open source-defined", "focus gap", "focus-visible"],
+      "tokens_used": ["color.navigation.navy", "color.surface.page", "radius.card", "shadow.menu", "motion.quick", "motion.standard"],
+      "content_rules": ["Use category nouns and nested fitment taxonomy; long labels wrap inside the menu rather than truncate."],
+      "responsive_behavior": "Desktop opens an edge-to-edge submenu below the bar; mobile uses a fixed left drawer with nested categories.",
+      "interaction": "Hover/open transitions are source-defined; safe click/open state was not captured.",
+      "accessibility": "Nested menus need keyboard arrow/escape behavior and current-item semantics; not runtime-tested.",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": ["E-live-home-desktop-1440x900-001", "E-source-custom-css-001"]
+    },
+    {
+      "id": "component-hero-banner",
+      "name": "Hero banner carousel",
+      "role": "merchandising/brand introduction",
+      "anatomy": ["full-width image region", "carousel dots", "optional arrows"],
+      "variants": ["desktop full-width", "mobile cropped image"],
+      "sizes": ["full bleed", "mobile oversized/cropped asset"],
+      "states": ["slide active", "slide inactive source-defined", "loading gap", "hover", "focus-visible"],
+      "tokens_used": ["color.surface.page", "color.brand.navy", "color.accent.yellow", "image.hero.full-bleed"],
+      "content_rules": ["Promotional text in the source appears asset-led; implementations should keep essential message in HTML for accessibility/localization."],
+      "responsive_behavior": "Desktop fills the available width; mobile hides arrows, keeps dots and crops/overflows the image composition.",
+      "interaction": "Carousel controls are visible in source/render; timing/autoplay was not measured.",
+      "accessibility": "Provide alt text or adjacent equivalent copy, labeled slide controls, and pause support; source behavior not fully assessed.",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": ["E-shot-home-supplied-001", "E-live-home-desktop-1440x900-001", "E-live-home-mobile-390x844-001", "E-source-custom-css-001"]
+    },
+    {
+      "id": "component-benefit-strip",
+      "name": "Benefits strip",
+      "role": "trust/reassurance",
+      "anatomy": ["icon", "bold label", "supporting line", "desktop dividers", "mobile rail"],
+      "variants": ["four-up desktop", "single/scrolling mobile"],
+      "sizes": ["compact horizontal", "30px icon mobile source"],
+      "states": ["default", "carousel next/previous source-defined", "hover", "focus-visible"],
+      "tokens_used": ["color.brand.blue.strong", "color.text.primary", "color.border.alpha-divider", "icon.system"],
+      "content_rules": ["Lead with a concrete benefit and add one short qualification line."],
+      "responsive_behavior": "Four evenly divided items on desktop; mobile exposes fewer items per viewport with arrows/scroll behavior.",
+      "interaction": "Mobile arrow behavior source-defined; not opened.",
+      "accessibility": "Benefits should remain text-readable and not depend on icon recognition.",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": ["E-shot-home-supplied-001", "E-live-home-desktop-1440x900-001", "E-live-home-mobile-390x844-001", "E-source-custom-css-001"]
+    },
+    {
+      "id": "component-product-card",
+      "name": "Product card",
+      "role": "catalog merchandising and add-to-cart",
+      "anatomy": ["image", "title", "rating/metadata slot", "price", "installment cue", "Pix/discount chip", "quantity control", "action button"],
+      "variants": ["catalog card", "related product card", "compact rail card", "category list card"],
+      "sizes": ["desktop four-up", "mobile one/two-column", "compact card"],
+      "states": ["default", "hover source-defined", "disabled/stock gap", "loading gap", "hover", "focus-visible"],
+      "tokens_used": ["color.surface.page", "color.brand.blue.strong", "color.action.primary", "radius.card", "shadow.card-hover", "type.role.product-card-name", "type.role.card-price"],
+      "content_rules": ["Clamp title to 1-3 lines by variant; keep price and action visible; preserve fitment/brand cues without unbounded text."],
+      "responsive_behavior": "Desktop cards align in rails; mobile uses one/two-column named variants and reduces image height below 370px.",
+      "interaction": "Hover adds border/shadow and reveals or emphasizes actions; add action was not clicked.",
+      "accessibility": "Use a single meaningful link target for product identity plus a separately named add button; card status must not be color-only.",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": ["E-shot-home-supplied-001", "E-shot-product-supplied-001", "E-source-custom-css-001"]
+    },
+    {
+      "id": "component-brand-strip",
+      "name": "Brand strip",
+      "role": "brand/category navigation",
+      "anatomy": ["section heading", "logo tiles", "carousel arrows"],
+      "variants": ["grayscale default", "hover color source-defined"],
+      "sizes": ["wide muted section"],
+      "states": ["default", "hover source-defined", "hover", "focus-visible"],
+      "tokens_used": ["color.surface.muted", "color.text.primary", "icon.system"],
+      "content_rules": ["Use recognizable brand marks only when authorized; keep the strip secondary to product merchandising."],
+      "responsive_behavior": "Horizontal rail/slider; exact mobile density not rendered.",
+      "interaction": "Source defines grayscale-to-color hover behavior; not runtime-tested.",
+      "accessibility": "Every logo link needs an accessible brand name and a non-color hover cue.",
+      "basis": "observed",
+      "confidence": "medium",
+      "evidence_ids": ["E-shot-home-supplied-001", "E-source-custom-css-001"]
+    },
+    {
+      "id": "component-product-gallery",
+      "name": "Product gallery",
+      "role": "product inspection",
+      "anatomy": ["large primary image", "vertical thumbnail rail desktop", "pagination dots mobile", "share/wishlist row"],
+      "variants": ["desktop thumbnail rail", "mobile dots/stack"],
+      "sizes": ["large media region", "74px mobile thumbnails source-defined"],
+      "states": ["selected image", "zoom source-defined", "loading gap", "hover", "focus-visible"],
+      "tokens_used": ["color.surface.page", "color.border.subtle", "radius.card", "icon.system"],
+      "content_rules": ["Use one product angle per thumbnail and preserve object containment on white."],
+      "responsive_behavior": "Desktop places thumbnails beside the large image; mobile prioritizes a large image, then dots and utility actions.",
+      "interaction": "Thumbnail selection/zoom exists in source/page structure; no zoom or selection was activated.",
+      "accessibility": "Each thumbnail requires an accessible label and selected state; image alternative text was not audited.",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": ["E-live-product-desktop-1440x900-001", "E-live-product-mobile-390x844-001", "E-shot-product-supplied-001"]
+    },
+    {
+      "id": "component-purchase-panel",
+      "name": "Purchase panel",
+      "role": "primary conversion",
+      "anatomy": ["brand/category metadata", "long product title", "SKU", "price", "installment cue", "Pix chip", "payment link", "quantity control", "primary CTA", "availability", "shipping calculator"],
+      "variants": ["available", "restricted/consultation source-defined", "out of stock gap"],
+      "sizes": ["desktop two-column detail panel", "mobile stacked"],
+      "states": ["default", "quantity change", "CEP field", "availability", "loading/error gaps", "hover", "focus-visible"],
+      "tokens_used": ["color.brand.blue.strong", "color.action.primary", "color.surface.muted", "radius.control.sm", "type.role.detail-price"],
+      "content_rules": ["Keep the title descriptive for compatibility; price is the strongest text emphasis; payment and shipping follow before the CTA or immediately around it."],
+      "responsive_behavior": "Desktop panel sits beside gallery; mobile follows gallery and utility actions.",
+      "interaction": "Quantity and CEP fields are visible; no purchase, calculation or form submission was performed.",
+      "accessibility": "Quantity buttons need names and bounded values; CTA must state the action; availability should be text, not color only.",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": ["E-live-product-desktop-1440x900-001", "E-live-product-mobile-390x844-001", "E-shot-product-supplied-001", "E-source-custom-css-001"]
+    },
+    {
+      "id": "component-detail-tabs",
+      "name": "Description/application tabs",
+      "role": "long-form product information",
+      "anatomy": ["tab list", "active underline", "content panel", "related-product section"],
+      "variants": ["description active", "application inactive/available"],
+      "sizes": ["wide content region"],
+      "states": ["active", "inactive", "focus gap", "hover", "focus-visible"],
+      "tokens_used": ["color.brand.navy", "color.border.subtle", "type.family.ui", "space.section"],
+      "content_rules": ["Use scannable headings, compatibility lists and warranty/installation notes; do not let long text compete with the CTA above the fold."],
+      "responsive_behavior": "Content remains wide and flows vertically; exact mobile tab behavior not captured.",
+      "interaction": "Source defines tab switching; no tab was activated.",
+      "accessibility": "Implement the tab pattern with aria-selected, tabpanel relationships and keyboard arrow behavior; source runtime not assessed.",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": ["E-shot-product-supplied-001", "E-source-custom-css-001"]
+    },
+    {
+      "id": "component-support-floaters",
+      "name": "Floating support controls",
+      "role": "persistent contact/help",
+      "anatomy": ["WhatsApp/contact circle", "secondary chat circle", "right-edge fixed stack"],
+      "variants": ["green messaging", "blue chat"],
+      "sizes": ["large touch target"],
+      "states": ["default", "expanded source-defined", "mobile hidden/alternative gap", "hover", "focus-visible"],
+      "tokens_used": ["color.support.green", "color.action.primary", "radius.circle", "z.header", "icon.system"],
+      "content_rules": ["Use familiar icon plus accessible label; avoid covering purchase controls or cookie actions."],
+      "responsive_behavior": "Visible at right edge in desktop evidence; mobile treatment is not fully established from captured state.",
+      "interaction": "Support link not activated.",
+      "accessibility": "Provide accessible names and ensure fixed controls do not trap focus or occlude content.",
+      "basis": "observed",
+      "confidence": "medium",
+      "evidence_ids": ["E-live-product-desktop-1440x900-001", "E-shot-product-supplied-001", "E-source-theme-inline-001"]
+    },
+    {
+      "id": "component-cookie-banner",
+      "name": "Cookie consent banner",
+      "role": "privacy consent",
+      "anatomy": ["fixed bottom bar", "privacy link", "single acknowledge button"],
+      "variants": ["desktop horizontal", "mobile stacked"],
+      "sizes": ["viewport-width fixed bar"],
+      "states": ["visible", "dismissed gap", "hover", "focus-visible"],
+      "tokens_used": ["color.surface.page", "color.text.primary", "color.action.primary", "shadow.header"],
+      "content_rules": ["Keep the privacy explanation concise and link to the full policy; button label should be explicit."],
+      "responsive_behavior": "Desktop uses a horizontal bar; mobile wraps text and expands the acknowledge button.",
+      "interaction": "Visible in all captured states; not dismissed to avoid mutating the session.",
+      "accessibility": "Use a dialog/region appropriate to consent, keep keyboard focus visible and avoid covering primary content more than necessary.",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": ["E-live-home-desktop-1440x900-001", "E-live-home-mobile-390x844-001", "E-live-product-desktop-1440x900-001", "E-live-product-mobile-390x844-001"]
+    },
+    {
+      "id": "component-footer",
+      "name": "Footer and newsletter",
+      "role": "trust, contact and legal navigation",
+      "anatomy": ["newsletter heading/input", "company description", "phone/WhatsApp", "institutional links", "social links", "payment/security/shipping marks", "legal baseline"],
+      "variants": ["desktop multi-column", "mobile collapsible source-defined"],
+      "sizes": ["wide multi-column region"],
+      "states": ["default", "newsletter confirmation gap", "collapsed mobile source-defined", "hover", "focus-visible"],
+      "tokens_used": ["color.surface.page", "color.surface.muted", "color.text.primary", "color.text.secondary", "radius.pill", "size.newsletter-input-height"],
+      "content_rules": ["Keep contact details grouped, legal links legible and trust marks subordinate to the company/contact block."],
+      "responsive_behavior": "Desktop exposes columns; mobile uses collapsible footer blocks per source CSS.",
+      "interaction": "Newsletter submit and collapsible footer were not activated.",
+      "accessibility": "Use headings for groups, labeled input, landmark footer, and no-image equivalent for trust information where meaningful.",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": ["E-shot-home-supplied-001", "E-shot-product-supplied-001", "E-source-custom-css-001"]
+    }
+  ],
+  "patterns": [
+    {
+      "id": "pattern-home-storefront",
+      "name": "Home storefront",
+      "shell_regions": ["announcement", "header", "category navigation", "hero", "benefits", "named product rails", "brand strip", "blog posts", "newsletter", "footer", "floating support", "cookie consent"],
+      "hierarchy": "hero -> reassurance -> product discovery -> brand reinforcement -> editorial support -> contact/legal",
+      "density": "high merchandising density with generous white separators and compact cards",
+      "composition_rules": ["Full-width hero precedes four-up product rails.", "Section titles center above rails.", "Benefits and brands use muted, low-noise surfaces.", "Footer closes with operational trust marks."],
+      "responsive_transformation": "Header/nav substitute, hero crop, benefit rail reduction, product list column change and footer collapse on mobile.",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": ["E-shot-home-supplied-001", "E-live-home-desktop-1440x900-001", "E-live-home-mobile-390x844-001"]
+    },
+    {
+      "id": "pattern-product-detail",
+      "name": "Product detail",
+      "shell_regions": ["breadcrumbs", "gallery", "purchase panel", "share/wishlist", "description/application tabs", "related products", "newsletter", "footer", "support", "cookie consent"],
+      "hierarchy": "product image/title/price/CTA -> description and fitment -> related products -> trust/contact",
+      "density": "focused top-of-page conversion followed by long-form technical detail",
+      "composition_rules": ["Image is the first visual anchor.", "Price and CTA stay in the right panel on desktop.", "Description uses a pale section break and underlined active tab.", "Related products return to four-up card grammar."],
+      "responsive_transformation": "Gallery-first vertical flow, title/purchase content follows on mobile; lower sections continue as stacked content.",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": ["E-shot-product-supplied-001", "E-live-product-desktop-1440x900-001", "E-live-product-mobile-390x844-001"]
+    },
+    {
+      "id": "pattern-merchandising-rail",
+      "name": "Merchandising rail",
+      "shell_regions": ["centered section heading", "left/right carousel controls", "repeated product cards"],
+      "hierarchy": "section label -> product image -> title -> price/payment -> action",
+      "density": "four visible desktop units; compact mobile list/rail",
+      "composition_rules": ["Cards have minimal chrome and aligned action rows.", "Names are clamped to preserve row alignment.", "Price color is the main visual signal."],
+      "responsive_transformation": "Source supports one- and two-column mobile variants and hides/repositions carousel arrows.",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": ["E-shot-home-supplied-001", "E-shot-product-supplied-001", "E-source-custom-css-001"]
+    },
+    {
+      "id": "pattern-trust-footer",
+      "name": "Trust footer",
+      "shell_regions": ["newsletter", "about/contact", "institutional links", "payment/security/shipping", "legal baseline"],
+      "hierarchy": "opt-in -> human contact -> policies -> operational trust marks",
+      "density": "information-rich but columnized; likely collapsible on mobile",
+      "composition_rules": ["White surface and subtle rules keep the footer operational rather than promotional.", "Trust marks sit below contact and policy content."],
+      "responsive_transformation": "Desktop columns collapse into mobile sections per source CSS; exact mobile footer not rendered.",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": ["E-shot-home-supplied-001", "E-shot-product-supplied-001", "E-source-custom-css-001"]
+    }
+  ],
+  "accessibility": {
+    "observed": [
+      "Visible labels accompany key commerce actions in the captured product view.",
+      "The cookie banner exposes a text acknowledge button and privacy-policy link.",
+      "Support controls use familiar icon forms and are fixed touch targets in desktop evidence."
+    ],
+    "source_signals": [
+      "The source uses semantic-looking links, buttons, inputs, tab-like anchors and navigation groups, but full role/name behavior was not audited.",
+      "The source provides mobile substitutes instead of only shrinking the desktop menu."
+    ],
+    "gaps": [
+      "Keyboard traversal and focus-visible styling were not captured.",
+      "Carousel announcements, pause controls and tab semantics were not runtime-tested.",
+      "Product image alternative text and logo alt text were not audited.",
+      "No explicit reduced-motion source branch was found in the inspected CSS snapshot."
+    ],
+    "recommendations": [
+      "Add a visible 2px focus ring using color.brand.blue.strong with a non-color fallback.",
+      "Use native buttons for all carousel, quantity, menu and consent actions.",
+      "Expose fitment/compatibility as text, not only in product images or clipped titles.",
+      "Respect prefers-reduced-motion by removing transforms and non-essential image hover scale.",
+      "Ensure fixed cookie/support controls do not cover the CTA or trap focus at 200% zoom."
+    ],
+    "basis": "inferred",
+    "confidence": "medium",
+    "evidence_ids": ["E-live-home-desktop-1440x900-001", "E-live-home-mobile-390x844-001", "E-shot-product-supplied-001", "E-source-custom-css-001"]
+  },
+  "content_style": {
+    "locale": "pt-BR",
+    "voice": ["direct", "practical", "reassuring", "transactional"],
+    "patterns": [
+      "Descriptive product titles combine part name, motorcycle model, year range and fitment.",
+      "Prices, installments and Pix discount are repeated in short stacked lines.",
+      "Section headings are compact nouns or short merchandising labels.",
+      "Trust copy foregrounds delivery, warranty, experience and contact availability."
+    ],
+    "content_constraints": [
+      "Product names need line clamps and controlled wrapping.",
+      "Fitment and compatibility should not be truncated beyond recoverability.",
+      "Marketing hero copy may be embedded in artwork; a reusable system should make it HTML text."
+    ],
+    "basis": "observed",
+    "confidence": "high",
+    "evidence_ids": ["E-shot-home-supplied-001", "E-shot-product-supplied-001", "E-live-product-desktop-1440x900-001"]
+  },
+  "exceptions": [
+    {
+      "id": "exception-legacy-primary-alias",
+      "statement": "The base theme declares #005EBC as --cor-principal while inline custom variables use #0069D1 for emphasis and #0070DF for buttons.",
+      "resolution": "Keep these as separate semantic roles instead of averaging them into one blue token.",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": ["E-source-theme-css-001", "E-source-theme-inline-001"]
+    },
+    {
+      "id": "exception-font-override",
+      "statement": "The base theme assigns Open Sans to .titulo while the inline store rule assigns Rubik to body, inputs, .titulo, buttons and textareas.",
+      "resolution": "Use Rubik as implemented UI family; retain Open Sans as a legacy/source-declared candidate.",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": ["E-source-theme-css-001", "E-source-theme-inline-001"]
+    },
+    {
+      "id": "exception-cookie-occlusion",
+      "statement": "The cookie consent bar occludes the bottom of the initial viewport in both live and supplied product evidence.",
+      "resolution": "Preserve the state as evidence; do not infer missing content or dismiss it during capture.",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": ["E-live-product-desktop-1440x900-001", "E-live-product-mobile-390x844-001", "E-shot-product-supplied-001"]
+    },
+    {
+      "id": "exception-support-color-variants",
+      "statement": "Source variables include green simple-mode support and blue personalized-mode support roles, while the captured desktop surface shows a green messaging control plus a blue secondary control.",
+      "resolution": "Keep messaging and secondary chat as distinct support variants; verify final token application per runtime state before implementation.",
+      "basis": "inferred",
+      "confidence": "medium",
+      "evidence_ids": ["E-source-theme-inline-001", "E-live-product-desktop-1440x900-001"]
+    }
+  ],
+  "gaps": [
+    "Tablet viewport 768x1024 was not rendered; desktop/mobile source ranges are exact declarations but tablet appearance remains a runtime gap.",
+    "No keyboard/focus-visible capture was performed.",
+    "No safe open/close interaction capture for desktop mega-menu, mobile drawer, search overlay, tabs or carousels was performed.",
+    "No reduced-motion runtime capture or explicit source prefers-reduced-motion rule was found.",
+    "Carousel autoplay timing, easing, pause behavior and interruption were not measured.",
+    "Exact image crop/object-position values for remote hero/product assets were not extracted into the report because source media was not copied or reused.",
+    "Accessibility of rasterized hero/banner text and product-image alt text remains unverified.",
+    "Live CSS and content can change after the capture timestamp."
+  ],
+  "additional_findings": [
+    {
+      "id": "finding-platform-theme-layer",
+      "statement": "The storefront exposes a large platform/theme token bundle with a small visually dominant subset; the extracted grammar should preserve semantic roles rather than every implementation variable.",
+      "basis": "inferred",
+      "confidence": "high",
+      "evidence_ids": ["E-source-theme-inline-001", "E-source-custom-css-001"]
+    },
+    {
+      "id": "finding-raster-marketing-copy",
+      "statement": "The home hero contains large marketing text inside promotional imagery in the supplied/live render; this is a visual observation, not a claim about accessible DOM text.",
+      "basis": "observed",
+      "confidence": "high",
+      "evidence_ids": ["E-live-home-desktop-1440x900-001", "E-live-home-mobile-390x844-001", "E-shot-home-supplied-001"]
+    },
+    {
+      "id": "finding-fitment-as-content",
+      "statement": "Compatibility and model/year strings are a core content primitive, not incidental metadata; card and detail layouts must reserve space for them.",
+      "basis": "inferred",
+      "confidence": "high",
+      "evidence_ids": ["E-shot-product-supplied-001", "E-live-product-desktop-1440x900-001"]
+    },
+    {
+      "id": "finding-fixed-support-cookie",
+      "statement": "Persistent support controls and persistent cookie consent compete for the viewport edge; mobile implementations need an explicit occlusion budget.",
+      "basis": "inferred",
+      "confidence": "medium",
+      "evidence_ids": ["E-live-home-mobile-390x844-001", "E-live-product-mobile-390x844-001"]
+    }
+  ],
+  "generated_assets": {
+    "report": "report.html",
+    "framework": "single-html",
+    "evidence_directory": "evidence/",
+    "evidence_index": "evidence/README.md",
+    "public_evidence_assets": "source raster captures intentionally omitted; see evidence/README.md",
+    "validation_command": "python skill/scripts/validate_design_system.py templates/ecommerce/garage311-design-system/design-system.json"
+  }
+}

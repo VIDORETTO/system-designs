@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Garage 311 — Commerce Design System</title>
+  <style>
+    :root {
+      --brand-navy: #001c39;
+      --brand-blue: #0069d1;
+      --action-blue: #0070df;
+      --header-blue: #71b8ff;
+      --info-blue: #005ebc;
+      --accent-yellow: #ffc42c;
+      --support-green: #27bf64;
+      --page: #ffffff;
+      --surface-muted: #f5f5f5;
+      --surface-soft: #f7f7f7;
+      --text: #201f1f;
+      --text-muted: #606060;
+      --border: #ececec;
+      --border-alpha: rgba(144, 144, 144, .22);
+      --shadow-header: 0 1px 4px rgba(82,82,82,.13);
+      --shadow-card: 0 1px 6px 3px rgba(181,181,181,.15);
+      --shadow-menu: 0 10px 24px rgba(0,0,0,.08);
+      --radius-sm: 3px;
+      --radius-card: 4px;
+      --radius-pill: 50px;
+      --radius-circle: 50%;
+      --container: 1260px;
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 20px;
+      --space-6: 28px;
+      --space-7: 35px;
+      --space-8: 50px;
+      --fast: 200ms;
+      --standard: 400ms;
+      --image: linear-gradient(135deg, #eef6ff 0%, #fff 48%, #edf5ff 100%);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--page);
+      font-family: Rubik, Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      line-height: 1.45;
+    }
+    a { color: var(--brand-blue); }
+    button, input { font: inherit; }
+    button { cursor: pointer; }
+    :focus-visible { outline: 3px solid var(--accent-yellow); outline-offset: 3px; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .001ms !important; }
+    }
+
+    .announcement {
+      min-height: 24px;
+      padding: 4px 20px;
+      color: #fff;
+      background: var(--brand-blue);
+      text-align: center;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .01em;
+    }
+    .announcement b { color: var(--accent-yellow); margin-right: 6px; }
+    .site-header { position: sticky; top: 0; z-index: 10; box-shadow: var(--shadow-header); background: var(--header-blue); }
+    .header-main, .category-bar, main, .footer-inner { width: min(100%, var(--container)); margin: 0 auto; }
+    .header-main { min-height: 80px; padding: 12px 20px; display: flex; align-items: center; gap: 20px; }
+    .wordmark { min-width: 208px; color: var(--brand-navy); font-weight: 900; letter-spacing: -.045em; font-size: 25px; line-height: .9; }
+    .wordmark span { display: block; margin-top: 4px; color: var(--brand-blue); font-size: 10px; letter-spacing: .12em; }
+    .search-specimen { height: 44px; flex: 1; min-width: 200px; display: flex; align-items: center; justify-content: space-between; padding: 0 16px 0 20px; border: 0; border-radius: var(--radius-pill); background: #fff; color: var(--text-muted); font-size: 13px; }
+    .search-icon { width: 17px; height: 17px; border: 2px solid var(--brand-navy); border-radius: 50%; position: relative; }
+    .search-icon::after { content: ""; position: absolute; width: 7px; height: 2px; background: var(--brand-navy); transform: rotate(45deg); right: -5px; bottom: -2px; }
+    .header-actions { display: flex; align-items: center; gap: 18px; color: #fff; font-size: 13px; font-weight: 700; }
+    .header-action { display: flex; align-items: center; gap: 7px; white-space: nowrap; }
+    .header-action .line-icon { width: 22px; height: 22px; border: 2px solid #fff; border-radius: 50%; }
+    .cart-dot { min-width: 18px; height: 18px; padding: 0 5px; display: inline-grid; place-items: center; border-radius: 20px; background: var(--accent-yellow); color: var(--brand-navy); font-size: 10px; }
+    .category-bar { min-height: 55px; padding: 0 20px; display: flex; align-items: center; justify-content: center; gap: 6px; background: var(--brand-navy); color: #fff; }
+    .category-bar a { padding: 18px 14px; color: #fff; text-decoration: none; font-size: 13px; font-weight: 700; transition: opacity var(--fast) ease-in-out; }
+    .category-bar a:hover { opacity: .8; }
+
+    main { min-width: 0; overflow-x: hidden; padding: 38px 20px 72px; }
+    .eyebrow { color: var(--brand-blue); font-size: 12px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    h1, h2, h3, h4 { color: var(--brand-navy); line-height: 1.08; }
+    h1 { max-width: 760px; min-width: 0; margin: 10px 0 18px; overflow-wrap: anywhere; font-size: clamp(34px, 5vw, 68px); letter-spacing: -.045em; }
+    h2 { margin: 0 0 16px; font-size: 27px; letter-spacing: -.025em; }
+    h3 { margin: 0 0 9px; font-size: 18px; }
+    p { margin: 0 0 12px; }
+    .muted { color: var(--text-muted); }
+    .hero { display: grid; grid-template-columns: 1.06fr .94fr; gap: 28px; align-items: stretch; padding-bottom: 50px; }
+    .hero > *, .hero-copy, .hero-specimen, .section-head > *, .panel { min-width: 0; }
+    .hero-copy { padding: 28px 0; overflow-wrap: anywhere; }
+    .hero-copy p { max-width: 610px; color: var(--text-muted); font-size: 18px; }
+    .hero-specimen { min-height: 330px; overflow: hidden; border-radius: 8px; background: var(--image); box-shadow: var(--shadow-card); position: relative; }
+    .hero-specimen::before, .hero-specimen::after { content: ""; position: absolute; border-radius: 50%; border: 18px solid rgba(0,94,188,.08); }
+    .hero-specimen::before { width: 220px; height: 220px; right: -40px; top: 22px; }
+    .hero-specimen::after { width: 150px; height: 150px; left: -30px; bottom: -45px; }
+    .hero-specimen .hero-label { position: absolute; left: 28px; top: 28px; color: var(--brand-navy); font-weight: 900; font-size: clamp(26px, 4vw, 52px); letter-spacing: -.055em; line-height: .9; max-width: 320px; }
+    .hero-specimen .hero-label strong { display: block; color: #ffdc54; text-shadow: 1px 1px 0 rgba(0,28,57,.08); }
+    .hero-specimen .hero-caption { position: absolute; left: 30px; bottom: 28px; max-width: 260px; color: var(--brand-navy); font-family: Georgia, serif; font-size: 21px; font-weight: 700; }
+    .hero-specimen .mechanical { position: absolute; right: 16%; bottom: 35px; width: 160px; height: 70px; border: 14px solid var(--brand-navy); border-radius: 50%; transform: rotate(-24deg); box-shadow: 32px -8px 0 -14px #7a8897, 60px 22px 0 -20px var(--brand-blue); opacity: .9; }
+    .hero-specimen .mechanical::after { content: ""; position: absolute; width: 22px; height: 22px; border-radius: 50%; background: var(--accent-yellow); right: -43px; top: 28px; box-shadow: -150px 28px 0 -6px var(--brand-blue); }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+    .pill, .basis, .confidence { display: inline-flex; align-items: center; gap: 5px; min-height: 26px; padding: 4px 10px; border-radius: var(--radius-pill); font-size: 12px; font-weight: 700; }
+    .pill { background: var(--surface-muted); color: var(--brand-navy); }
+    .basis { border-radius: 4px; text-transform: uppercase; letter-spacing: .04em; font-size: 10px; }
+    .basis.observed { background: #dff0ff; color: #00519f; }
+    .basis.computed { background: #fff0bf; color: #6d5200; }
+    .basis.inferred { background: #e8e0ff; color: #503693; }
+    .basis.recommended { background: #e2f7ec; color: #14663b; }
+    .confidence { min-height: 22px; padding: 2px 8px; background: #f2f2f2; color: var(--text-muted); }
+    .confidence.high { color: #14663b; }
+    .confidence.medium { color: #7a5600; }
+    .confidence.low { color: #8a3a3a; }
+    .legend { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 0 0 26px; padding: 12px 14px; border: 1px solid var(--border); border-radius: var(--radius-card); background: var(--surface-soft); }
+    .legend small { margin-right: 6px; color: var(--text-muted); }
+
+    .section { scroll-margin-top: 95px; margin-top: 56px; }
+    .section-head { display: flex; justify-content: space-between; gap: 20px; align-items: end; margin-bottom: 20px; }
+    .section-head p { max-width: 650px; color: var(--text-muted); }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .panel { padding: 22px; border: 1px solid var(--border); border-radius: var(--radius-card); background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,.025); }
+    .panel.soft { background: var(--surface-muted); }
+    .panel p:last-child { margin-bottom: 0; }
+    .metric-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 22px 0 0; }
+    .metric { padding: 17px; border-left: 4px solid var(--action-blue); background: var(--surface-muted); }
+    .metric strong { display: block; color: var(--brand-navy); font-size: 25px; line-height: 1; }
+    .metric span { display: block; margin-top: 6px; color: var(--text-muted); font-size: 12px; }
+
+    .swatch-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    .swatch { overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius-card); background: #fff; }
+    .swatch-color { min-height: 70px; padding: 10px; display: flex; align-items: end; color: #fff; font-size: 11px; font-weight: 800; }
+    .swatch-copy { padding: 10px; }
+    .swatch-copy strong, .swatch-copy code { display: block; }
+    .swatch-copy strong { color: var(--brand-navy); font-size: 12px; }
+    .swatch-copy code { margin-top: 3px; color: var(--text-muted); font-size: 11px; }
+    .swatch-copy small { display: block; margin-top: 6px; color: var(--text-muted); font-size: 11px; line-height: 1.3; }
+    .contrast { margin-top: 5px; color: #14663b; font-size: 10px; font-weight: 700; }
+    .type-samples { display: grid; grid-template-columns: 1.1fr .9fr; gap: 20px; align-items: center; }
+    .type-display { padding: 18px; border-left: 5px solid var(--accent-yellow); background: var(--surface-soft); }
+    .type-display .display { margin: 0 0 12px; color: var(--brand-navy); font-size: 45px; font-weight: 700; letter-spacing: -.05em; line-height: .95; }
+    .type-display .price { margin: 0; color: var(--brand-blue); font-size: 30px; font-weight: 700; }
+    .type-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .type-table th, .type-table td { padding: 10px 0; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
+    .type-table th { color: var(--text-muted); font-size: 11px; text-transform: uppercase; letter-spacing: .06em; }
+    .type-table td:first-child { width: 42%; color: var(--brand-navy); font-weight: 700; }
+    .token-list { display: grid; gap: 9px; margin: 0; padding: 0; list-style: none; }
+    .token-list li { display: flex; justify-content: space-between; gap: 10px; padding-bottom: 9px; border-bottom: 1px dashed var(--border); }
+    .token-list code { color: var(--brand-blue); font-size: 12px; }
+    .token-list span { color: var(--text-muted); font-size: 12px; text-align: right; }
+
+    .responsive-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .frame { overflow: hidden; min-height: 230px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface-muted); }
+    .frame-label { padding: 9px 12px; color: #fff; background: var(--brand-navy); font-size: 12px; font-weight: 700; }
+    .frame-canvas { padding: 13px; }
+    .mini-header { display: flex; align-items: center; gap: 8px; padding: 8px; color: #fff; background: var(--header-blue); font-size: 9px; font-weight: 700; }
+    .mini-header .mini-logo { min-width: 70px; color: var(--brand-navy); font-size: 11px; font-weight: 900; }
+    .mini-search { flex: 1; height: 20px; border-radius: 20px; background: #fff; }
+    .mini-nav { height: 18px; background: var(--brand-navy); }
+    .mini-content { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+    .mini-media { min-height: 130px; border-radius: 4px; background: var(--image); position: relative; }
+    .mini-media::after { content: ""; position: absolute; width: 56px; height: 24px; border: 7px solid var(--brand-navy); border-radius: 50%; transform: rotate(-25deg); left: 24%; top: 40%; }
+    .mini-info { padding: 4px; background: #fff; }
+    .mini-line { height: 7px; margin-bottom: 6px; border-radius: 2px; background: #d9e7f5; }
+    .mini-line.wide { width: 90%; }
+    .mini-line.short { width: 55%; }
+    .mini-button { height: 22px; margin-top: 10px; border-radius: 3px; background: var(--action-blue); }
+    .mobile-frame { max-width: 280px; margin: 0 auto; }
+    .mobile-frame .mini-header { justify-content: space-between; }
+    .mobile-frame .mini-header .mini-search { flex: 0 0 18px; width: 18px; background: transparent; border: 2px solid #fff; }
+    .mobile-frame .mini-nav { height: 20px; background: var(--header-blue); border-top: 1px solid rgba(255,255,255,.35); }
+    .mobile-frame .mini-content { display: block; }
+    .mobile-frame .mini-media { min-height: 170px; }
+    .mobile-frame .mini-info { margin-top: 7px; }
+    .rule-list { display: grid; gap: 9px; margin: 0; padding: 0; list-style: none; }
+    .rule-list li { display: grid; grid-template-columns: 24px 1fr; gap: 10px; align-items: start; }
+    .rule-list li::before { content: "✓"; display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: var(--accent-yellow); color: var(--brand-navy); font-weight: 900; }
+    .rule-list strong { display: block; color: var(--brand-navy); }
+    .rule-list span { display: block; margin-top: 2px; color: var(--text-muted); font-size: 13px; }
+
+    .motion-controls { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+    .control { padding: 9px 12px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: #fff; color: var(--brand-navy); font-weight: 700; font-size: 12px; }
+    .control.primary { border-color: var(--action-blue); background: var(--action-blue); color: #fff; }
+    .motion-stage { min-height: 180px; display: grid; place-items: center; border-radius: var(--radius-card); background: var(--brand-navy); overflow: hidden; position: relative; }
+    .motion-stage::before { content: "navigation surface"; position: absolute; top: 14px; left: 16px; color: rgba(255,255,255,.55); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+    .motion-sample { width: min(80%, 360px); padding: 20px; border-radius: 0 0 5px 5px; background: #fff; box-shadow: var(--shadow-menu); color: var(--brand-navy); font-weight: 700; transform-origin: top center; }
+    .motion-sample.running { animation: menuReveal 1.2s cubic-bezier(.34,.57,.57,1) infinite alternate; }
+    .motion-sample.reduced { animation: none; }
+    @keyframes menuReveal { from { opacity: .25; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+    .motion-status { margin-top: 10px; color: var(--text-muted); font-size: 12px; }
+    .motion-table { width: 100%; margin-top: 20px; border-collapse: collapse; font-size: 12px; }
+    .motion-table th, .motion-table td { padding: 9px 8px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
+    .motion-table th { color: var(--text-muted); font-size: 10px; text-transform: uppercase; }
+
+    .benefit-specimen { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--border); background: #fff; }
+    .benefit { min-height: 92px; padding: 16px; display: grid; grid-template-columns: 34px 1fr; gap: 10px; align-items: center; border-right: 1px solid var(--border-alpha); }
+    .benefit:last-child { border-right: 0; }
+    .benefit-icon { width: 29px; height: 29px; border: 2px solid var(--brand-blue); border-radius: 50%; position: relative; }
+    .benefit-icon::after { content: ""; position: absolute; width: 10px; height: 2px; left: 7px; top: 12px; background: var(--brand-blue); transform: rotate(-45deg); }
+    .benefit strong { display: block; color: var(--brand-navy); font-size: 14px; }
+    .benefit span { display: block; color: var(--text-muted); font-size: 11px; line-height: 1.2; }
+    .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    .product-card { min-width: 0; padding: 5px; border: 1px solid transparent; border-radius: var(--radius-card); background: #fff; transition: border-color var(--fast) ease-in-out, box-shadow var(--fast) ease-out, transform var(--fast) ease-out; }
+    .product-card:hover { border-color: var(--border); box-shadow: var(--shadow-card); transform: translateY(-2px); }
+    .product-art { height: 140px; display: grid; place-items: center; border-radius: var(--radius-card); background: var(--image); position: relative; overflow: hidden; }
+    .product-art::before, .product-art::after { content: ""; position: absolute; }
+    .product-art::before { width: 76px; height: 76px; border: 12px solid var(--brand-navy); border-radius: 50%; transform: rotate(22deg); }
+    .product-art::after { width: 8px; height: 95px; background: var(--brand-blue); transform: rotate(22deg); box-shadow: 32px -8px 0 0 var(--accent-yellow); }
+    .product-art.alt::before { width: 86px; height: 28px; border-width: 9px; border-radius: 10px; transform: rotate(-23deg); }
+    .product-art.alt::after { width: 62px; height: 7px; background: var(--brand-blue); transform: rotate(-23deg); box-shadow: 0 17px 0 0 var(--brand-navy), 0 -17px 0 0 var(--accent-yellow); }
+    .product-art.small::before { width: 42px; height: 86px; border-width: 9px; border-radius: 7px; transform: rotate(12deg); }
+    .product-art.small::after { width: 68px; height: 8px; background: var(--brand-navy); transform: rotate(12deg); box-shadow: 0 18px 0 0 var(--brand-blue); }
+    .product-art.ring::before { width: 82px; height: 82px; border: 12px dotted var(--brand-navy); transform: none; }
+    .product-art.ring::after { width: 24px; height: 24px; border-radius: 50%; background: var(--accent-yellow); }
+    .product-info { padding: 10px 8px 0; text-align: center; }
+    .product-name { min-height: 35px; margin: 0 0 8px; overflow: hidden; color: var(--text); font-size: 13px; line-height: 1.25; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+    .product-price { margin: 0; color: var(--brand-blue); font-size: 21px; font-weight: 700; line-height: 1; }
+    .product-pay { margin: 5px 0 10px; color: var(--text-muted); font-size: 11px; }
+    .product-action { width: 100%; height: 35px; border: 0; border-radius: var(--radius-sm); background: var(--action-blue); color: #fff; font-size: 12px; font-weight: 700; }
+    .detail-specimen { display: grid; grid-template-columns: 1.1fr .9fr; gap: 25px; align-items: start; }
+    .detail-media { min-height: 300px; display: grid; place-items: center; border-radius: var(--radius-card); background: var(--image); position: relative; }
+    .detail-media .motor { width: 220px; height: 112px; border: 22px solid #677787; border-radius: 28px 65px 65px 28px; transform: rotate(-20deg); box-shadow: inset 28px 0 0 rgba(0,0,0,.24), 72px 25px 0 -42px var(--brand-navy); }
+    .detail-media .motor::before { content: ""; position: absolute; width: 33px; height: 100px; left: -44px; top: -16px; border-radius: 12px; background: var(--brand-navy); }
+    .detail-media .motor::after { content: ""; position: absolute; width: 36px; height: 36px; right: -50px; top: 27px; border: 10px solid #677787; border-radius: 50%; }
+    .detail-panel { padding-top: 6px; }
+    .detail-panel small { color: var(--text-muted); }
+    .detail-panel h3 { margin: 6px 0 12px; font-size: 22px; }
+    .sku { padding-bottom: 12px; border-bottom: 1px solid var(--border); color: var(--text-muted); font-size: 12px; }
+    .detail-price { margin: 12px 0 4px; color: var(--brand-blue); font-size: 30px; font-weight: 700; line-height: 1; }
+    .pix-chip { margin: 12px 0; padding: 10px 12px; border-radius: var(--radius-card); background: var(--surface-muted); color: var(--text); font-size: 12px; font-weight: 700; }
+    .purchase-row { display: grid; grid-template-columns: 84px 1fr; gap: 8px; margin-top: 18px; }
+    .quantity { height: 50px; display: grid; place-items: center; border: 1px solid var(--border); border-radius: var(--radius-sm); color: var(--text-muted); }
+    .buy-button { height: 50px; border: 0; border-radius: var(--radius-sm); background: var(--action-blue); color: #fff; font-size: 18px; font-weight: 700; }
+    .availability { margin-top: 10px; text-align: center; color: var(--text-muted); font-size: 12px; }
+    .tabs { margin-top: 24px; }
+    .tab-list { display: flex; justify-content: center; gap: 15px; border-bottom: 1px solid var(--border); }
+    .tab { padding: 12px 16px; border: 0; border-bottom: 4px solid transparent; background: transparent; color: var(--text-muted); font-weight: 700; }
+    .tab[aria-selected="true"] { border-color: var(--brand-navy); color: var(--brand-navy); }
+    .tab-panel { padding: 18px 0 0; }
+    .tab-panel[hidden] { display: none; }
+    .state-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 14px; }
+    .state-button { height: 35px; padding: 0 16px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: #fff; color: var(--brand-navy); font-weight: 700; font-size: 12px; }
+    .state-button.disabled { background: var(--surface-muted); color: #999; cursor: not-allowed; }
+    .state-input { height: 35px; padding: 0 12px; border: 1px solid var(--border); border-radius: var(--radius-sm); color: var(--text); }
+    .support-demo { min-height: 170px; display: grid; place-items: center; border-radius: var(--radius-card); background: var(--surface-muted); position: relative; overflow: hidden; }
+    .support-demo p { max-width: 240px; color: var(--text-muted); text-align: center; font-size: 13px; }
+    .float-stack { position: absolute; right: 20px; bottom: 18px; display: grid; gap: 9px; }
+    .float-button { width: 50px; height: 50px; display: grid; place-items: center; border: 0; border-radius: 50%; color: #fff; font-weight: 900; box-shadow: 0 3px 10px rgba(0,0,0,.18); }
+    .float-button.green { background: var(--support-green); }
+    .float-button.blue { background: var(--action-blue); }
+    .cookie-demo { display: flex; align-items: center; gap: 14px; padding: 14px 16px; border-top: 1px solid var(--border); box-shadow: var(--shadow-header); font-size: 12px; }
+    .cookie-demo p { flex: 1; margin: 0; }
+    .cookie-demo button { padding: 8px 16px; border: 0; border-radius: var(--radius-sm); background: var(--action-blue); color: #fff; font-weight: 700; font-size: 12px; }
+
+    .evidence-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    figure { margin: 0; }
+    .evidence-card { overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius-card); background: var(--surface-soft); }
+    .evidence-placeholder { display: grid; place-items: center; height: 220px; padding: 22px; background: linear-gradient(135deg, #edf6ff, #fff); color: var(--brand-navy); text-align: center; font-size: 12px; font-weight: 700; }
+    .evidence-card img { display: block; width: 100%; height: 220px; object-fit: contain; object-position: top center; background: #fff; }
+    .evidence-card figcaption { padding: 10px 12px; color: var(--text-muted); font-size: 11px; }
+    .evidence-card strong { display: block; margin-bottom: 3px; color: var(--brand-navy); font-size: 12px; }
+    .gap-list { display: grid; gap: 9px; margin: 0; padding-left: 18px; color: var(--text-muted); }
+    .gap-list li::marker { color: var(--accent-yellow); }
+    .code-block { position: relative; }
+    pre { overflow: auto; margin: 0; padding: 16px; border-radius: var(--radius-card); background: var(--brand-navy); color: #e8f3ff; font: 12px/1.6 Consolas, monospace; }
+    .copy-button { margin-top: 10px; padding: 8px 12px; border: 1px solid var(--action-blue); border-radius: var(--radius-sm); background: #fff; color: var(--action-blue); font-size: 12px; font-weight: 700; }
+    .source-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+    .source-links a { padding: 8px 10px; border-radius: var(--radius-sm); background: #eaf5ff; font-size: 12px; font-weight: 700; text-decoration: none; }
+    footer { border-top: 1px solid var(--border); background: var(--surface-muted); }
+    .footer-inner { padding: 30px 20px 34px; display: flex; justify-content: space-between; gap: 20px; color: var(--text-muted); font-size: 12px; }
+    .footer-inner strong { color: var(--brand-navy); }
+
+    @media (max-width: 1024px) {
+      .header-main { padding: 10px 15px; min-height: 66px; gap: 12px; }
+      .wordmark { min-width: 118px; font-size: 18px; }
+      .wordmark span { font-size: 8px; }
+      .header-actions { gap: 8px; }
+      .header-action span { display: none; }
+      .category-bar { justify-content: flex-start; overflow-x: auto; padding: 0 10px; scrollbar-width: none; }
+      .category-bar::-webkit-scrollbar { display: none; }
+      .category-bar a { flex: 0 0 auto; padding: 12px 9px; font-size: 11px; }
+      main { padding: 28px 10px 56px; }
+      .hero { grid-template-columns: 1fr; gap: 12px; }
+      .hero-copy { padding: 0; }
+      .hero-specimen { min-height: 270px; }
+      .hero-specimen .hero-label { left: 20px; top: 24px; font-size: 38px; }
+      .hero-specimen .hero-caption { left: 20px; bottom: 20px; font-size: 17px; }
+      .metric-grid { grid-template-columns: repeat(2, 1fr); }
+      .grid-4, .swatch-grid { grid-template-columns: repeat(2, 1fr); }
+      .product-grid { grid-template-columns: repeat(2, 1fr); gap: 7px; }
+      .detail-specimen, .type-samples { grid-template-columns: 1fr; }
+      .benefit-specimen { grid-template-columns: repeat(2, 1fr); }
+      .benefit:nth-child(2) { border-right: 0; }
+      .benefit:nth-child(-n+2) { border-bottom: 1px solid var(--border-alpha); }
+      .evidence-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .announcement { font-size: 10px; }
+      .search-specimen { flex: 0 0 28px; min-width: 28px; width: 28px; padding: 0; background: transparent; color: transparent; }
+      .search-specimen .search-icon { border-color: #fff; }
+      .search-specimen .search-icon::after { background: #fff; }
+      .header-main { justify-content: space-between; }
+      .header-main::before { content: "☰"; color: #fff; font-size: 24px; line-height: 1; }
+      .header-actions { margin-left: auto; }
+      .header-action .line-icon { width: 21px; height: 21px; }
+      .cart-dot { display: none; }
+      h1 { font-size: 39px; }
+      h2 { font-size: 23px; }
+      .section { margin-top: 42px; }
+      .section-head { display: block; }
+      .grid-2, .grid-3, .responsive-strip, .evidence-grid { grid-template-columns: 1fr; }
+      .grid-4, .swatch-grid, .metric-grid { grid-template-columns: 1fr 1fr; }
+      .hero-specimen { min-height: 240px; }
+      .hero-specimen .hero-label { font-size: 31px; max-width: 220px; }
+      .hero-specimen .hero-caption { max-width: 200px; font-size: 15px; }
+      .hero-specimen .mechanical { right: 11%; transform: scale(.8) rotate(-24deg); }
+      .benefit-specimen { display: flex; overflow-x: auto; }
+      .benefit { min-width: 220px; border-bottom: 0 !important; }
+      .benefit:not(:last-child) { border-right: 1px solid var(--border-alpha); }
+      .product-art { height: 118px; }
+      .product-name { font-size: 12px; }
+      .product-price { font-size: 18px; }
+      .detail-media { min-height: 260px; }
+      .detail-media .motor { transform: scale(.8) rotate(-20deg); }
+      .cookie-demo { align-items: stretch; flex-direction: column; }
+      .cookie-demo button { width: 100%; }
+      .footer-inner { display: block; }
+      .footer-inner > div + div { margin-top: 12px; }
+      .evidence-placeholder { height: 270px; }
+      .evidence-card img { height: 270px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" aria-label="Report specimen header">
+    <div class="announcement"><b>◆</b> extracted commerce grammar · Portuguese storefront · system specimen</div>
+    <div class="header-main">
+      <div class="wordmark" aria-label="Neutral wordmark specimen">GARAGE 311<span>DESIGN SYSTEM MAP</span></div>
+      <button class="search-specimen" aria-label="Search specimen"><span>Digite um produto, categoria ou aplicação</span><i class="search-icon" aria-hidden="true"></i></button>
+      <div class="header-actions" aria-label="Header actions specimen">
+        <div class="header-action"><i class="line-icon" aria-hidden="true"></i><span>Atendimento</span></div>
+        <div class="header-action"><i class="line-icon" aria-hidden="true"></i><span>Conta</span></div>
+        <div class="header-action"><span aria-hidden="true">🛒</span><span class="cart-dot">0</span></div>
+      </div>
+    </div>
+    <nav class="category-bar" aria-label="Report section navigation">
+      <a href="#overview">Overview</a><a href="#foundations">Foundations</a><a href="#responsive">Responsive</a><a href="#motion">Motion</a><a href="#components">Components</a><a href="#patterns">Patterns</a><a href="#evidence">Evidence</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="overview" class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">Living design-system report</div>
+        <h1>A practical parts counter, rebuilt as a visual grammar.</h1>
+        <p>This report maps the Garage 311 storefront across a home catalog route and a product-detail route. It separates runtime appearance, source-defined behavior, computed contrast, inferences, and recommendations so the system can be reused without copying protected source assets.</p>
+        <div class="hero-meta"><span class="basis observed">Observed</span><span class="basis computed">Computed</span><span class="basis inferred">Inferred</span><span class="basis recommended">Recommended</span><span class="confidence medium">Overall confidence · medium</span></div>
+        <div class="metric-grid">
+          <div class="metric"><strong>2</strong><span>representative live routes</span></div>
+          <div class="metric"><strong>4</strong><span>rendered viewports assessed</span></div>
+          <div class="metric"><strong>10</strong><span>provenance sources recorded</span></div>
+          <div class="metric"><strong>0</strong><span>validator errors / issues</span></div>
+        </div>
+      </div>
+      <div class="hero-specimen" aria-label="Neutral hero specimen using the extracted blue and yellow grammar">
+        <div class="hero-label">Parts first<strong>clarity</strong></div>
+        <div class="hero-caption">A high-contrast, product-led composition with reassurance close to the action.</div>
+        <div class="mechanical" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <div class="legend" aria-label="How to read the evidence labels">
+      <small>How to read:</small><span class="basis observed">Observed</span><small>visible or source-inspected</small><span class="basis computed">Computed</span><small>derived deterministically</small><span class="basis inferred">Inferred</span><small>best explanation of evidence</small><span class="basis recommended">Recommended</span><small>proposed improvement</small>
+    </div>
+
+    <section id="foundations" class="section">
+      <div class="section-head"><div><div class="eyebrow">01 · foundations</div><h2>Blue utility, white surfaces, mechanical clarity.</h2></div><p>The extracted system keeps most surfaces quiet and uses blue for orientation, price and action. Yellow is a compact promotional signal, not a general-purpose background.</p></div>
+      <div class="panel">
+        <div class="swatch-grid">
+          <div class="swatch"><div class="swatch-color" style="background:#001c39">#001C39</div><div class="swatch-copy"><strong>brand.navy</strong><code>#001C39</code><small>navigation, headings, primary dark text</small><div class="contrast">17.14:1 on white · computed</div></div></div>
+          <div class="swatch"><div class="swatch-color" style="background:#0070df">#0070DF</div><div class="swatch-copy"><strong>action.primary</strong><code>#0070DF</code><small>purchase buttons and key controls</small><div class="contrast">4.79:1 with white · computed</div></div></div>
+          <div class="swatch"><div class="swatch-color" style="background:#0069d1">#0069D1</div><div class="swatch-copy"><strong>brand.blue.strong</strong><code>#0069D1</code><small>prices, links and information emphasis</small><div class="contrast">5.33:1 on white · computed</div></div></div>
+          <div class="swatch"><div class="swatch-color" style="background:#71b8ff;color:#001c39">#71B8FF</div><div class="swatch-copy"><strong>header.light</strong><code>#71B8FF</code><small>header band and mobile shell</small><div class="contrast">8.16:1 with navy · computed</div></div></div>
+          <div class="swatch"><div class="swatch-color" style="background:#ffc42c;color:#001c39">#FFC42C</div><div class="swatch-copy"><strong>accent.yellow</strong><code>#FFC42C</code><small>promotion and cart quantity cues</small><div class="contrast">10.76:1 with navy · computed</div></div></div>
+          <div class="swatch"><div class="swatch-color" style="background:#27bf64">#27BF64</div><div class="swatch-copy"><strong>support.green</strong><code>#27BF64</code><small>icon-only messaging control</small><div class="contrast">2.41:1 with white · icon-only context</div></div></div>
+          <div class="swatch"><div class="swatch-color" style="background:#f5f5f5;color:#001c39">#F5F5F5</div><div class="swatch-copy"><strong>surface.muted</strong><code>#F5F5F5</code><small>section breaks, chips, brand strip</small><div class="contrast">15.72:1 with navy · computed</div></div></div>
+          <div class="swatch"><div class="swatch-color" style="background:#201f1f">#201F1F</div><div class="swatch-copy"><strong>text.primary</strong><code>#201F1F</code><small>body and product title text</small><div class="contrast">16.44:1 on white · computed</div></div></div>
+        </div>
+      </div>
+      <div class="type-samples" style="margin-top:20px">
+        <div class="panel soft type-display"><div class="eyebrow">Type specimen · Rubik 700</div><p class="display">Make fitment easy to scan.</p><p class="price">R$ 145,35</p><p class="muted" style="font-size:13px">The source explicitly loads Rubik 400/500/700 for the implemented UI. Open Sans remains a legacy title declaration in the base theme.</p></div>
+        <div class="panel"><table class="type-table"><thead><tr><th>Role</th><th>Family / metrics</th></tr></thead><tbody><tr><td>Section heading</td><td>Rubik 700 · 20px / 20px</td></tr><tr><td>Card name</td><td>Rubik 400 · 15–16px / 17–18px · 1–3 line clamp</td></tr><tr><td>Card price</td><td>Rubik 700 · 21px / 21px</td></tr><tr><td>Detail price</td><td>Rubik 700 · 30px / 30px</td></tr><tr><td>Fallback</td><td>Arial, Helvetica, sans-serif</td></tr></tbody></table></div>
+      </div>
+      <div class="grid-3" style="margin-top:20px">
+        <div class="panel"><h3>Spacing grammar</h3><ul class="token-list"><li><code>space.card-inline</code><span>8–12px</span></li><li><code>space.control-inline</code><span>10–15px</span></li><li><code>space.section</code><span>20–35px</span></li><li><code>space.page-block</code><span>40–70px</span></li></ul><p class="muted" style="margin-top:13px;font-size:12px">Inferred clusters; hero and product imagery use optical exceptions.</p></div>
+        <div class="panel"><h3>Shapes and elevation</h3><ul class="token-list"><li><code>radius.control.sm</code><span>3px</span></li><li><code>radius.card</code><span>4px</span></li><li><code>radius.pill</code><span>50px</span></li><li><code>shadow.card-hover</code><span>0 1px 6px 3px</span></li></ul></div>
+        <div class="panel"><h3>Layout anchors</h3><ul class="token-list"><li><code>container.max</code><span>1260px</span></li><li><code>header.min-height</code><span>80px</span></li><li><code>navigation.height</code><span>55px</span></li><li><code>mobile.gutter</code><span>10px</span></li></ul></div>
+      </div>
+    </section>
+
+    <section id="responsive" class="section">
+      <div class="section-head"><div><div class="eyebrow">02 · responsive behavior</div><h2>Substitute the shell; preserve the product focal point.</h2></div><p>Two fresh rendered widths were assessed. Source CSS adds exact range evidence for the desktop/mobile split and one/two-column mobile product variants; tablet appearance remains an explicit gap.</p></div>
+      <div class="responsive-strip">
+        <div class="frame"><div class="frame-label">Desktop · 1440 × 900</div><div class="frame-canvas"><div class="mini-header"><span class="mini-logo">GARAGE 311</span><div class="mini-search"></div><span>support · account · cart</span></div><div class="mini-nav"></div><div class="mini-content"><div class="mini-media"></div><div class="mini-info"><div class="mini-line wide"></div><div class="mini-line wide"></div><div class="mini-line short"></div><div class="mini-button"></div></div></div><p class="muted" style="font-size:12px;margin:10px 0 0">Flex-row product detail, full search, full category bar, visible utility text.</p></div></div>
+        <div class="frame mobile-frame"><div class="frame-label">Mobile · 390 × 844</div><div class="frame-canvas"><div class="mini-header"><span aria-hidden="true">☰</span><span class="mini-logo">GARAGE 311</span><div class="mini-search"></div></div><div class="mini-nav"></div><div class="mini-content"><div class="mini-media"></div><div class="mini-info"><div class="mini-line wide"></div><div class="mini-line wide"></div><div class="mini-line short"></div><div class="mini-button"></div></div></div><p class="muted" style="font-size:12px;margin:10px 0 0">Gallery-first stack, compact header, clipped quick links, touch-sized actions.</p></div></div>
+      </div>
+      <div class="grid-2" style="margin-top:20px"><div class="panel"><h3>Observed transformation rules</h3><ul class="rule-list"><li><div><strong>Header substitute</strong><span>Full desktop utility header becomes compact menu/search/logo shell at ≤1024px.</span></div></li><li><div><strong>Detail stack</strong><span>Gallery remains first; purchase panel follows below on mobile.</span></div></li><li><div><strong>Hero crop</strong><span>Arrows hide, dots remain, and the image region crops at narrow width.</span></div></li></ul></div><div class="panel"><h3>Breakpoint evidence</h3><ul class="token-list"><li><code>≥1025px</code><span>desktop</span></li><li><code>≤1024px</code><span>mobile/tablet substitution</span></li><li><code>351–600px</code><span>two-column list variant</span></li><li><code>≤350px</code><span>single-column narrow variant</span></li><li><code>≤370px</code><span>reduced image height</span></li></ul></div></div>
+    </section>
+
+    <section id="motion" class="section">
+      <div class="section-head"><div><div class="eyebrow">03 · motion lab</div><h2>Short utility transitions, controlled and reversible.</h2></div><p>Motion values here are source-defined observations. The original pages were not repeatedly triggered; the specimen offers replay, pause, slow and reduced-motion controls for the extracted motion job.</p></div>
+      <div class="panel">
+        <div class="motion-controls"><button class="control primary" id="motionReplay">Replay</button><button class="control" id="motionPause">Pause</button><button class="control" id="motionSlow">Slow mode</button><button class="control" id="motionReduce">Reduced motion</button></div>
+        <div class="motion-stage"><div class="motion-sample running" id="motionSample">Category submenu · surface reveal</div></div>
+        <div class="motion-status" id="motionStatus" aria-live="polite">Running · 200ms source tier represented as a controllable specimen.</div>
+        <table class="motion-table"><thead><tr><th>Pattern</th><th>Trigger / job</th><th>Properties</th><th>Source timing</th></tr></thead><tbody><tr><td>Desktop submenu</td><td>hover · navigation</td><td>opacity, visibility, translateY</td><td>200ms · cubic-bezier(.34,.57,.57,1)</td></tr><tr><td>Mobile drawer</td><td>gesture · navigation</td><td>opacity, translateX</td><td>300–400ms</td></tr><tr><td>Sticky header</td><td>scroll · continuity</td><td>top, opacity, shadow</td><td>400ms · ease-in-out</td></tr><tr><td>Blog cover scale</td><td>hover · delight</td><td>transform scale(1.1)</td><td>500ms · easing unspecified</td></tr></tbody></table>
+      </div>
+    </section>
+
+    <section id="components" class="section">
+      <div class="section-head"><div><div class="eyebrow">04 · component gallery</div><h2>Commerce components keep the action visible.</h2></div><p>These are neutral specimens that use the extracted roles and dimensions. They intentionally avoid source logos, exact product photos, source marketing copy and private contact details.</p></div>
+      <div class="panel"><h3>Benefits strip · four-up desktop / horizontal mobile rail</h3><div class="benefit-specimen"><div class="benefit"><i class="benefit-icon" aria-hidden="true"></i><div><strong>Ready to ship</strong><span>Clear fulfillment promise</span></div></div><div class="benefit"><i class="benefit-icon" aria-hidden="true"></i><div><strong>Nationwide delivery</strong><span>Short qualification line</span></div></div><div class="benefit"><i class="benefit-icon" aria-hidden="true"></i><div><strong>Fast dispatch</strong><span>Time cue near discovery</span></div></div><div class="benefit"><i class="benefit-icon" aria-hidden="true"></i><div><strong>Product warranty</strong><span>Reassurance close to price</span></div></div></div></div>
+      <div class="panel" style="margin-top:20px"><h3>Product cards · neutral specimen content</h3><div class="product-grid"><article class="product-card"><div class="product-art" aria-label="Abstract mechanical part illustration"></div><div class="product-info"><p class="product-name">Starter motor for 125/150 commuter models</p><p class="product-price">R$ 145,35</p><p class="product-pay">up to 4× · Pix cue</p><button class="product-action">Add to cart</button></div></article><article class="product-card"><div class="product-art alt" aria-label="Abstract gasket strip illustration"></div><div class="product-info"><p class="product-name">Drive-chain tensioner kit with compact fitment</p><p class="product-price">R$ 39,90</p><p class="product-pay">up to 4× · Pix cue</p><button class="product-action">Add to cart</button></div></article><article class="product-card"><div class="product-art small" aria-label="Abstract oil dipstick illustration"></div><div class="product-info"><p class="product-name">Oil level gauge for small-displacement engines</p><p class="product-price">R$ 18,90</p><p class="product-pay">up to 4× · Pix cue</p><button class="product-action">Add to cart</button></div></article><article class="product-card"><div class="product-art ring" aria-label="Abstract bearing ring illustration"></div><div class="product-info"><p class="product-name">Wheel bearing set with concise application label</p><p class="product-price">R$ 64,20</p><p class="product-pay">up to 4× · Pix cue</p><button class="product-action">Add to cart</button></div></article></div><div class="state-row"><span class="muted" style="font-size:12px">State sampler:</span><button class="state-button">Default</button><button class="state-button" disabled>Disabled</button><input class="state-input" aria-label="Sample fitment field" placeholder="Application / model"></div></div>
+      <div class="panel" style="margin-top:20px"><h3>Product detail · gallery-first conversion</h3><div class="detail-specimen"><div class="detail-media"><div class="motor" aria-hidden="true"></div></div><div class="detail-panel"><small>Neutral brand metadata</small><h3>Starter motor · commuter series · fitment detail</h3><div class="sku">SKU: SPEC-31200</div><p class="detail-price">R$ 145,35</p><p style="font-size:13px">up to 4× without interest</p><div class="pix-chip">◆ R$ 136,63 with Pix · discount cue</div><a href="#evidence" style="font-size:13px">More payment options</a><div class="purchase-row"><div class="quantity" aria-label="Quantity specimen">− &nbsp;1&nbsp; +</div><button class="buy-button">Buy</button></div><div class="availability">Availability: <strong>ready</strong></div></div></div><div class="tabs"><div class="tab-list" role="tablist" aria-label="Detail specimen tabs"><button class="tab" role="tab" aria-selected="true" aria-controls="tabDescription" id="tabDescriptionButton">Description</button><button class="tab" role="tab" aria-selected="false" aria-controls="tabApplication" id="tabApplicationButton">Application</button></div><div class="tab-panel" id="tabDescription" role="tabpanel" aria-labelledby="tabDescriptionButton">Use a pale section break, a strong active underline and short technical paragraphs. Keep compatibility and warranty scannable.</div><div class="tab-panel" id="tabApplication" role="tabpanel" aria-labelledby="tabApplicationButton" hidden>Application content should be structured as text lists or tables, not hidden inside product artwork.</div></div></div></div>
+      <div class="grid-2" style="margin-top:20px"><div class="panel"><h3>Floating support stack</h3><div class="support-demo"><p>Persistent assistance sits at the viewport edge in desktop evidence. Give each icon an accessible name and an explicit occlusion budget.</p><div class="float-stack"><button class="float-button green" aria-label="Messaging support specimen">✆</button><button class="float-button blue" aria-label="Chat support specimen">▤</button></div></div></div><div class="panel"><h3>Cookie consent</h3><div class="cookie-demo"><p>Privacy notice with a short explanation and an explicit acknowledge action.</p><button type="button">Acknowledge</button></div><p class="muted" style="font-size:12px;margin-top:12px">Source evidence shows this bar fixed to the bottom and wrapping into a stacked mobile layout.</p></div></div>
+    </section>
+
+    <section id="patterns" class="section">
+      <div class="section-head"><div><div class="eyebrow">05 · page patterns</div><h2>Two templates, one merchandising language.</h2></div><p>Home prioritizes discovery; product detail prioritizes confidence and fitment. Both close with the same operational trust layer.</p></div>
+      <div class="grid-2"><div class="panel"><h3>Home storefront</h3><p class="muted">Hero → reassurance → named product rails → brand reinforcement → latest posts → newsletter → footer.</p><div class="hero-meta"><span class="pill">high merchandising density</span><span class="pill">four-up desktop</span><span class="pill">mobile rails</span></div></div><div class="panel"><h3>Product detail</h3><p class="muted">Gallery + purchase panel → description/application → related products → newsletter → footer.</p><div class="hero-meta"><span class="pill">gallery-first</span><span class="pill">price-forward</span><span class="pill">fitment content</span></div></div></div>
+    </section>
+
+    <section id="accessibility" class="section">
+      <div class="section-head"><div><div class="eyebrow">06 · accessibility and content</div><h2>Make the commerce grammar recoverable.</h2></div><p>Observed content is direct, Portuguese, fitment-heavy and reassurance-led. The source supports mobile substitutions, but several interaction and semantic details remain gaps.</p></div>
+      <div class="grid-2"><div class="panel"><h3>Observed content rules</h3><ul class="rule-list"><li><div><strong>Descriptive titles</strong><span>Part name + motorcycle model + year range + fitment.</span></div></li><li><div><strong>Repeated price cues</strong><span>Price, installment and Pix discount appear close together.</span></div></li><li><div><strong>Operational trust</strong><span>Delivery, warranty, service and contact details close the funnel.</span></div></li></ul></div><div class="panel"><h3>Recommendations</h3><ul class="gap-list"><li>Visible focus ring for menu, tabs, quantity, CTA and consent controls.</li><li>Text equivalents for rasterized hero copy and meaningful product images.</li><li>Keyboard-safe tabs, drawers, carousels and escape-to-close overlays.</li><li>Reduced-motion alternative for all transform-based transitions.</li><li>Fixed support/cookie controls must not cover the primary CTA.</li></ul></div></div>
+    </section>
+
+    <section id="evidence" class="section">
+      <div class="section-head"><div><div class="eyebrow">07 · evidence and handoff</div><h2>Traceable, bounded, ready to reuse.</h2></div><p>Evidence cards are included for auditability only. They are not the specimens above and should not be treated as a license to reuse source media or copy.</p></div>
+      <div class="evidence-grid">
+        <figure class="evidence-card"><div class="evidence-placeholder">Authorized capture omitted<br>live home · desktop</div><figcaption><strong>E-live-home-desktop-1440x900-001</strong>Live render · initial viewport · cookie banner visible</figcaption></figure>
+        <figure class="evidence-card"><div class="evidence-placeholder">Authorized capture omitted<br>live home · mobile</div><figcaption><strong>E-live-home-mobile-390x844-001</strong>Live render · mobile substitution · no menu opened</figcaption></figure>
+        <figure class="evidence-card"><div class="evidence-placeholder">Authorized capture omitted<br>live product · desktop</div><figcaption><strong>E-live-product-desktop-1440x900-001</strong>Live render · gallery + purchase panel</figcaption></figure>
+        <figure class="evidence-card"><div class="evidence-placeholder">Authorized capture omitted<br>live product · mobile</div><figcaption><strong>E-live-product-mobile-390x844-001</strong>Live render · gallery-first mobile flow</figcaption></figure>
+        <figure class="evidence-card"><div class="evidence-placeholder">Supplied screenshot omitted<br>home · long page</div><figcaption><strong>E-shot-home-supplied-001</strong>User-supplied long-page reference · full composition</figcaption></figure>
+        <figure class="evidence-card"><div class="evidence-placeholder">Supplied screenshot omitted<br>product · long page</div><figcaption><strong>E-shot-product-supplied-001</strong>User-supplied long-page reference · detail composition</figcaption></figure>
+      </div>
+      <div class="grid-2" style="margin-top:20px"><div class="panel"><h3>Known gaps</h3><ul class="gap-list"><li>Tablet 768×1024 was not rendered.</li><li>Keyboard/focus, reduced-motion and safe open/close states were not captured.</li><li>Carousel timing, autoplay and interruption were not measured.</li><li>Remote source media was intentionally not copied into the report.</li><li>Live CSS/content can change after the capture timestamp.</li></ul></div><div class="panel"><h3>Source routes</h3><p class="muted" style="font-size:13px">The strongest evidence comes from the public home and product routes plus the source theme CSS.</p><div class="source-links"><a href="https://www.garage311.com.br/" target="_blank" rel="noreferrer">Home route ↗</a><a href="https://www.garage311.com.br/motor-de-partida-arranque-cg150-titan-fan-sport-2004-a-2015-cg125-fan-2009-a-2015-nxr125-nxr150-bros-2006-a-2016" target="_blank" rel="noreferrer">Product route ↗</a><a href="design-system.json">Manifest JSON</a><a href="README.md">Package notes</a></div></div></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div><div class="eyebrow">08 · implementation export</div><h2>Copyable semantic tokens.</h2></div><p>These variables are the report’s implementation layer. They are derived from the manifest; legacy aliases and unresolved variants remain documented as exceptions.</p></div>
+      <div class="panel code-block"><pre id="tokenCode">:root {
+  --color-brand-navy: #001C39;
+  --color-brand-blue-strong: #0069D1;
+  --color-action-primary: #0070DF;
+  --color-header-light: #71B8FF;
+  --color-accent-yellow: #FFC42C;
+  --color-support-green: #27BF64;
+  --color-surface-page: #FFFFFF;
+  --color-surface-muted: #F5F5F5;
+  --color-text-primary: #201F1F;
+  --radius-control-sm: 3px;
+  --radius-card: 4px;
+  --radius-pill: 50px;
+  --size-container-max: 1260px;
+  --motion-quick: 200ms;
+  --motion-standard: 400ms;
+}</pre><button class="copy-button" id="copyTokens">Copy CSS variables</button><span class="muted" id="copyStatus" style="margin-left:8px;font-size:12px" aria-live="polite"></span></div>
+    </section>
+  </main>
+
+  <footer><div class="footer-inner"><div><strong>Garage 311 Commerce Design System</strong><br>Living specimen · schema v2 · generated 2026-08-26</div><div>Evidence is bounded by route, viewport, state and capture method.<br><a href="#overview">Back to overview ↑</a></div></div></footer>
+
+  <script>
+    (function () {
+      const sample = document.getElementById('motionSample');
+      const status = document.getElementById('motionStatus');
+      let slow = false;
+      let reduced = false;
+      let paused = false;
+      function renderMotion() {
+        sample.classList.toggle('reduced', reduced);
+        sample.classList.toggle('running', !paused && !reduced);
+        sample.style.animationDuration = slow ? '2.4s' : '1.2s';
+        status.textContent = reduced ? 'Reduced motion · transition removed; state changes are instant.' : paused ? 'Paused · the sample remains at its current state.' : (slow ? 'Running slowly · 2× duration.' : 'Running · 200ms source tier represented as a controllable specimen.');
+      }
+      document.getElementById('motionReplay').addEventListener('click', function () { paused = false; reduced = false; sample.style.animation = 'none'; void sample.offsetWidth; sample.style.animation = ''; renderMotion(); });
+      document.getElementById('motionPause').addEventListener('click', function () { paused = !paused; renderMotion(); });
+      document.getElementById('motionSlow').addEventListener('click', function () { slow = !slow; renderMotion(); });
+      document.getElementById('motionReduce').addEventListener('click', function () { reduced = !reduced; paused = false; renderMotion(); });
+
+      const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          tabs.forEach(function (other) { other.setAttribute('aria-selected', String(other === tab)); });
+          document.querySelectorAll('[role="tabpanel"]').forEach(function (panel) { panel.hidden = panel.getAttribute('aria-labelledby') !== tab.id; });
+        });
+      });
+
+      const copyButton = document.getElementById('copyTokens');
+      const copyStatus = document.getElementById('copyStatus');
+      copyButton.addEventListener('click', async function () {
+        const text = document.getElementById('tokenCode').textContent;
+        try { await navigator.clipboard.writeText(text); copyStatus.textContent = 'Copied.'; }
+        catch (error) { copyStatus.textContent = 'Select the code block to copy manually.'; }
+      });
+    }());
+  </script>
+</body>
+</html>

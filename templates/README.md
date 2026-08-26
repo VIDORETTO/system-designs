@@ -194,6 +194,22 @@ O template trabalha com cinco ideias principais:
 
 O relatório não replica a landing page original. Ele preserva regras e padrões usando conteúdo neutro quando a referência continha arte, marca ou material protegido.
 
+### <code>ecommerce/garage311-design-system/</code>
+
+Um pacote de ecommerce que reconstrói a linguagem de uma storefront de peças e acessórios, cobrindo catálogo, detalhe de produto, fitment, merchandising e substituições mobile.
+
+| Entrega | Status |
+| --- | --- |
+| Página viva do design system | pronta |
+| Tokens e regras normalizados | prontos |
+| Evidências e limitações | indexadas, com capturas raster omitidas por política de publicação |
+| Dependências de runtime do relatório | nenhuma |
+| Validação do manifesto | 0 erros · 0 warnings |
+| Cobertura principal | pública · home e produto · 1440 × 900 + 390 × 844 |
+| Confiança geral | medium |
+
+O pacote demonstra como a mesma gramática organiza descoberta e conversão: hero, benefícios, rails de produtos, preço/Pix, galeria, aplicação, confiança operacional, suporte e footer. O relatório usa espécimes neutros e mantém os links das rotas observadas.
+
 ## ⟡ Anatomia do pacote
 
 ~~~text
